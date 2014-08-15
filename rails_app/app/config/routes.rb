@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   get 'page/index'
 
   resources :users
+  root 'page#index'
 end

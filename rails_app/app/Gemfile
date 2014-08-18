@@ -17,6 +17,7 @@ group :development do
 	gem 'thin', '1.6.2'
   gem 'guard-livereload'
 	gem 'quiet_assets'
+  gem 'slim', '2.0.3'
 end
 
 group :test, :development do

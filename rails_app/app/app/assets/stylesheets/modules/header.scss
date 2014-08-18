@@ -110,7 +110,7 @@
 				top: 19px;
 				right: 21px;
 				position: absolute;
-				background-image: url('/images/header-u-signup-plus.svg');
+				background-image: url('#{path}/header-u-signup-plus.svg');
 				}
 			}
 
@@ -175,7 +175,7 @@
 			top: 0;
 			right: 0;
 			position: absolute;
-			background: url('/images/header-search-btn.svg') no-repeat 50% 9px;
+			background: url('#{path}/header-search-btn.svg') no-repeat 50% 9px;
 			border: 0;
 			cursor: pointer;
 
@@ -186,7 +186,7 @@
 		width: $header-height;
 		height: $header-height;
 		float: left;
-		background-image: url('/images/hamburger.svg');
+		background-image: url('#{path}/hamburger.svg');
 		background-repeat: no-repeat;
 		background-size: 58%; // delta - 14%
 		background-position: 50%;

@@ -1,0 +1,17 @@
+header.header
+  .inner
+    h1._hid Just Test Me
+
+    = link_to 'Menu', '', {class: 'trigger-menu-header js-menu-trigger'}
+
+    .u-header
+      = link_to 'Sign up', '', {class: 'signup-u-header'}
+
+    = link_to image_tag('header-logo.png', {alt: 'Just Test Me', class: 'img-logo-header'}), '', {class: 'logo-header'}
+
+    h2.descr-header Your personal test for life
+
+    form.search-header action=""
+      label.t_label
+        input.t_inpt.inpt-search-header type="text" placeholder="Search"
+        input.t_inpt.btn-search-header type="submit"

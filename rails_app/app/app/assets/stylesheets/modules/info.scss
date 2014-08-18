@@ -37,7 +37,7 @@
 			top: 0;
 			left: 0;
 			position: absolute;
-			background-image: url('#{path}/info-title-bg.svg');
+			background-image: url('#{$path}/info-title-bg.svg');
 			background-size: 331px;
 			background-position: 50% -3px;
 			}
@@ -50,7 +50,7 @@
 			top: 0;
 			left: 0;
 			position: absolute;
-			background-image: url('#{path}/info-title.svg');
+			background-image: url('#{$path}/info-title.svg');
 			background-size: 331px;
 			background-position: 50% -3px;
 			}

@@ -1,0 +1,123 @@
+.form {}
+
+	.label-form {}
+
+		.inpt_txt {}
+
+		.inpt_paswd {}
+
+	.footer-form {}
+
+		.inpt_submt-form {
+			cursor: pointer;
+			}
+
+.form_signin {
+	padding: 0 13px;
+	}
+
+	.label-form_signin {
+		margin-bottom: 9px;
+		display: block;
+		}
+
+		.inpt_txt-form_signin,
+		.inpt_paswd-form_signin {
+			width: 100%;
+			height: 46px;
+			padding: 0 19px;
+			margin: 0;
+			box-sizing: border-box;
+			display: block;
+			background: #222;
+			border: 0;
+			border-radius: 5px;
+			box-shadow: 0 0 0 1px rgba(#fff, .05), inset 0 0 5px rgba(#000, .5);
+			outline-style: none;
+
+			font-family: $font-oriya;
+			font-size: 18px;
+			color: #888;
+
+			&:focus,
+			&:hover {
+				box-shadow: 0 0 0 1px rgba(#fff, .15), inset 0 0 5px rgba(#000, .5);
+				}
+
+			@include placeholder {
+				color: #666;
+				}
+			}
+
+		.inpt_txt-form_signin {}
+
+		.inpt_paswd-form_signin {}
+
+	.footer-form_signin {
+		position: relative;
+		}
+
+		.inpt_submt-form_signin {
+			width: 74px;
+			height: 38px;
+			top: 0;
+			right: 0;
+			position: absolute;
+			background: #2c6bec url('/images/form-submt.svg') no-repeat 50%;
+			background-size: 25%;
+			box-shadow: inset 0 0 0 1px #558dff;
+			border: 1px solid #111;
+			border-radius: 5px;
+
+			color: transparent;
+
+			&:hover {
+				background-color: lighten(#2c6bec, 5%);
+				}
+			}
+
+		.inpt_checkbox-form_signin {
+			width: 0;
+			height: 0;
+			float: left;
+			visibility: hidden;
+
+			& + .label-form_signin {
+				&:before {
+					@include pseudo;
+
+					width: 18px;
+					height: 18px;
+					margin-top: -9px;
+					top: 50%;
+					position: absolute;
+					background: #222 url('/images/form-checkbox_on.svg') no-repeat 1px -103px;
+					box-shadow: 0 0 0 1px rgba(#fff, .05), inset 0 0 5px rgba(#000, .5);
+					border-radius: 5px;
+					}
+				}
+
+			&:focus + .label-form_signin,
+			&:hover + .label-form_signin {
+				&:before {
+					background-color: #2a2a2a;
+					box-shadow: 0 0 0 1px rgba(#fff, .15), inset 0 0 5px rgba(#000, .5);
+					}
+				}
+
+			&:checked + .label-form_signin {
+				&:before {
+					background-position: 1px 2px;
+					}
+				}
+			}
+
+		.about_checkbox-form_signin {
+			margin-left: 30px;
+			display: inline-block;
+
+			line-height: 38px;
+			font-size: 12px;
+			font-family: $font-oriya;
+			color: #6c6a69;
+			}

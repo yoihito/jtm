@@ -66,6 +66,9 @@ GEM
       i18n (~> 0.5)
     ffi (1.9.3)
     formatador (0.2.5)
+    globalize (4.0.2)
+      activemodel (>= 4.0.0, < 5)
+      activerecord (>= 4.0.0, < 5)
     guard (2.6.1)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -236,6 +239,7 @@ DEPENDENCIES
   devise (= 3.2.4)
   fabrication (~> 2.11.3)
   faker (~> 1.4.2)
+  globalize
   guard-livereload
   jbuilder (~> 2.0)
   jquery-rails

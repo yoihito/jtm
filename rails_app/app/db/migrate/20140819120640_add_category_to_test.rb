@@ -1,5 +1,7 @@
 class AddCategoryToTest < ActiveRecord::Migration
   def change
-    add_column :tests, :category_id, :reference
+  	change_table :tests do |t|
+  		t.belongs_to :category
+  	end
   end
 end

@@ -3,9 +3,8 @@ class CreateSlides < ActiveRecord::Migration
     create_table :slides do |t|
       
       t.boolean :has_image
-      t.integer :author_id
-      t.string :author_type
-      t.string :background_color
+      t.references :author, polymorphic: true
+      t.string :has_background_color
 
       t.timestamps
     end

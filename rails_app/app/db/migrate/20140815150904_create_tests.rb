@@ -2,9 +2,8 @@ class CreateTests < ActiveRecord::Migration
   def up
     create_table :tests do |t|
       
-      t.integer :author_id
-      t.string  :author_type
-      t.boolean :background
+      t.references :author, polymorphic: true
+      t.boolean :has_background
       t.integer :rating
       t.integer :answers_count
       t.boolean :published

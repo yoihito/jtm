@@ -4,7 +4,7 @@
     = link_to '', '', {class: 'close-header-signup'}
 
   .cont-signup
-    .group-cont-signup
+    .group-cont-signup._hid
       .title-cont-signup Step 1 of 2
       ul.subscr-cont-signup
         li.item-subscr-cont-signup
@@ -25,3 +25,10 @@
         li.item-subscr-cont-signup
           input.inpt-subscr-cont-signup type="checkbox" checked="on" id="su_newmemb"
           label.label-subscr-cont-signup for="su_newmemb" You have new members in your test
+
+      = link_to 'Next step', '', {class: 'btn btn_blue nextlink-cont-signup'}
+
+    .group-cont-signup
+      .title-cont-signup Step 2 of 2
+
+      = link_to 'use Facebook', '', {class: 'btn btn_fb soc_fb-cont-signup soc-cont-signup'}

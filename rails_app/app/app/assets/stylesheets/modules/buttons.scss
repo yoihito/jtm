@@ -1,0 +1,23 @@
+.btn {
+	display: inline-block;
+
+	border: 1px solid rgba(#000, .55);
+	border-radius: 5px;
+	box-shadow: 1.41px 1.41px 3px rgba(#000, .3), inset 0 0 0 1px rgba(#fff, .27); // sqrt(2)px
+
+	text-decoration: none;
+	font-size: 18px;
+	line-height: 20px;
+	}
+
+	.btn_blue {
+		background-color: #2c6bec;
+
+		color: #fff;
+		}
+
+	.btn_fb {
+		$bgcol: #617394;
+
+		background-image: linear-gradient(top, $bgcol, darken($bgcol, 2%));
+		}

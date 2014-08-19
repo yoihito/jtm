@@ -29,6 +29,8 @@ GEM
       tzinfo (~> 1.1)
     addressable (2.3.6)
     arel (5.0.1.20140414130214)
+    autoprefixer-rails (2.2.0.20140804)
+      execjs
     bcrypt (3.1.7)
     builder (3.2.2)
     byebug (2.7.0)
@@ -61,6 +63,7 @@ GEM
       http_parser.rb (~> 0.6.0)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    execjs (2.2.1)
     fabrication (2.11.3)
     faker (1.4.3)
       i18n (~> 0.5)
@@ -239,6 +242,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails (= 2.2.0.20140804)
   cancancan (= 1.9.2)
   devise (= 3.2.4)
   fabrication (~> 2.11.3)

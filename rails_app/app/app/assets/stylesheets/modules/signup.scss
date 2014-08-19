@@ -71,6 +71,7 @@
 
 	.cont-signup {
 		width: 100%;
+		padding-bottom: 20px;
 		top: $header-height;
 		bottom: 0;
 		position: absolute;
@@ -110,6 +111,7 @@
 
 			.subscr-cont-signup {
 				padding: 0 20px;
+				margin-bottom: 25px;
 
 				border: 1px solid #b9ad95;
 				border-radius: 18px;
@@ -182,3 +184,17 @@
 							cursor: pointer;
 							}
 						}
+
+			.nextlink-cont-signup {
+				width: 210px;
+				padding: 15px;
+				margin-left: 19px;
+
+				text-align: center;
+				}
+
+			.soc-cont-signup {
+				width: 240px - 65px;
+				padding: 13px 0 13px 65px;
+				margin: 0 19px;
+				}

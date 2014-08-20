@@ -1,7 +1,7 @@
-.signup
+.signup.signup_hid
   .header-signup
     | Registration
-    = link_to '', '', {class: 'close-header-signup'}
+    = link_to '', '', {class: 'close-header-signup js-signup-hide'}
 
   .cont-signup
     .group-cont-signup._hid
@@ -31,4 +31,21 @@
     .group-cont-signup
       .title-cont-signup Step 2 of 2
 
-      = link_to 'use Facebook', '', {class: 'btn btn_fb soc_fb-cont-signup soc-cont-signup'}
+      - btns = { fb: 'Facebook', twitter: 'Twitter', instagram: 'Instagram' }
+      - btns.each do |key, title|
+        a href="" class="btn btn_#{key} soc_#{key}-cont-signup"
+          ' use
+          b = title
+
+      .divider-group-cont-signup or
+
+      label.label-signup
+        input.t_inpt.inpt_txt-signup type="text" placeholder="Your name"
+      label.label-signup
+        input.t_inpt.inpt_email-signup type="email" placeholder="Your email"
+      label.label-signup
+        input.t_inpt.inpt_paswd-signup type="password" placeholder="Create password"
+      label.label-signup
+        input.t_inpt.inpt_paswd-signup type="password" placeholder="Confirm password"
+
+      input.t_inpt.inpt_submt-signup type="submit" value="Sign up"

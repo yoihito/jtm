@@ -7,19 +7,21 @@
 		this.$block = $('.menu');
 
 		this.addEventListeners();
+
+		this.Shadow = window.root.Shadow;
 	}
 
 	Menu.prototype = {};
 
 	Menu.prototype.show = function() {
 		this.$block.removeClass(className_hid);
-		Shadow.show();
+		this.Shadow.show();
 		$('html').addClass('_overhid');
 	};
 
 	Menu.prototype.hide = function() {
 		this.$block.addClass(className_hid);
-		Shadow.hide();
+		this.Shadow.hide();
 		$('html').removeClass('_overhid');
 	};
 
@@ -32,7 +34,7 @@
 
 				Menu.show();
 
-				Shadow.$block.on('tap.menu', function(e) {
+				Menu.Shadow.$block.on('tap.menu', function(e) {
 					e.preventDefault();
 
 					Menu.hide();

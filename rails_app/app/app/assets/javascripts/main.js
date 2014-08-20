@@ -1,10 +1,15 @@
-(function($) {
+(function(window, $) {
+
+	var root = {};
 
 	$(function() {
 
-		window.Shadow = new Module_Shadow();
-		window.Menu = new Module_Menu();
+		root.Shadow = new Module_Shadow();
+		root.Menu = new Module_Menu();
+		root.Signupblock = new Module_Signupblock();
 
 	});
 
-})(jQuery);
+	window.root = root;
+
+})(window, jQuery);

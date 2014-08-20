@@ -11,6 +11,7 @@ gem 'redis-rails', '4.0.0'
 gem 'jbuilder', '~> 2.0'
 gem 'nokogiri', '1.6.1'
 gem 'globalize'
+gem 'paperclip'
 
 group :development do
   gem 'spring', '1.1.3'

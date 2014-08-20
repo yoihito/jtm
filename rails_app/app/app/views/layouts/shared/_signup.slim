@@ -39,13 +39,32 @@
 
       .divider-group-cont-signup or
 
-      label.label-signup
-        input.t_inpt.inpt_txt-signup type="text" placeholder="Your name"
-      label.label-signup
-        input.t_inpt.inpt_email-signup type="email" placeholder="Your email"
-      label.label-signup
-        input.t_inpt.inpt_paswd-signup type="password" placeholder="Create password"
-      label.label-signup
-        input.t_inpt.inpt_paswd-signup type="password" placeholder="Confirm password"
+      / = simple_form_for :users, url: registration_path(:user), html: {class: 'form-signup'} do |f|
+        = f.label :name
+          = f.input :name
 
-      input.t_inpt.inpt_submt-signup type="submit" value="Sign up"
+      / = simple_form_for :users, url: registration_path(:user) do |f|
+        = f.input_field :name, label: false, class: 'as'
+
+      = form_for :users, url: registration_path(:user), html: {class: 'form-signup'} do |f|
+        label.label-signup
+          = f.text_field :name, class: 't_inpt inpt_txt-signup', placeholder: 'Your name', required: true
+        label.label-signup
+          = f.text_field :email, class: 't_inpt inpt_email-signup', placeholder: 'Your email'
+        label.label-signup
+          = f.text_field :password, class: 't_inpt inpt_paswd-signup', placeholder: 'Create password'
+        label.label-signup
+          = f.text_field :password_confirmation, class: 't_inpt inpt_paswd-signup', placeholder: 'Confirm password'
+
+        = f.submit 'Sign up', class: 't_inpt inpt_submt-signup'
+
+      / label.label-signup
+      /   input.t_inpt.inpt_txt-signup type="text" placeholder="Your name"
+      / label.label-signup
+      /   input.t_inpt.inpt_email-signup type="email" placeholder="Your email"
+      / label.label-signup
+      /   input.t_inpt.inpt_paswd-signup type="password" placeholder="Create password"
+      / label.label-signup
+      /   input.t_inpt.inpt_paswd-signup type="password" placeholder="Confirm password"
+
+      / input.t_inpt.inpt_submt-signup type="submit" value="Sign up"

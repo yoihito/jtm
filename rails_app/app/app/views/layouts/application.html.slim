@@ -22,6 +22,7 @@ html.html lang="en"
 
     = yield
 
-    = render 'layouts/shared/signup'
+	- unless user_signed_in?
+    	= render 'layouts/shared/signup'
 
     .shadow.shadow_hid

@@ -1,22 +1,24 @@
 aside.sidebar
-  .box-sidebar.box_signin-sidebar
-    h3.title-box_signin-sidebar or login
+  - if user_signed_in?
+  - else
+    .box-sidebar.box_signin-sidebar
+      h3.title-box_signin-sidebar or login
 
-    form.form.form_signin
-      label.label-form.label-form_signin
-        input.t_inpt.inpt_txt-form_signin(type="text" placeholder="Your email" tabindex="1")
+      = form_for :user, url: session_path(:user), html: {class: 'form form_signin'} do |f|
+        label.label-form.label-form_signin
+          = f.text_field :email, class: 't_inpt inpt_txt-form_signin', placeholder: 'Your email', tabindex: '1'
+        label.label-form.label-form_signin
+          = f.password_field :password, class: 't_inpt inpt_paswd-form_signin', placeholder: 'Password', tabindex: '2'
 
-      label.label-form.label-form_signin
-        input.t_inpt.inpt_paswd-form_signin(type="password" placeholder="Password" tabindex="2")
+        .footer-form.footer-form_signin
+          = f.submit 'Sign in', class: 't_inpt inpt_submt-form inpt_submt-form_signin', tabindex: '3'
 
-      .footer-form.footer-form_signin
-        input.t_inpt.inpt_submt-form.inpt_submt-form_signin(type="submit" value="Sign in" tabindex="3")
+          = f.check_box :remember_me, {class: 't_inpt inpt_checkbox-form inpt_checkbox-form_signin', tabindex: '4', checked: true}, 'on', nil
 
-        input.t_inpt.inpt_checkbox-form.inpt_checkbox-form_signin(type="checkbox" checked="on" id="inpt_checkbox-form_signin" tabindex="4")
-        label.label-form.label-form_signin(for="inpt_checkbox-form_signin")
-          span.about_checkbox-form_signin Keep me logged in
+          = f.label :remember_me, class: 'label-form label-form_signin'
+            span.about_checkbox-form_signin Keep me logged in
 
-    .social-box_signin-sidebar
-      - soclinks = { :fb => '', :twitter => '', :instagram => '' }
-      - soclinks.each do |key, url|
-        = link_to '', url, { data: { type: key }, class: 'i-social-box_signin-sidebar' }
+      .social-box_signin-sidebar
+        - soclinks = { :fb => '', :twitter => '', :instagram => '' }
+        - soclinks.each do |key, url|
+          = link_to '', url, { data: { type: key }, class: 'i-social-box_signin-sidebar' }

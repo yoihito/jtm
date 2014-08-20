@@ -4,7 +4,7 @@ aside.sidebar
     .box-sidebar.box_signin-sidebar
       h3.title-box_signin-sidebar or login
 
-      = form_for :user, url: session_path(:user), html: {class: 'form form_signin'} do |f|
+      = form_for :user, url: session_path(:user), html: {class: 'form form_signin', autocomplete: 'off'} do |f|
         label.label-form.label-form_signin
           = f.text_field :email, class: 't_inpt inpt_txt-form_signin', placeholder: 'Your email', tabindex: '1'
         label.label-form.label-form_signin

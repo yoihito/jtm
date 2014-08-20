@@ -10,3 +10,11 @@
 	max-width: $width-max;
 	margin: auto;
 	}
+
+.main {}
+
+.content {
+	top: $header-height;
+	position: relative;
+	z-index: 100;
+	}

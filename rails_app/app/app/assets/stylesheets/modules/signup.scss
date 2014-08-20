@@ -1,0 +1,284 @@
+.signup {
+	width: $width-step-5;
+	@include position(fixed, 0 0 0 null);
+	z-index: 5001;
+
+	background-color: $signup-bgcol;
+	border-left: 1px solid #c7b694;
+
+	font-family: $font-default;
+
+	opacity: 1;
+	transform: translateX(0);
+	transform-style: preserve-3d;
+
+	@include transit {
+		transition-property: opacity, transform;
+		transition-delay: .1s;
+		}
+
+	@media (max-width: $width-step-4) {
+		width: 100%;
+		.cont-signup:after {
+			display: none;
+			}
+		.group-cont-signup {
+			margin: 0 auto;
+			}
+		}
+
+	@media (max-width: $width-step-5) {
+		width: $width-step-5;
+		position: absolute;
+
+		&.signup_hid {
+			transform: translateX(-100%);
+			}
+		}
+	}
+
+.signup_hid {
+	// left: 100%;
+	// right: -100%;
+	opacity: 0;
+	transform: translateX(100%);
+	}
+
+	.header-signup {
+		height: $header-height;
+		padding: 0 40px;
+		position: relative;
+		z-index: 305;
+
+		border-bottom: 1px solid #bbab8a;
+		box-shadow: 0 1px 0 #837965, 0 0 10px 1px rgba(#000, .2);
+
+		line-height: $header-height;
+		font-family: $font-oriya;
+		font-size: 32px;
+		color: #635b4c;
+		text-shadow: 1px 1px 0 #cab997;
+		}
+
+		.close-header-signup {
+			width: 25px;
+			height: 24px;
+			padding: 18px;
+			top: 12px;
+			right: 23px;
+			position: absolute;
+
+			border-radius: 4px;
+			background-image: url('#{$path}/signup-close.svg');
+			background-repeat: no-repeat;
+			background-position: 50%;
+
+			&:hover {
+				background-color: darken($signup-bgcol, 2%);
+				box-shadow: inset 0 0 0 1px darken($signup-bgcol, 6%);
+				}
+			}
+
+	.cont-signup {
+		width: 100%;
+		padding-bottom: 20px;
+		top: $header-height;
+		bottom: 0;
+		position: absolute;
+		z-index: 300;
+		overflow-y: auto;
+
+		&:after {
+			@include pseudo;
+
+			width: 1px;
+			top: 0;
+			bottom: 0;
+			left: 318px;
+			position: absolute;
+
+			background-color: #948568;
+			box-shadow: 1px 0 0 #b2a58a;
+			}
+		}
+
+		.group-cont-signup {
+			width: 280px;
+			margin: 0 18px;
+			}
+
+			.title-cont-signup {
+				height: 50px;
+				padding-top: 7px;
+				padding-left: 25px;
+				position: relative;
+
+				font-family: $font-oriya;
+				font-size: 14px;
+				color: #4c4436;
+				line-height: 50px;
+				}
+
+			.divider-group-cont-signup {
+				color: #635b4c;
+				font-size: 30px;
+				font-family: $font-oriya;
+				text-align: center;
+				line-height: 90px;
+				}
+
+			.subscr-cont-signup {
+				padding: 0 20px;
+				margin-bottom: 25px;
+
+				border: 1px solid #b9ad95;
+				border-radius: 18px;
+				background-color: #b2a58a;
+				box-shadow: 0 0 10px rgba(#000, .1);
+
+				font-family: $font-oriya;
+				font-size: 18px;
+				color: #4c4436;
+				line-height: 24px;
+				}
+
+				.item-subscr-cont-signup {
+					padding: 15px 0 15px 50px;
+					position: relative;
+
+					border-bottom: 1px solid #a3957a;
+					box-shadow: 0 1px 0 #c7ba9f;
+
+					&:nth-child(6) {
+						border-bottom-width: 0;
+						box-shadow: none;
+						}
+					}
+
+					.inpt-subscr-cont-signup {
+						top: 0;
+						left: 0;
+						position: absolute;
+						display: none;
+
+						&:checked + .label-subscr-cont-signup:after {
+							background-position: 0 0;
+							}
+						}
+
+					.label-subscr-cont-signup {
+						display: inline-block;
+
+						&:before {
+							@include pseudo;
+
+							width: 24px;
+							height: 24px;
+							top: 18px;
+							left: 0;
+							position: absolute;
+
+							border: 2px solid #a29479;
+							border-radius: 6px;
+							background-color: #c7ba9f;
+
+							cursor: pointer;
+							}
+
+						&:after {
+							@include pseudo;
+
+							width: 37px;
+							height: 31px;
+							top: 15px;
+							left: 1px;
+							position: absolute;
+
+							background-image: url('#{$path}/signup-checkbox_on.svg');
+							background-size: 37px;
+							background-repeat: no-repeat;
+							background-position: -100px;
+
+							cursor: pointer;
+							}
+						}
+
+			.nextlink-cont-signup {
+				width: 210px;
+				padding: 15px;
+				margin-left: 19px;
+
+				text-align: center;
+				}
+
+			.soc-cont-signup {
+				width: 240px - 65px;
+				padding: 13px 0 13px 65px;
+				margin: 0 19px 16px;
+
+				color: #fff;
+				// font-family: $font-oriya;
+				}
+
+			$btns: (
+				fb: #3d4b67,
+				twitter: #3f647e,
+				instagram: #293a44
+				);
+
+			@each $name, $textshadowcolor in $btns {
+				.soc_#{$name}-cont-signup {
+					@extend .soc-cont-signup;
+
+					text-shadow: 1px 1px 0 $textshadowcolor;
+					}
+				}
+
+		.label-signup {
+			margin: 0 19px 14px;
+			display: inline-block;
+			}
+
+			.inpt-signup {
+				width: 240px - 18 - 18;
+				height: 20px;
+				padding: 14px 18px 12px;
+
+				border: 0;
+				border-radius: 5px;
+				background-color: #c7ba9f;
+				outline-style: none;
+
+				font-size: 14px;
+				font-family: $font-oriya;
+				color: #81745c;
+				line-height: 20px;
+
+				@include placeholder {
+					color: #81745c;
+					}
+				}
+
+				.inpt_txt-signup {
+					@extend .inpt-signup;
+					}
+
+				.inpt_paswd-signup {
+					@extend .inpt-signup;
+					}
+
+				.inpt_submt-signup {
+					@extend .grad_orange;
+
+					width: 240px;
+					height: 46px;
+					margin: 0 19px;
+
+					border: 0;
+
+					font-family: $font-oriya;
+					font-size: 18px;
+					color: #222;
+
+					cursor: pointer;
+					}

@@ -11,10 +11,20 @@
 	margin: auto;
 	}
 
-.main {}
+.main {
+	margin-right: $width-sidebar;
+
+	@media (max-width: $width-step-4) {
+		margin-right: 0;
+		}
+	}
 
 .content {
-	top: $header-height;
+	padding-top: $header-height;
 	position: relative;
 	z-index: 100;
+
+	@media (max-width: $width-step-5) {
+		padding-top: 0;
+		}
 	}

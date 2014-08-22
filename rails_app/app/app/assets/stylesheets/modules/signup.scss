@@ -1,8 +1,4 @@
 .signup {
-	width: $width-step-5;
-	@include position(fixed, 0 0 0 null);
-	z-index: 5001;
-
 	background-color: $signup-bgcol;
 	border-left: 1px solid #c7b694;
 
@@ -18,7 +14,6 @@
 		}
 
 	@media (max-width: $width-step-4) {
-		width: 100%;
 		.cont-signup:after {
 			display: none;
 			}
@@ -28,9 +23,6 @@
 		}
 
 	@media (max-width: $width-step-5) {
-		width: $width-step-5;
-		position: absolute;
-
 		&.signup_hid {
 			transform: translateX(-100%);
 			}

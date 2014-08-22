@@ -1,19 +1,11 @@
 .header {
 	@extend .clearfix;
 
-	width: 100%;
-	min-height: $header-height;
 	background-color: $header-bgcol;
 	border-bottom: 1px solid $header-border_bottom;
 	box-shadow: 0 1px 0 #111, 0 0 3px 1px rgba(#000, .7);
-	position: fixed;
-	z-index: 100;
 
 	line-height: $header-height;
-
-	@media (max-width: $width-step-5) {
-		position: relative;
-		}
 	}
 
 	.logo-header {

@@ -1,21 +1,6 @@
 .info {
-	width: $width-info;
-	top: ($header-height + 2) - 1px;
-	right: $width-sidebar;
-	bottom: -1px;
-	position: fixed;
-	z-index: 90;
-	// overflow: hidden;
 	background: rgba(#fff, .05);
 	border-left: 1px solid rgba(#fff, .06);
-
-	@media (max-width: 3 * $width-step-5) {
-		margin: auto;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		position: relative;
-		}
 	}
 
 	.title-info {

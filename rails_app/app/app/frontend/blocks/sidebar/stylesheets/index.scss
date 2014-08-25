@@ -1,0 +1,74 @@
+@import '../../_merge';
+
+$name: 'sidebar';
+
+.sidebar {
+    border-right: 1px solid #000;
+    border-left: 1px solid #000;
+    background-color: rgba(#222, .85);
+    box-shadow: inset 0 0 0 1px rgba(#333, 1);
+
+    &:after {
+        width: 4px;
+        top: 0;
+        left: -5px;
+        bottom: 0;
+        position: absolute;
+        content: '\0020';
+        opacity: 0.3;
+        background-image: linear-gradient(left, rgba(#000, 0), rgba(#000, .5));
+        }
+
+    @media (max-width: $width-step-4) {
+        box-sizing: border-box;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #000;
+        }
+    }
+
+    .box-sidebar {}
+
+    .box_signin-sidebar {}
+
+        .title-box_signin-sidebar {
+            text-align: center;
+            font-weight: normal;
+            font-family: $font-oriya;
+            font-size: 18px;
+            line-height: 58px;
+            color: #ccc;
+            }
+
+        .social-box_signin-sidebar {
+            padding: 30px 0 23px;
+            position: relative;
+            border-bottom: 1px solid rgba(#fff, .1);
+
+            text-align: center;
+
+            &:after {
+                @include pseudo;
+
+                width: 100%;
+                height: 4px;
+                top: 100%;
+                position: absolute;
+                background-image: linear-gradient(top, rgba(#020101, .08), rgba(#24211e, .08));
+                }
+            }
+
+            .i-social-box_signin-sidebar {
+                width: 58px;
+                height: 58px;
+                display: inline-block;
+                border: 1px solid rgba(#fff, .1);
+                border-radius: 50%;
+
+                &:hover {
+                    border-color: rgba(#fff, .2);
+                    }
+
+                &:nth-child(2) {
+                    margin: 0 35px;
+                    }
+                }

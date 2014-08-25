@@ -1,0 +1,12 @@
+/*
+ * = require global/stylesheets/reset
+ * = require global/stylesheets/fonts
+ * = require global/stylesheets/additional
+ * = require global/stylesheets/common
+ *
+ * = require global/stylesheets/layout
+ *
+ * = require_tree ./../../frontend/blocks
+ * = stub ./../../frontend/blocks/_merge.scss
+ *
+ */

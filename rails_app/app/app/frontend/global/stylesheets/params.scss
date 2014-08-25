@@ -1,0 +1,32 @@
+$path: '/assets';
+
+$width-max: 2500px;
+$width-step-1: 1200px;
+$width-step-2: 1024px;
+$width-step-3: 768px;
+$width-step-4: 640px;
+$width-step-5: 320px;
+
+$width-sidebar: 320px;
+$width-info: 320px;
+
+$font-default: Arial;
+$font-oriya: 'Oriya_MN', $font-default;
+
+// Header
+$header-height: 84px;
+$header-bgcol: #222;
+$header-border_bottom: #333;
+$headerLogo-padding: 22px;
+
+// Menu
+$menu-width: 240px;
+$menu-bgcol: #fff;
+
+// Signup
+$signup-bgcol: #a99a7c;
+
+$anim-dur: .2s;
+$anim-fn: cubic-bezier(.4, 0, .2, 1);
+
+$shadow-zIndex: 35000;

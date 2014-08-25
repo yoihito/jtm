@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819133345) do
+ActiveRecord::Schema.define(version: 20140819134815) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,6 +31,21 @@ ActiveRecord::Schema.define(version: 20140819133345) do
 
   add_index "category_translations", ["category_id"], name: "index_category_translations_on_category_id", using: :btree
   add_index "category_translations", ["locale"], name: "index_category_translations_on_locale", using: :btree
+
+  create_table "publishers", force: true do |t|
+    t.string   "title"
+    t.boolean  "has_avatar"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "questions", force: true do |t|
+    t.string   "title"
+    t.integer  "owner_id"
+    t.boolean  "published"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "slide_translations", force: true do |t|
     t.integer  "slide_id",    null: false

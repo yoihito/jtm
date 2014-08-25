@@ -1,10 +1,9 @@
 section.content
 	.tests
-		= form_for :test, url: new_test_path(:test), html: {class: 'form newtest'} do |f|
-			- 10.times do |i|
-				label.label-newtest
-					= text_field_tag "tests[slide][#{i+1}]", '', class: 't_inpt inpt-newtest', id: '', placeholder: "Slide #{i+1}"
-
+		= form_for @test, html: {class: 'form newtest'} do |f|
+			= f.fields_for :slides do |slides_form|
+				= slides_form.label :question
+				= slides_form.text_field :question
 			= f.submit 'Create'
 
 section.info

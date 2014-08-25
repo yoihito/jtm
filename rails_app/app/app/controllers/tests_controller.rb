@@ -1,5 +1,7 @@
 class TestsController < ApplicationController
 	def create
+		@test = Test.new(test_params)
+		@test.save
 	end
 
 	def update
@@ -15,6 +17,15 @@ class TestsController < ApplicationController
 	end
 
 	def new
+		@test = Test.new
+		2.times { @test.slides.build }
 	end
 	
+private 
+
+	def test_params
+		params.require(:test).permit(slides_attributes: [:id,:question])
+	end
+
+
 end

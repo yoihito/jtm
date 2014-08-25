@@ -1,6 +1,8 @@
 section.content
 	.tests
 		= form_for @test, html: {class: 'form newtest'} do |f|
+			= f.label :title
+			= f.text_field :title
 			= f.fields_for :slides do |slides_form|
 				= slides_form.label :question
 				= slides_form.text_field :question

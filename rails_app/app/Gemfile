@@ -19,7 +19,7 @@ group :development do
   gem 'thin', '1.6.2'
   gem 'guard-livereload'
   gem 'quiet_assets'
-  gem 'slim', '2.0.3'
+  gem 'slim-rails', '2.0.3'
   gem 'autoprefixer-rails', '2.2.0.20140804'
   gem 'simple_form', '3.0.2'
 end

@@ -6,4 +6,5 @@ export DEV_POSTGRES_USER=postgres
 bundle install
 bin/rake db:setup
 bin/rake db:migrate
+bin/rake db:seed
 rails s

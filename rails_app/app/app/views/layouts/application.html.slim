@@ -24,9 +24,7 @@ html.html lang="en"
 
       .main-window
         .main
-          .content-main
-            = yield
-          / .bg-main
+          = yield
 
       - unless user_signed_in?
         = render 'layouts/shared/signup'

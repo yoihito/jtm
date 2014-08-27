@@ -6,6 +6,14 @@
 
 .page {
     min-width: $width-step-5;
+    position: relative;
+    }
+
+.window {
+    width: 100%;
+    min-height: 100%;
+    position: relative;
+    overflow: hidden;
     }
 
 .inner {
@@ -16,17 +24,17 @@
 .header {
     width: 100%;
     min-height: $header-height;
-    position: fixed;
-    z-index: 100;
+    position: absolute;
+    z-index: $main-zIndex + 10;
 
-    @media (max-width: $width-step-5) {
+    @media (max-width: $width-step-4) {
         position: relative;
         }
     }
 
 .menu {
     width: $menu-width;
-    @include position(fixed, 0 null 0 0);
+    @include position(absolute, 0 null 0 0);
     z-index: $shadow-zIndex + 20;
     }
 
@@ -36,7 +44,7 @@
     right: $width-sidebar;
     bottom: -1px;
     position: fixed;
-    z-index: 90;
+    z-index: $main-zIndex + 3;
 
     @media (max-width: 3 * $width-step-5) {
         margin: auto;
@@ -49,25 +57,22 @@
 
 .sidebar {
     width: $width-sidebar;
-    position: fixed;
+    position: absolute;
     top: ($header-height + 2) - 1px;
     right: 0;
     bottom: -1px;
-    z-index: 95;
+    z-index: $main-zIndex + 5;
 
     @media (max-width: $width-step-4) {
         width: 100%;
-        position: relative;
-        }
-
-    @media (max-width: $width-step-5) {
         top: 0;
+        position: relative;
         }
     }
 
 .signup {
     width: $width-step-5;
-    @include position(fixed, 0 0 0 null);
+    @include position(absolute, 0 0 0 null);
     z-index: $shadow-zIndex + 10;
 
     @media (max-width: $width-step-4) {
@@ -80,17 +85,21 @@
         }
     }
 
-.main {
-    margin-right: $width-sidebar;
+.main-window {
+    @include position(absolute, $header-height $width-sidebar 0 0);
+    overflow: auto;
+    z-index: $main-zIndex;
 
     @media (max-width: $width-step-4) {
-        margin-right: 0;
+        @include position(relative, 0 0 0 0);
         }
     }
 
+.main {
+    min-height: 100%;
+    }
+
 .content {
-    margin-right: 320px;
-    padding-top: $header-height;
     position: relative;
     z-index: 95;
 

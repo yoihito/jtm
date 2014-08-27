@@ -4,17 +4,17 @@
 
     window.utils = {
 
-        routeParse = function( str, obj ) {
+        routeParse: function( str, obj ) {
             var out = str;
 
             _( obj ).forEach(function( value, key ) {
-                var regexp = new RegExp(':(' + key + ')\\/', 'g');
+                var regexp = new RegExp(':' + key + '(\\/?)', 'g');
 
-                out = out.replace(regexp, value + '/');
+                out = out.replace(regexp, value + '$1');
             });
 
             return out;
-        };
+        }
 
     };
 

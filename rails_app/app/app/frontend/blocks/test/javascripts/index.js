@@ -40,13 +40,15 @@
                 $currentSlide.addClass('slide_hid');
                 $currentSlide.next().removeClass('slide_hid');
             } else {
-                this.finish();
+                this.finish( $slideAnsw.closest('.test') );
             }
         },
 
-        finish: function() {
-            window.Models.Test.save( { store: store, testId:  }, function() {
-                console.log( 'asd' );
+        finish: function( $test ) {
+            var testId = _.parseInt( $test.data('id') );
+
+            window.Models.Test.save( { store: store, testId: testId }, function() {
+                window.location.href = utils.routeParse( routes.test.saveAfter, { id: testId } );
             });
         }
 

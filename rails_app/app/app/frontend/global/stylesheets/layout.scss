@@ -97,17 +97,15 @@
 
 .main {
     min-height: 100%;
+    position: relative;
     }
+
+    .bg-main {
+        @include position(absolute, 0 320px 0 0);
+        z-index: 200;
+        }
 
 .content {
     position: relative;
-    z-index: 95;
-
-    @media (max-width: $width-step-5) {
-        padding-top: 0;
-        }
-
-    @media (max-width: 3 * $width-step-5) {
-        margin-right: 0;
-        }
+    z-index: 300;
     }

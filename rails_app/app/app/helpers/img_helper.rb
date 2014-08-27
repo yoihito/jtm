@@ -1,6 +1,16 @@
 module ImgHelper extend ApplicationHelper
   include ActionView::Helpers::TagHelper
 
+  #
+  # img( ['header', 'logo.png'] )
+  # => <img src="/assets/blocks/header/images/logo.png" alt="Logo">
+  #
+  # img( 'logo.png' )
+  # => <img src="/assets/global/images/logo.png" alt="Logo">
+  #
+  # img( '../_form/header.png' )
+  # => <img src="/assets/global/_form/images/logo.png" alt="Logo">
+  #
   def img(source=[], options={})
     options = options.symbolize_keys
 

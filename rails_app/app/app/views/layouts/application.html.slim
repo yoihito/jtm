@@ -15,15 +15,20 @@ html.html lang="en"
     = csrf_meta_tags
 
   body.page
-    = render 'layouts/shared/header'
-    = render 'layouts/shared/menu'
+    .window
+      = render 'layouts/shared/header'
 
-    = render 'layouts/shared/sidebar'
+      = render 'layouts/shared/menu'
 
-	.main
-    	= yield
+      = render 'layouts/shared/sidebar'
 
-	- unless user_signed_in?
-    	= render 'layouts/shared/signup'
+      .main-window
+        .main
+          .content-main
+            = yield
+          / .bg-main
 
-    .shadow.shadow_hid
+      - unless user_signed_in?
+        = render 'layouts/shared/signup'
+
+      .shadow.shadow_hid

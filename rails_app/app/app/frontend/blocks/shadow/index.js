@@ -1,6 +1,7 @@
-(function($) {
+(function(window, $) {
 
     var
+        app = window.app,
         className_hid = 'shadow_hid';
 
     function Shadow() {
@@ -17,6 +18,6 @@
         this.$block.addClass(className_hid);
     };
 
-    window.Module_Shadow = Shadow;
+    app.data.ModShadow = Shadow;
 
-})(jQuery);
+})(window, jQuery);

@@ -1,7 +1,5 @@
 (function( window, $ ) {
 
-    var app = window.app;
-
-
+    window.app.utils = {};
 
 })( window, jQuery );

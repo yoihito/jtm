@@ -1,12 +1,17 @@
-(function( window ) {
+(function( window, $ ) {
 
-    window.routes = {
+    var app = window.app;
 
-        test: {
-            save: '/tests/pass/save',
-            saveAfter: '/tests/result/:id'
-        }
+    app.utils.route_parse = function( str, obj ) {
+        var out = str;
 
+        _( obj ).forEach(function( value, key ) {
+            var regexp = new RegExp( ':' + key + '(\\/?)', 'g' );
+
+            out = out.replace( regexp, value + '$1' );
+        });
+
+        return out;
     };
 
-})( window );
+})( window, jQuery );

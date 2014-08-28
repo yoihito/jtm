@@ -8,7 +8,7 @@
 
         this.addEventListeners();
 
-        this.Shadow = window.root.Shadow;
+        this.Shadow = new window.app.data.ModShadow();
     }
 
     Mod.prototype = {};
@@ -47,6 +47,8 @@
             })
     };
 
-    window.Module_Signupblock = Mod;
+    $(function() {
+        new Mod();
+    });
 
 })(jQuery);

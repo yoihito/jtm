@@ -1,6 +1,7 @@
 (function($) {
 
     var
+        app = window.app,
         className_hid = 'menu_hid';
 
     function Menu() {
@@ -8,7 +9,7 @@
 
         this.addEventListeners();
 
-        this.Shadow = window.root.Shadow;
+        this.Shadow = new app.data.ModShadow();
     }
 
     Menu.prototype = {};
@@ -42,6 +43,8 @@
             })
     };
 
-    window.Module_Menu = Menu;
+    $(function() {
+        new Menu();
+    });
 
 })(jQuery);

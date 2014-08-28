@@ -12,5 +12,5 @@
     @return "/assets/blocks/#{$block}/images/#{$name}";
 }
 
-@import '../global/_button/stylesheets/index';
-@import '../global/_form/stylesheets/index';
+@import '../global/_button/index';
+@import '../global/_form/index';

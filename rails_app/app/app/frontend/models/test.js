@@ -6,10 +6,11 @@
         constructor: function() {},
 
         save: function( data, callback ) {
-            app.utils.ajax( app.routes.test.save, {
+            var url = app.utils.route_parse( app.routes.test.save, { id: data.testId } );
+
+            app.utils.ajax( url, {
                 data: {
                     slides: data.store,
-                    id: data.testId
                 },
                 success: callback
             });

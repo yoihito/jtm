@@ -29,7 +29,7 @@ namespace :deploy do
     desc "#{cmd} unicorn server"
     task cmd do
       on roles(:app), in: :sequence, wait: 5 do
-        run "/etc/init.d/unicorn_#{application} #{cmd}"
+        run "/etc/init.d/unicorn_#{fetch(:application)} #{cmd}"
       end
     end
   end
@@ -44,7 +44,7 @@ namespace :deploy do
     end
   end
 
-  # after "deploy:starting", "deploy:setup_config"
+  after "deploy:starting", "deploy:setup_config"
 
   # task :symlink_config do
   #   on roles(:app), in: :sequence, wait: 5 do

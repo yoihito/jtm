@@ -16,6 +16,7 @@ gem 'paperclip'
 gem 'simple_form'
 gem 'uglifier'
 gem 'execjs'
+gem 'autoprefixer-rails'
 
 group :development do
   gem 'spring'
@@ -23,7 +24,6 @@ group :development do
   gem 'thin'
   gem 'guard-livereload'
   gem 'quiet_assets'
-  gem 'autoprefixer-rails'
   gem 'capistrano'
   gem 'capistrano-puma', require: false
   gem 'capistrano-rails',   '~> 1.1', require: false

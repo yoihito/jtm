@@ -14,6 +14,7 @@ gem 'globalize'
 gem 'paperclip'
 gem 'simple_form'
 gem 'uglifier'
+gem 'execjs'
 
 group :development do
   gem 'spring'

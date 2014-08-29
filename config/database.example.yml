@@ -26,4 +26,6 @@ test:
 
 production:
   <<: *default
+  host: <%= ENV['PRODUCTION_POSTGRES_IP'] %>
+  username: <%= ENV['PRODUCTION_POSTGRES_USER'] %>
   database: jtm_production

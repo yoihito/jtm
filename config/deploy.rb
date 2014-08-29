@@ -16,8 +16,8 @@ set :format, :pretty
 set :log_level, :debug
 set :pty, true
 
-set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{public/uploads}
+set :linked_files, %w{config/database.yml config/secrets.yml}
+set :linked_dirs, %w{public/uploads tmp/pids}
 
 after "deploy", "deploy:cleanup"
 
@@ -38,7 +38,6 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/default"
       sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
-      run "mkdir -p #{current_path}/tmp/pids"
      # run "mkdir -p #{shared_path}/config"
       # put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
       puts "Now edit the config files in #{shared_path}."

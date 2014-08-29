@@ -38,6 +38,7 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/default"
       sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
+      run "mkdir -p #{current_path}/tmp/pids"
      # run "mkdir -p #{shared_path}/config"
       # put File.read("config/database.example.yml"), "#{shared_path}/config/database.yml"
       puts "Now edit the config files in #{shared_path}."

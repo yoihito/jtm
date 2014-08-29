@@ -8,6 +8,7 @@ require 'capistrano/bundler'
 require 'capistrano/puma'
 require 'capistrano/rails/assets' # for asset handling add
 require 'capistrano/rails/migrations' 
+require 'capistrano/local_precompile'
 
 # Includes tasks from other gems included in your Gemfile
 #

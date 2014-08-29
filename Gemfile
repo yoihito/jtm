@@ -13,6 +13,7 @@ gem 'nokogiri', '~> 1.6.1'
 gem 'globalize'
 gem 'paperclip'
 gem 'simple_form'
+gem 'uglifier'
 
 group :development do
   gem 'spring'

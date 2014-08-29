@@ -24,26 +24,32 @@ after "deploy", "deploy:cleanup"
 set :keep_releases, 5
 
  
-namespace :assets do
-  desc "Precompile assets locally and then rsync to app servers"
-  task :precompile, :only => { :primary => true } do
-    run_locally "bundle exec rake assets:precompile;"
-    servers = find_servers :roles => [:app], :except => { :no_release => true }
-    servers.each do |server|
-      run_locally "rsync -av ./public/assets/ #{user}@#{server}:#{current_path}/public/assets/;"
+Rake::Task["deploy:compile_assets"].clear 
+ 
+desc "Precompile assets locally and then rsync to web servers" 
+task :compile_assets do 
+  # compile assets locally
+  run_locally do
+    with rails_env: fetch(:stage) do
+      execute :bundle, "exec rake assets:precompile"
     end
-    run_locally "rm -rf public/assets"
   end
+ 
+  # rsync to each server
+  local_dir = "./public/assets/"
+  on roles(:web) do
+    # this needs to be done outside run_locally in order for host to exist
+    remote_dir = "#{host.user}@#{host.hostname}:#{shared_path}/public/assets/"
+    
+    run_locally { execute "rsync -av -e 'ssh -p 2222' --delete #{local_dir} #{remote_dir}" }
+  end
+ 
+  # clean up
+  run_locally { execute "rm -rf #{local_dir}" }
 end
 
 
 namespace :deploy do
-  task :default do
-    update
-    assets.precompile
-    restart
-    cleanup
-  end
 
   cmds = %w[start stop restart]
   cmds.each do |cmd|

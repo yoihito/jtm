@@ -16,4 +16,19 @@
         return ( isDefaultType ) ? out : [ out, str[ 1 ] ];
     };
 
+    app.utils.route_get = function() {
+        var route = app.routes, obj;
+
+        _( arguments ).forEach(function( value, index ) {
+            if ( _( value ).isString() ) {
+                route = route[ value ];
+
+            } else {
+                obj = value;
+            }
+        });
+
+        return obj ? app.utils.route_parse( route, obj ) : route;
+    };
+
 })( window, jQuery );

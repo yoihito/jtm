@@ -2,8 +2,15 @@
 
     var app = window.app;
 
+    var csrf_param, csrf_token;
+
+    $(function() {
+        csrf_param = $( 'meta[name=csrf-param]' ).attr( 'content' );
+        csrf_token = $( 'meta[name=csrf-token]' ).attr( 'content' );
+    });
+
     app.utils.ajax = function( type, url, data ) {
-        var csrf_param, csrf_token, isDefaultType;
+        var isDefaultType;
 
         if ( !data ) {
             data = url;
@@ -12,11 +19,6 @@
 
         isDefaultType = _( url ).isString();
 
-        console.log( url );
-        console.log( isDefaultType );
-
-        csrf_param = $( 'meta[name=csrf-param]' ).attr( 'content' );
-        csrf_token = $( 'meta[name=csrf-token]' ).attr( 'content' );
         data[ 'data' ][ csrf_param ] = csrf_token;
 
         data[ 'url' ] = ( isDefaultType ) ? url : url[ 0 ];

@@ -22,6 +22,9 @@ group :development do
   gem 'slim-rails'
   gem 'autoprefixer-rails'
   gem 'simple_form'
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'rvm-capistrano'
 end
 
 group :test, :development do
@@ -41,6 +44,7 @@ end
 
 group :production do
   gem 'rails_12factor'
+  gem 'unicorn'
 end
 
 gem 'sdoc', '~> 0.4.0',          group: :doc

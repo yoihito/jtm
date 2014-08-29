@@ -12,6 +12,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'nokogiri', '~> 1.6.1'
 gem 'globalize'
 gem 'paperclip'
+gem 'simple_form'
 
 group :development do
   gem 'spring'
@@ -21,7 +22,6 @@ group :development do
   gem 'quiet_assets'
   gem 'slim-rails'
   gem 'autoprefixer-rails'
-  gem 'simple_form'
   gem 'capistrano'
   gem 'capistrano-puma', require: false
   gem 'capistrano-rails',   '~> 1.1', require: false

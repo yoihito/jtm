@@ -15,6 +15,7 @@
         if ( !data ) {
             data = url;
             url = type;
+            type = null;
         }
 
         isDefaultType = _( url ).isString();
@@ -22,7 +23,7 @@
         data[ 'data' ][ csrf_param ] = csrf_token;
 
         data[ 'url' ] = ( isDefaultType ) ? url : url[ 0 ];
-        data[ 'type' ] = ( isDefaultType ) ? app.routes.default_type : url[ 1 ];
+        data[ 'type' ] = ( isDefaultType ) ? ( type || app.routes.default_type ) : url[ 1 ];
 
         $.ajax( data );
     };

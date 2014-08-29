@@ -6,7 +6,7 @@
         constructor: function() {},
 
         save: function( data, callback ) {
-            var url = app.utils.route_parse( app.routes.test.save, { id: data.testId } );
+            var url = app.utils.route_get( 'tests', 'save', { id: data.testId } );
 
             app.utils.ajax( url, {
                 data: {

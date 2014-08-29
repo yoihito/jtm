@@ -2,9 +2,11 @@
 
     var app = window.app;
 
-    var store = [];
+    var
+        store = [],
+        contrlName = 'tests';
 
-    app.ControllerCreate( 'Test', {
+    app.ControllerCreate( contrlName, {
         constructor: function() {
             var that = this;
 
@@ -46,7 +48,7 @@
             var testId = _.parseInt( $test.data( 'id' ) );
 
             app.Model.Test.save( { store: store, testId: testId }, function() {
-                window.location.href = app.utils.routeParse( app.routes.test.saveAfter, { id: testId } );
+                window.location.href = app.utils.route_get( contrlName, 'saveAfter', { id: testId } );
             });
         }
     });

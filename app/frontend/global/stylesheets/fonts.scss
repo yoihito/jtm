@@ -1,11 +1,12 @@
 @import '_merge';
 
 @font-face {
-    $font: font('OriyaMN/Oriya_MN');
+    $font: 'OriyaMN/Oriya_MN';
 
     font-family: 'Oriya_MN';
-    src: url('#{$font}.eot');
-    src: local('Oriya MN'), url('#{$font}.woff') format('woff'), url('#{$font}.ttf') format('truetype'), url('#{$font}.svg') format('svg');
+    src: url(font-path('#{$font}.eot') + '?#iefix');
+    src: local('Oriya MN'), url(font-path('#{$font}.woff')) format('woff'), url(font-path('#{$font}.ttf')) format('truetype'), url(font-path('#{$font}.svg')) format('svg');
     font-weight: normal;
     font-style: normal;
     }
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 331 77">
+	<filter id="f">
+        <feOffset result="offOut" in="SourceAlpha" dx="0" dy="1"/>
+        <feGaussianBlur result="blurOut" in="offOut" stdDeviation="1"/>
+        <feBlend in="SourceGraphic" in2="blurOut" mode="normal"/>
+    </filter>
+	<polygon fill="#928066" fill-opacity="1" points="5,4 5,51 166,69 324,51 324,4" filter="url(#f)" />
+</svg>

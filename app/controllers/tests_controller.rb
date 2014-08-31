@@ -1,7 +1,9 @@
 class TestsController < ApplicationController
+	authorize_resource 
 	def create
 		@test = Test.new(test_params)
 		@test.save
+		authorize!
 	end
 
 	def update

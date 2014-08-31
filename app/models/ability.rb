@@ -10,13 +10,10 @@ class Ability
   end
 
   def guest
-    can :get_slides, Test
-    can :get_result, Test
+    
   end
 
   def user
-    guest
-    can :save_answers, Test
 
   end
 

@@ -63,7 +63,7 @@
             position: absolute;
 
             border-radius: 4px;
-            background-image: image-url('signup-close.svg');
+            background-image: asset-url('signup-close.svg');
             background-repeat: no-repeat;
             background-position: 50%;
 
@@ -188,7 +188,7 @@
                             left: 1px;
                             position: absolute;
 
-                            background-image: image-url('signup-checkbox_on.svg');
+                            background-image: asset-url('signup-checkbox_on.svg');
                             background-size: 37px;
                             background-repeat: no-repeat;
                             background-position: -100px;

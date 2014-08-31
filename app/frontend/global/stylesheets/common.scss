@@ -15,7 +15,7 @@
 .page {
     position: relative;
     z-index: 100;
-    background: #59504b image-url('page-bg.jpg') no-repeat 0 0 fixed;
+    background: #59504b asset-url('page-bg.jpg') no-repeat 0 0 fixed;
 
     -webkit-font-smoothing: antialiased;
     }

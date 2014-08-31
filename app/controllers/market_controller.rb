@@ -1,4 +1,5 @@
 class MarketController < ApplicationController
-  def show
+  def index
+  	@tests = Test.all
   end
 end

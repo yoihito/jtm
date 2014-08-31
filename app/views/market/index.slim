@@ -1,6 +1,9 @@
 section.content
-  p asd
+	- @tests.each do |test|
+		a href="#{try_test_path(test)}" #{test.title}
 
 section.info
   h3.title_main-info
     span.txt-title_main-info Recommendations
+
+.bg-main

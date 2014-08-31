@@ -23,7 +23,7 @@ after "deploy", "deploy:cleanup"
 
 set :keep_releases, 5
 
- 
+Rake::Task["deploy:assets:precompile"].clear
 
 namespace :deploy do
 

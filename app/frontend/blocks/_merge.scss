@@ -1,16 +1,4 @@
 @import '../global/stylesheets/_merge';
 
-@function g-img($name, $block: null) {
-    @if $block {
-        @return "/assets/global/_#{$block}/images/#{$name}";
-    } @else {
-        @return "/assets/global/images/#{$name}";
-    }
-}
-
-@function b-img($name, $block) {
-    @return "/assets/blocks/#{$block}/images/#{$name}";
-}
-
 @import '../global/_button/index';
 @import '../global/_form/index';

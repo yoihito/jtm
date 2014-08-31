@@ -3,6 +3,7 @@
 # Version of your assets, change this if you want to expire all your assets.
 Rails.application.config.assets.version = '1.0'
 
+Rails.application.config.assets.paths << "#{Rails.root}/app/assets/fonts"
 Rails.application.config.assets.paths << "#{Rails.root}/app/frontend"
 
 # Precompile additional assets.

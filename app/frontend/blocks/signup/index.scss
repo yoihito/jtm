@@ -65,7 +65,7 @@ $name: 'signup';
             position: absolute;
 
             border-radius: 4px;
-            background-image: url(b-img('close.svg', $name));
+            background-image: image-url('signup-close.svg');
             background-repeat: no-repeat;
             background-position: 50%;
 
@@ -190,7 +190,7 @@ $name: 'signup';
                             left: 1px;
                             position: absolute;
 
-                            background-image: url(b-img('checkbox_on.svg', $name));
+                            background-image: image-url('signup-checkbox_on.svg');
                             background-size: 37px;
                             background-repeat: no-repeat;
                             background-position: -100px;

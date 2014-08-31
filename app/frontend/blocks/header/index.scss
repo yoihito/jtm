@@ -106,7 +106,7 @@ $name: 'header';
                 top: 19px;
                 right: 21px;
                 position: absolute;
-                background-image: url(b-img('u-signup-plus.svg', $name));
+                background-image: image-url('header-u-signup-plus.svg');
                 }
             }
 
@@ -171,7 +171,7 @@ $name: 'header';
             top: 0;
             right: 0;
             position: absolute;
-            background: url(b-img('search-btn.svg', $name)) no-repeat 50% 9px;
+            background: image-url('header-search-btn.svg') no-repeat 50% 9px;
             border: 0;
             cursor: pointer;
 
@@ -182,7 +182,7 @@ $name: 'header';
         width: $header-height;
         height: $header-height;
         float: left;
-        background-image: url(g-img('hamburger.svg'));
+        background-image: image-url('icon-hamburger.svg');
         background-repeat: no-repeat;
         background-size: 58%; // delta - 14%
         background-position: 50%;

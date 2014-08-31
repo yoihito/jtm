@@ -34,7 +34,7 @@ $name: 'info';
             top: 0;
             left: 0;
             position: absolute;
-            background-image: url(b-img('title-bg.svg', $name));
+            background-image: image-url('info-title-bg.svg');
             background-size: 331px;
             background-position: 50% -3px;
             }
@@ -47,7 +47,7 @@ $name: 'info';
             top: 0;
             left: 0;
             position: absolute;
-            background-image: url(b-img('title.svg', $name));
+            background-image: image-url('info-title.svg');
             background-size: 331px;
             background-position: 50% -3px;
             }

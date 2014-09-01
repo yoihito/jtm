@@ -29,6 +29,7 @@ group :development do
   gem 'capistrano-rails',   '~> 1.1', require: false
   gem 'capistrano-bundler', '~> 1.1', require: false
   gem 'capistrano-rvm',   '~> 0.1', require: false
+  gem 'rack-mini-profiler', require: false
 end
 
 group :test, :development do

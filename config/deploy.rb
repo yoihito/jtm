@@ -10,7 +10,7 @@ set :use_sudo, :false
 
 set :scm, "git"
 set :repo_url, "git@github.com:yoihito/jtm.git"
-set :branch, "deploy"
+set :branch, "master"
 
 set :format, :pretty
 set :log_level, :debug

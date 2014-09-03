@@ -15,6 +15,10 @@
                     .on( 'tap', '.js-test-answ', function( e ) {
                         that.newAnswer.call( this, e, that );
                     })
+                    .on( 'tap', '.js-test-openCard', function( e ) {
+                        that.openCard.call( this, e, that );
+                    })
+                    .on( 'tap', '.item-market a', that.openCard_fix )
                     .on( 'tap', '.js-test-setRating', function( e ) {
                         that.setRating.call( this, e, that );
                     });
@@ -53,6 +57,14 @@
             app.Model.Test.save( { store: store, testId: testId }, function() {
                 window.location.href = app.utils.route_get( contrlName, 'saveAfter', { id: testId } );
             });
+        },
+
+        openCard: function( e, contrl ) {
+            window.location.href = app.utils.route_get( 'tests', 'show', { id: $( this ).attr( 'data-testid' ) } );
+        },
+
+        openCard_fix: function( e ) {
+            e.stopPropagation();
         },
 
         setRating: function( e, contrl ) {

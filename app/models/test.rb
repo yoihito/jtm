@@ -12,4 +12,14 @@ class Test < ActiveRecord::Base
       self.user_answers.where(user_id: current_user.id).count > 0
 	end
 
+	def upvote
+		self.rating+=1
+		self.save
+	end
+
+	def downvote
+		self.rating-=1
+		self.save
+	end
+
 end

@@ -87,17 +87,17 @@
                     bottom: 42px;
                     left: 15px;
                     position: absolute;
-                    opacity: .9;
+                    // opacity: .9;
 
                     @include transit(1/2) {
                         transition-property: opacity;
                     };
 
-                    &:hover .item-rating-item-market {
-                        background-position: 0 3px;
-                        }
+                    // &:hover .item-rating-item-market {
+                    //     background-position: 0 3px;
+                    //     }
 
-                    &:hover ~ .details-item-market { @extend .details_hid-item-market; }
+                    // &:hover ~ .details-item-market { @extend .details_hid-item-market; }
 
                     &._setted {
                         opacity: 1;

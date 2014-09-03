@@ -171,3 +171,26 @@ $test-borderRadius: 5px;
             .pic-slide-newtest {
                 float: right;
                 }
+
+    .footer-newtest {
+        // padding: 20px;
+        }
+
+        .inpt_submit-form-newtest {
+            @include resetInput;
+
+            width: $test-width;
+            padding: 20px;
+
+            border-radius: 0 0 $test-borderRadius $test-borderRadius;
+            background-color: $color-green;
+            cursor: pointer;
+
+            color: #fff;
+            font-size: 20px;
+            font-family: $font-meta;
+
+            &:hover {
+                background-color: lighten($color-green, 3%);
+                }
+            }

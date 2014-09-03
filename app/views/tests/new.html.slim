@@ -21,6 +21,11 @@ section.content._wo_info
               a.pic-slide-newtest.js-newtest-addPic href="" Add pic
               .wrapper-inpt_slide-form-newtest
                 = s.text_field :question, class: 't_inpt inpt_slide-form-newtest'
+
+      .footer-newtest
+        = f.submit 'Create test', class: 'inpt_submit-form-newtest'
+
+
 	/.tests
 		= form_for @test, html: {class: 'form newtest'} do |f|
 			= f.label :title

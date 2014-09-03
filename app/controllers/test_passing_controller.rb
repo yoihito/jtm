@@ -1,7 +1,7 @@
 class TestPassingController < ApplicationController
 	def get
-		@slides = Test.find(params[:id]).slides
-		
+		@test = Test.find(params[:id])
+    @slides = @test.slides
 	end
 
 	def save

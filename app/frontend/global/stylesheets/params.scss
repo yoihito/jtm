@@ -16,6 +16,12 @@ $font-default: Arial;
 $font-oriya: 'Oriya_MN', $font-default;
 $font-meta: 'PT Sans', sans-serif, $font-default;
 
+$color-blue: #2c6bec;
+$color-green: #63990d;
+$color-red: #9f4747;
+$color-gray: #b3b3b3;
+$color-brown: #605846;
+
 // Header
 $header-height: 84px;
 $header-bgcol: #222;
@@ -28,6 +34,11 @@ $menu-bgcol: #fff;
 
 // Signup
 $signup-bgcol: #a99a7c;
+
+// Test
+$test-width: 620px;
+
+//
 
 $anim-dur: .2s;
 $anim-fn: cubic-bezier(.4, 0, .2, 1);

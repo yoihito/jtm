@@ -172,8 +172,8 @@
                     text-align: center;
 
                     $colors: (
-                        blue: #2c6bec,
-                        green: #63990d
+                        blue: $color-blue,
+                        green: $color-green
                         );
 
                     @each $colorName, $color in $colors {

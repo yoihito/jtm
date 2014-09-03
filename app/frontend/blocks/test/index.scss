@@ -1,0 +1,15 @@
+@import '../_merge';
+
+.test {
+    width: $test-width;
+    margin: 0 auto 20px;
+    }
+
+    .title-test {
+        margin-left: 20px;
+        padding: 50px 0 20px;
+
+        color: #fff;
+        font-family: $font-meta;
+        text-shadow: 0 1px 0 #444;
+        }

@@ -7,19 +7,37 @@ class Test < ActiveRecord::Base
 	belongs_to :author, polymorphic: true
 	has_many :user_answers
 	has_many :users, through: :user_answers
+	has_and_belongs_to_many :voters, class_name: "User"
 
 	def is_passed?(current_user)
-      self.user_answers.where(user_id: current_user.id).count > 0
+	  if current_user
+      	self.user_answers.where(user_id: current_user.id).count > 0
+   	  else 
+   	  	false
+   	  end
 	end
 
-	def upvote
-		self.rating+=1
-		self.save
+	def upvote(current_user)
+
+	  if current_user and self.voters.where(id: current_user.id).count == 0 
+	  	self.voters<<current_user
+	  	self.rating=self.rating.next
+	    self.save
+	    true
+	  else 
+	  	false
+	  end
 	end
 
-	def downvote
-		self.rating-=1
-		self.save
+	def downvote(current_user)
+	  if current_user and self.voters.where(id: current_user.id).count == 0 
+	  	self.voters<<current_user
+      	self.rating=self.rating.pred
+	  	self.save
+	  	true
+	  else
+	  	false
+	  end
 	end
 
 end

@@ -9,6 +9,16 @@ class TestsController < ApplicationController
 	def update
 	end
 
+	def upvote
+		@test = Test.find(params[:id])
+		@test.upvote
+	end
+
+	def downvote
+		@test = Test.find(params[:id])
+		@test.downvote
+	end
+
 	def destroy
 	end
 

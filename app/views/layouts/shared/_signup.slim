@@ -49,7 +49,7 @@
         input type="checkbox" class="inpt_checkbox-signup" checked="on" id="inpt_checkbox-signup"
         label.label-signup for="inpt_checkbox-signup"
           span.descr_checkbox-signup Show password
-        /label.label-signup
+        label.label-signup
           = f.password_field :password_confirmation, class: 't_inpt inpt_paswd-signup', placeholder: 'Confirm password'
 
         = f.submit 'Sign up', class: 't_inpt inpt_submt-signup'

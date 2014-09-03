@@ -2,7 +2,7 @@ section.content._wo_info
   .market
     / - 3.times
     - @tests.each do |test|
-      .item-market
+      .item-market.js-test-openCard data-testid=test.id
         .content-item-market
           .meta-content-item-market
             h2.title-item-market = test.title

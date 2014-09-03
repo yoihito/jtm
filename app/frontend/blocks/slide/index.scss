@@ -1,7 +1,147 @@
 @import '../_merge';
 
+$slide-borderRadius: 5px;
+
 .slide {}
 
 .slide_hid {
     display: none;
     }
+
+    .content-slide {
+        position: relative;
+
+        border-radius: $slide-borderRadius $slide-borderRadius 0 0;
+        background-color: #fff;
+        }
+
+        .author-slide {
+            top: -15px;
+            right: -15px;
+            position: absolute;
+            }
+
+            .link-author-slide {
+                // display: inline;
+                }
+
+                .name-author-slide {
+                    margin: 30px 20px 10px 0;
+                    float: right;
+
+                    line-height: 20px;
+                    font-size: 14px;
+                    color: #444;
+                    font-family: $font-oriya;
+                    }
+
+                .pic-author-slide {
+                    width: 60px;
+                    height: 60px;
+                    float: right;
+
+                    border-radius: 80px;
+                    }
+
+        .title-slide {
+            padding: 40px 65px 20px 20px;
+
+            font-family: $font-meta;
+            font-size: 30px;
+            }
+
+        .pic-slide {}
+
+            .img-pic-slide {
+                width: 100%;
+
+                display: block;
+                }
+
+    .description-slide {
+        padding: 20px;
+
+        border-bottom: 1px solid #f3f3f3;
+        background-color: #fff;
+
+        color: #444;
+        line-height: 20px;
+        font-size: 16px;
+        font-family: $font-meta;
+        }
+
+    .contrls-slide {
+        padding: 20px;
+
+        border-radius: 0 0 $slide-borderRadius $slide-borderRadius;
+        background-color: #fff;
+
+        text-align: center;
+        font-size: 0;
+        }
+
+        .item-contrls-slide {
+            width: 120px;
+            margin: 0 10px;
+            display: inline-block;
+
+            border-radius: $slide-borderRadius;
+
+            font-size: 20px;
+            color: #fff;
+            text-decoration: none;
+            line-height: 40px;
+            font-family: $font-meta;
+            font-weight: bold;
+
+            $vars: (
+                yes: $color-green,
+                no: $color-red,
+                maybe: $color-gray
+                );
+
+            @each $var, $color in $vars {
+                &[href*='answer-#{$var}'] {
+                    background-color: $color;
+                    text-shadow: 0 1px 0 darken($color, 10%);
+                }
+            }
+            }
+
+    .share-slide {
+        @extend .clearfix;
+
+        margin-top: 20px;
+        padding: 20px;
+
+        border-radius: $slide-borderRadius;
+        background-color: #c4bdae;
+
+        color: $color-brown;
+        line-height: 40px;
+        }
+
+        .title-share-slide {
+            width: 80px;
+            float: left;
+
+            font-size: 20px;
+            font-family: $font-meta;
+            }
+
+        .inpt-share-slide {
+            @include resetInput;
+
+            width: $test-width - 40px - 80px;
+            height: 40px;
+            padding: 10px;
+            float: left;
+
+            border-radius: $slide-borderRadius - 2;
+            box-sizing: border-box;
+            outline-style: none;
+
+            font-size: 18px;
+            font-family: $font-meta;
+            color: #444;
+            }

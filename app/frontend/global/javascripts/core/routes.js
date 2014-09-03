@@ -5,6 +5,7 @@
     app.routes = {
 
         tests: {
+            show: '/tests/pass/:id',
             save: '/tests/save/:id',
             saveAfter: '/tests/result/:id',
             upvote: '/tests/upvote/:id',

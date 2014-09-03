@@ -1,5 +1,5 @@
 class MarketController < ApplicationController
   def index
-  	@tests = Test.all
+  	@tests = Test.includes(:user_answers).all
   end
 end

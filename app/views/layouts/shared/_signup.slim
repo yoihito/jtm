@@ -40,7 +40,7 @@
       / .divider-group-cont-signup or
 
       = form_for :user, url: registration_path(:user), html: {class: 'form-signup'} do |f|
-        / label.label-signup
+        label.label-signup
           = f.text_field :name, class: 't_inpt inpt_txt-signup', placeholder: 'Your name', required: true
         label.label-signup
           = f.email_field :email, class: 't_inpt inpt_email-signup', placeholder: 'Your email'
@@ -50,6 +50,6 @@
         label.label-signup for="inpt_checkbox-signup"
           span.descr_checkbox-signup Show password
         /label.label-signup
-          = f.password_field :password_confirmation, class: 't_inpt inpt_paswd-signup', placeholder: 'Confirm password'
+         / = f.password_field :password_confirmation, class: 't_inpt inpt_paswd-signup', placeholder: 'Confirm password'
 
         = f.submit 'Sign up', class: 't_inpt inpt_submt-signup'

@@ -1,4 +1,4 @@
-class UserAnswers < ActiveRecord::Base
+class UserAnswer < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :test
 end

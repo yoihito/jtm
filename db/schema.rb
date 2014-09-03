@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140827110712) do
+ActiveRecord::Schema.define(version: 20140903154551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -81,12 +81,21 @@ ActiveRecord::Schema.define(version: 20140827110712) do
     t.integer  "author_id"
     t.string   "author_type"
     t.boolean  "has_background"
-    t.integer  "rating"
-    t.integer  "answers_count"
-    t.boolean  "published"
+    t.integer  "rating",               default: 0
+    t.integer  "answers_count",        default: 0
+    t.boolean  "published",            default: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "category_id"
+    t.string   "picture_file_name"
+    t.string   "picture_content_type"
+    t.integer  "picture_file_size"
+    t.datetime "picture_updated_at"
+  end
+
+  create_table "tests_users", id: false, force: true do |t|
+    t.integer "test_id", null: false
+    t.integer "user_id", null: false
   end
 
   create_table "user_answers", force: true do |t|
@@ -100,17 +109,24 @@ ActiveRecord::Schema.define(version: 20140827110712) do
   create_table "users", force: true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "email",                  default: "", null: false
-    t.string   "encrypted_password",     default: "", null: false
+    t.string   "email",                  default: "",   null: false
+    t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          default: 0,  null: false
+    t.integer  "sign_in_count",          default: 0,    null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
     t.integer  "roles_mask"
+    t.string   "name"
+    t.json     "profile",                default: {}
+    t.string   "language",               default: "en"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

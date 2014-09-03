@@ -5,4 +5,9 @@ class Test < ActiveRecord::Base
 	belongs_to :author, polymorphic: true
 	has_many :user_answers
 	has_many :users, through: :user_answers
+
+	def is_passed?(current_user)
+      self.user_answers.where(user_id: current_user.id).count > 0
+	end
+
 end

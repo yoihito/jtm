@@ -1,7 +1,7 @@
 section.content._wo_info
   .newtest
     h3.title-newtest Create new test
-    = form_for @test, html: {class: 'form-newtest'} do |f|
+    = form_for @test, html: {class: 'form-newtest', multipart: true} do |f|
       .content-newtest
         label.label-form-newtest
           p.descr_pre-form-newtest 1. Please, say about what your test in one sentence
@@ -10,7 +10,7 @@ section.content._wo_info
           p.descr_pre-form-newtest 2. With cover test will look prettier
           a.choose-cover-newtest.js-newtest-chooseCover href="" Choose cover
           span.descr-cover-newtest.js-newtest-nameCover Recommend size: 280x280
-          = f.file_field :cover, hidden: 'true', class: 'js-newtest-cover'
+          = f.file_field :picture, hidden: 'true', class: 'js-newtest-cover'
 
       .slides-newtest
         p.descr_pre-form-newtest 3. Add your questions

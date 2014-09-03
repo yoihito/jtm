@@ -11,14 +11,15 @@ class Test < ActiveRecord::Base
 
 	def is_passed?(current_user)
 	  if current_user
-      	self.user_answers.where(user_id: current_user.id).count > 0
+	  	id = self.user_answers.index{ |x| x.id == self.id}
+	  	id != nil
    	  else 
    	  	false
    	  end
 	end
 
 	def users_answered
-		self.user_answers.count
+		self.user_answers.size
 	end
 
 	def author_name
@@ -30,7 +31,7 @@ class Test < ActiveRecord::Base
 	end
 
 	def get_rating
-		self.voters.count>0 ? ((self.rating.to_f/self.voters.count)*5).to_i : 0
+		self.voters.size>0 ? ((self.rating.to_f/self.voters.size)*5).to_i : 0
 	end
 
 	def upvote(current_user, value)

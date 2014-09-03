@@ -6,7 +6,7 @@ header.header
 
     .u-header
       - if user_signed_in?
-        = link_to image_tag('avatar-50.jpg', {alt: '', class: 'img-avatar-u-header'}), '', {class: 'avatar-u-header'}
+        = link_to image_tag(current_user.avatar.url, {alt: '', class: 'img-avatar-u-header'}), '', {class: 'avatar-u-header'}
 
       - else
         = link_to 'Sign up', '', {class: 'signup-u-header js-signup-show'}

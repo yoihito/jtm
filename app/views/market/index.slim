@@ -18,7 +18,7 @@ section.content._wo_info
             .author-item-market
               | By
               = link_to 'TOP10', '', {class: 'link-author-item-market'}
-            = link_to 'Test me!', try_test_path(test), {class: 'test-item-market _blue'}
+            = link_to 'Test me!', try_test_path(test), {class: 'test-item-market '+(test.is_passed?(current_user) ? '_green': '_blue') }
             .details-item-market Click for details
           .bg-content-item-market
             = image_tag 'fish/001.jpg', {class: 'img-bg-content-item-market'}

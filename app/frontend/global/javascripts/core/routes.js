@@ -7,7 +7,8 @@
         tests: {
             save: '/tests/save/:id',
             saveAfter: '/tests/result/:id',
-            setRating: '/tests/set_rating/:id'
+            upvote: '/tests/upvote/:id',
+            downvote: '/tests/downvote/:id'
         },
 
         default_type: 'post',

@@ -21,9 +21,19 @@ class Test < ActiveRecord::Base
 		self.user_answers.count
 	end
 
+	def author_name
+		if self.author
+			self.author.class_name
+		else
+			'noname'
+		end
+	end
 
-	def upvote(current_user)
+	def get_rating
+		self.voters.count>0 ? ((self.rating.to_f/self.voters.count)*5).to_i : 0
+	end
 
+	def upvote(current_user, value)
 	  if current_user and self.voters.where(id: current_user.id).count == 0 
 	  	self.voters<<current_user
 	  	self.rating=self.rating.next

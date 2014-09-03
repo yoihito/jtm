@@ -7,7 +7,7 @@ section.content._wo_info
           .meta-content-item-market
             h2.title-item-market = test.title
             .us-item-market
-              b 
+              b
               ' #{test.users_answered} users
             .rating-item-market
               - stars_count = test.get_rating
@@ -18,7 +18,10 @@ section.content._wo_info
             .author-item-market
               | By
               = link_to (test.author_name), '', {class: 'link-author-item-market'}
-            = link_to 'Test me!', try_test_path(test), {class: 'test-item-market '+(test.is_passed?(current_user) ? '_green': '_blue') }
+            - if test.is_passed?(current_user)
+              = link_to 'Results', try_test_path(test), {class: 'test-item-market _green' }
+            - else
+              = link_to 'Test me', try_test_path(test), {class: 'test-item-market _blue' }
             .details-item-market Click for details
           .bg-content-item-market
             = image_tag test.picture.url, {class: 'img-bg-content-item-market'}

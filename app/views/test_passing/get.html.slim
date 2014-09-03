@@ -1,18 +1,27 @@
-section.content
+section.content._wo_info
+
   /- Test ID:
-  .test data-id="1"
+  .test data-id=@test.id
+    h2.title-test = @test.title
+
     .list-test
       - @slides.each_with_index do |slide, i|
         .slide(class="#{ 'slide_hid' if i != 0 }")
-          .title-slide
-            = slide.question
+          .content-slide
+            .author-slide
+              a.link-author-slide href=''
+                = image_tag '', {class: 'pic-author-slide'}
+                span.name-author-slide Vadim Gribanov
+            .title-slide = slide.question
+            .pic-slide
+              = image_tag 'fish/002.jpg', {class: 'img-pic-slide'}
+          p.description-slide Something about this slide
           .contrls-slide
             a.item-contrls-slide.js-test-answ rel="1" href="#answer-yes" Yes
             a.item-contrls-slide.js-test-answ rel="2" href="#answer-no" No
             a.item-contrls-slide.js-test-answ rel="3" href="#answer-maybe" Maybe
 
-section.info
-  h3.title_main-info
-    span.txt-title_main-info Recommendations
-
-.bg-main
+          .share-slide
+            label
+              .title-share-slide Share
+              input.inpt-share-slide type="text" value="/tests/pass/#{@test.id}"

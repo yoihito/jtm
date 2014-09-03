@@ -87,6 +87,8 @@ $test-borderRadius: 5px;
                     }
 
             .cover-newtest {
+                @extend .clearfix;
+
                 color: $color-brown;
                 }
 
@@ -101,7 +103,7 @@ $test-borderRadius: 5px;
                     height: 42px;
                     padding: 0 10px;
                     margin-right: 10px;
-                    display: inline-block;
+                    float: left;
 
                     border-radius: $test-borderRadius;
                     background-color: #c9bfa9;
@@ -114,6 +116,13 @@ $test-borderRadius: 5px;
                     }
 
                 .descr-cover-newtest {
+                    height: 42px;
+                    max-width: $test-width - 200;
+                    display: inline-block;
+                    // float: left;
+
+                    overflow: hidden;
+
                     font-size: 14px;
                     line-height: 42px;
                     }
@@ -128,8 +137,10 @@ $test-borderRadius: 5px;
 
         .content-slides-newtest {
             padding: 20px;
+            position: relative;
 
             background-color: #f3f3f3;
+            overflow: hidden;
             }
 
             .slide-newtest {
@@ -166,6 +177,11 @@ $test-borderRadius: 5px;
                 outline-style: none;
 
                 font-size: 20px;
+                }
+
+            .inpt_slidePic-form-newtest {
+                right: -300px;
+                position: absolute;
                 }
 
             .pic-slide-newtest {

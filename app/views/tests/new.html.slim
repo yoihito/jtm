@@ -8,9 +8,9 @@ section.content._wo_info
           = f.text_field :title, class: 't_inpt inpt-form-newtest', placeholder: 'Example: "Top 10 Most Read Books in the World"'
         .cover-newtest
           p.descr_pre-form-newtest 2. With cover test will look prettier
-          a.choose-cover-newtest href="" Choose cover
-          span.descr-cover-newtest Recommend size: 280x280
-          = f.file_field :cover, hidden: 'true'
+          a.choose-cover-newtest.js-newtest-chooseCover href="" Choose cover
+          span.descr-cover-newtest.js-newtest-nameCover Recommend size: 280x280
+          = f.file_field :cover, hidden: 'true', class: 'js-newtest-cover'
 
       .slides-newtest
         p.descr_pre-form-newtest 3. Add your questions
@@ -18,7 +18,8 @@ section.content._wo_info
           = f.fields_for :slides do |s|
             .slide-newtest
               b.num-slide-newtest #{s.index+1}.
-              a.pic-slide-newtest.js-newtest-addPic href="" Add pic
+              a.pic-slide-newtest.js-newtest-addPic href="" rel=s.index Add pic
+              = s.file_field :slide_cover, class: "inpt_slidePic-form-newtest js-newtest-slidePic_#{s.index}"
               .wrapper-inpt_slide-form-newtest
                 = s.text_field :question, class: 't_inpt inpt_slide-form-newtest'
 

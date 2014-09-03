@@ -11,7 +11,8 @@ class Test < ActiveRecord::Base
 
 	def is_passed?(current_user)
 	  if current_user
-	  	id = self.user_answers.index{ |x| x.id == self.id}
+
+	  	id = self.user_answers.index{ |x| x.user_id == current_user.id}
 	  	id != nil
    	  else 
    	  	false

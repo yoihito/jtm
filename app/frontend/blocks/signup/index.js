@@ -9,6 +9,10 @@
         this.addEventListeners();
 
         this.Shadow = new window.app.data.ModShadow();
+
+        if ( $('#inpt_checkbox-signup').is(':checked') ) {
+            $('.inpt_paswd-signup').prop('type', 'text');
+        }
     }
 
     Mod.prototype = {};
@@ -44,6 +48,11 @@
                 e.preventDefault();
 
                 Mod.hide();
+            })
+            .on('change', '#inpt_checkbox-signup', function(e) {
+                var type = $(this).is(':checked') ? 'text' : 'password';
+
+                $('.inpt_paswd-signup').prop('type', type);
             })
     };
 

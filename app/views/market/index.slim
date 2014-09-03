@@ -1,9 +1,29 @@
-section.content
-	- @tests.each do |test|
-		a href="#{try_test_path(test)}" #{test.title}
+section.content._wo_info
+  .market
+    / - 3.times
+    - @tests.each do |test|
+      .item-market
+        .content-item-market
+          .meta-content-item-market
+            h2.title-item-market = test.title
+            .us-item-market
+              b 17 046
+              '  users
+            .rating-item-market
+              - stars_count = 3
+              - stars_count.times
+                = link_to '', '', {class: 'item-rating-item-market _active js-test-setRating', 'data-testid' => test.id}
+              - (5 - stars_count).times
+                = link_to '', '', {class: 'item-rating-item-market js-test-setRating', 'data-testid' => test.id}
+            .author-item-market
+              | By
+              = link_to 'TOP10', '', {class: 'link-author-item-market'}
+            = link_to 'Test me!', try_test_path(test), {class: 'test-item-market _blue'}
+            .details-item-market Click for details
+          .bg-content-item-market
+            = image_tag 'fish/001.jpg', {class: 'img-bg-content-item-market'}
+        .discuss-item-market
 
-section.info
+/section.info
   h3.title_main-info
     span.txt-title_main-info Recommendations
-
-.bg-main

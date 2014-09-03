@@ -14,6 +14,17 @@
                 },
                 success: callback
             });
+        },
+
+        setRating: function( data, callback ) {
+            var url = app.utils.route_get( 'tests', 'setRating', { id: data.testId } );
+
+            app.utils.ajax( url, {
+                data: {
+                    value: data.value
+                },
+                success: callback
+            });
         }
     });
 

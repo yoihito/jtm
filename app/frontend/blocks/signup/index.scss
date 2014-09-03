@@ -228,6 +228,10 @@
                     }
                 }
 
+    .form-signup {
+        margin-top: 30px;
+        }
+
         .label-signup {
             margin: 0 19px 14px;
             display: inline-block;
@@ -252,6 +256,63 @@
                     color: #81745c;
                     }
                 }
+
+                .inpt_checkbox-signup {
+                    position: absolute;
+                    visibility: hidden;
+
+                    & + label {
+                        top: -5px;
+                        padding-left: 30px;
+                        margin-bottom: 30px;
+                        position: relative;
+
+                        font-size: 14px;
+                        color: #4c4436;
+                        line-height: 24px;
+
+                        &:before {
+                            @include pseudo;
+
+                            width: 24px;
+                            height: 24px;
+                            top: 0;
+                            left: 0;
+                            position: absolute;
+
+                            border-radius: 6px;
+                            background-color: #c7ba9f;
+
+                            cursor: pointer;
+                            }
+
+                        &:after {
+                            @include pseudo;
+
+                            width: 37px;
+                            height: 31px;
+                            top: 3px;
+                            left: 2px;
+                            position: absolute;
+
+                            background-image: asset-url('signup-checkbox_on.svg');
+                            background-size: 25px;
+                            background-repeat: no-repeat;
+                            background-position: -100px;
+
+                            cursor: pointer;
+                            }
+
+                        }
+
+                    &:checked + label:after {
+                        background-position: 0 0;
+                        }
+                    }
+
+                .inpt_email-signup {
+                    @extend .inpt-signup;
+                    }
 
                 .inpt_txt-signup {
                     @extend .inpt-signup;

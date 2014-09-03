@@ -1,0 +1,204 @@
+@import '../_merge';
+
+.market {
+    padding-top: 35px;
+    font-size: 0;
+    }
+
+    .item-market {
+        width: 280px;
+        margin: 0 20px 35px 20px;
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        cursor: pointer;
+
+        border-radius: 5px;
+        box-shadow: 0 0 10px rgba(#000, .5);
+
+        &:hover {
+            .details-item-market {
+                top: -30px;
+                opacity: 1;
+                }
+            }
+        }
+
+        .content-item-market {
+            position: relative;
+            }
+
+            .meta-content-item-market {
+                width: 100%;
+                // min-height: 2 * 32px + 15px + 5px + 40;
+                padding-bottom: 30px + 30;
+                @include position(absolute, null null 0 0);
+                z-index: 150;
+
+                border-top: 1px solid transparent;
+                background-color: rgba(#000, .76);
+                box-shadow: inset 0 1px 0 rgba(#fff, .3), 0 0 150px rgba(#000, 1);
+                }
+
+                .details_hid-item-market {
+                    top: -16px;
+                    opacity: 0;
+                    }
+
+                .details-item-market {
+                    @extend .details_hid-item-market;
+
+                    width: 100%;
+                    position: absolute;
+
+                    font-size: 14px;
+                    font-family: $font-meta;
+                    color: #fff;
+                    text-align: center;
+
+                    @include transit {
+                        transition-property: top, opacity;
+                        transition-delay: .2s;
+                        }
+                    }
+
+                .title-item-market {
+                    padding: 10px 15px 0;
+
+                    color: #fff;
+                    font-family: $font-oriya;
+                    font-size: 24px;
+                    line-height: 32px;
+                    font-weight: normal;
+                    }
+
+                .us-item-market {
+                    padding: 5px 15px 5px;
+
+                    color: #fff;
+                    font-size: 12px;
+                    font-family: $font-meta;
+                    line-height: 15px;
+                    }
+
+                .rating-item-market {
+                    width: 5 * 14px + 5 * 6px;
+                    height: 12px;
+                    bottom: 42px;
+                    left: 15px;
+                    position: absolute;
+                    opacity: .9;
+
+                    @include transit(1/2) {
+                        transition-property: opacity;
+                    };
+
+                    &:hover .item-rating-item-market {
+                        background-position: 0 3px;
+                        }
+
+                    &:hover ~ .details-item-market { @extend .details_hid-item-market; }
+
+                    &._setted {
+                        opacity: 1;
+                        }
+                    }
+
+                    .item-rating-item-market {
+                        width: 13px;
+                        height: 12px;
+                        float: left;
+                        padding: 3px;
+
+                        background-image: asset-url('icon-star.png');
+                        background-repeat: no-repeat;
+                        background-position: 0 -15px;
+
+                        &._active {
+                            background-position: 0 3px;
+                            }
+
+                        &:hover ~ .item-rating-item-market {
+                            background-position: 0 -15px;
+                            }
+                        }
+
+                .author-item-market {
+                    width: 100%;
+                    height: 29px;
+                    padding-left: 15px;
+                    bottom: 0;
+                    position: absolute;
+
+                    border-radius: 0 0 5px 5px;
+                    border-top: 1px solid #1d1d1d;
+                    background-color: #111;
+
+                    line-height: 29px;
+                    color: #666;
+                    font-size: 11px;
+                    font-family: $font-meta;
+
+                    &:hover ~ .details-item-market { @extend .details_hid-item-market; }
+                    }
+
+                    .link-author-item-market {
+                        margin-left: 4px;
+
+                        text-decoration: none;
+                        color: #999;
+
+                        &:hover {
+                            text-decoration: underline;
+                            }
+                        }
+
+                .test-item-market {
+                    width: 110px;
+                    right: 15px;
+                    bottom: 14px;
+                    position: absolute;
+
+                    border-radius: 3px;
+                    border: 1px solid #000;
+                    box-shadow: inset 0 0 0 1px rgba(#fff, .1);
+
+                    line-height: 32px;
+                    color: #fff;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-family: $font-meta;
+                    font-weight: bold;
+                    text-align: center;
+
+                    $colors: (
+                        blue: #2c6bec,
+                        green: #63990d
+                        );
+
+                    @each $colorName, $color in $colors {
+                        &._#{$colorName} {
+                            background-color: $color;
+
+                            &:hover {
+                                background-color: lighten($color, 5%);
+                                }
+                            }
+                        }
+
+                    &:hover ~ .details-item-market { @extend .details_hid-item-market; }
+                    }
+
+            .bg-content-item-market {
+                width: 100%;
+                padding-bottom: 30px;
+                z-index: 100;
+                overflow: hidden;
+
+                border-radius: 5px 5px 0 0;
+                }
+
+                .img-bg-content-item-market {
+                    width: 100%;
+                    display: block;
+                    }

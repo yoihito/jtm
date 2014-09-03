@@ -21,7 +21,7 @@ section.content._wo_info
             = link_to 'Test me!', try_test_path(test), {class: 'test-item-market '+(test.is_passed?(current_user) ? '_green': '_blue') }
             .details-item-market Click for details
           .bg-content-item-market
-            = image_tag 'fish/001.jpg', {class: 'img-bg-content-item-market'}
+            = image_tag test.picture.url, {class: 'img-bg-content-item-market'}
         .discuss-item-market
 
 /section.info

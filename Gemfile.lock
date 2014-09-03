@@ -280,7 +280,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   nokogiri (~> 1.6.1)
-  paperclip
+  paperclip (~> 4.2)
   pg (~> 0.17.1)
   pry-byebug
   quiet_assets

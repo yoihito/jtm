@@ -28,13 +28,13 @@ class TestsController < ApplicationController
 
 	def new
 		@test = Test.new
-		2.times { @test.slides.build }
+		10.times { @test.slides.build }
 	end
-	
-private 
+
+private
 
 	def test_params
-		params.require(:test).permit(:title, slides_attributes: [:id,:question])
+		params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question])
 	end
 
 

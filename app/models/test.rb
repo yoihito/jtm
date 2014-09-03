@@ -17,6 +17,11 @@ class Test < ActiveRecord::Base
    	  end
 	end
 
+	def users_answered
+		self.user_answers.count
+	end
+
+
 	def upvote(current_user)
 
 	  if current_user and self.voters.where(id: current_user.id).count == 0 

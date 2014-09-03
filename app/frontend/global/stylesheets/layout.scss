@@ -106,7 +106,12 @@
         }
 
 .content {
-    margin-right: 320px;
     position: relative;
     z-index: 300;
+
+    &._wo_info {}
+
+    &._w_info {
+        margin-right: 320px;
+        }
     }

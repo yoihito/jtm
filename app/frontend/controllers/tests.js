@@ -14,6 +14,9 @@
                 $( document )
                     .on( 'tap', '.js-test-answ', function( e ) {
                         that.newAnswer.call( this, e, that );
+                    })
+                    .on( 'tap', '.js-test-setRating', function( e ) {
+                        that.setRating.call( this, e, that );
                     });
             });
         },
@@ -49,6 +52,30 @@
 
             app.Model.Test.save( { store: store, testId: testId }, function() {
                 window.location.href = app.utils.route_get( contrlName, 'saveAfter', { id: testId } );
+            });
+        },
+
+        setRating: function( e, contrl ) {
+            e.preventDefault();
+
+            var
+                $this = $( this ),
+                $links = $this.parent().children(),
+                testid = _.parseInt( $this.attr( 'data-testid' ) ),
+                value = $this.index() + 1;
+
+            // @TODO: Need to check if rating already setted to `value`
+            app.Model.Test.setRating( { value: value, testId: testid }, function() {
+                // @TODO: Need to optimize next code
+                var $parent = $this.parent();
+                $parent.addClass( '_setted' );
+                setTimeout(function() {
+                    $parent.removeClass( '_setted' );
+                }, 200);
+                $links.removeClass( '_active' );
+                _.times( value, function( n ) {
+                    $links[ n ].classList.add( '_active' );
+                });
             });
         }
     });

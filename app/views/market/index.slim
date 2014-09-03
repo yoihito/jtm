@@ -12,9 +12,9 @@ section.content._wo_info
             .rating-item-market
               - stars_count = 3
               - stars_count.times
-                = link_to '', '', {class: 'item-rating-item-market _active'}
+                = link_to '', '', {class: 'item-rating-item-market _active js-test-setRating', 'data-testid' => test.id}
               - (5 - stars_count).times
-                = link_to '', '', {class: 'item-rating-item-market'}
+                = link_to '', '', {class: 'item-rating-item-market js-test-setRating', 'data-testid' => test.id}
             .author-item-market
               | By
               = link_to 'TOP10', '', {class: 'link-author-item-market'}

@@ -34,7 +34,7 @@ class TestsController < ApplicationController
 private
 
 	def test_params
-		params.require(:test).permit(:title, slides_attributes: [:id,:question])
+		params.require(:test).permit(:title, :avatar, slides_attributes: [:id,:question])
 	end
 
 

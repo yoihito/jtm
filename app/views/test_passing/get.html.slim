@@ -15,7 +15,8 @@ usection.content._wo_info
             .title-slide = slide.question
             .pic-slide
               = image_tag 'fish/002.jpg', {class: 'img-pic-slide'}
-          p.description-slide Something about this slide
+          - slide.description
+            p.description-slide = slide.description
           .contrls-slide
             a.item-contrls-slide.js-test-answ rel="1" href="#answer-yes" Yes
             a.item-contrls-slide.js-test-answ rel="2" href="#answer-no" No

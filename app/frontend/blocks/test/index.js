@@ -21,11 +21,7 @@
             .on( 'tap', '.js-newtest-addPic', function( e ) {
                 e.preventDefault();
 
-                var slideIndex = this.getAttribute( 'rel' );
-
-                console.log( '.js-newtest-slidePic_' + slideIndex );
-
-                $( '.js-newtest-slidePic_' + slideIndex ).trigger( 'click' );
+                $( '.js-newtest-slidePic_' + this.getAttribute( 'rel' ) ).trigger( 'click' );
             })
 
     });

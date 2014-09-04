@@ -3,8 +3,12 @@
 $test-borderRadius: 5px;
 
 .test {
-    width: $test-width;
+    width: 100%;
+    max-width: $test-width;
+    padding: 0 20px;
     margin: 0 auto 20px;
+
+    box-sizing: border-box;
     }
 
     .title-test {
@@ -18,8 +22,12 @@ $test-borderRadius: 5px;
 
 
 .newtest {
-    width: $test-width;
+    width: 100%;
+    max-width: $test-width;
+    padding: 0 20px;
     margin: 0 auto 20px;
+
+    box-sizing: border-box;
     }
 
     .title-newtest {
@@ -39,7 +47,7 @@ $test-borderRadius: 5px;
 
             .label-form-newtest {
                 margin-bottom: 30px;
-                display: inline-block;
+                display: block;
 
                 color: $color-brown;
                 }
@@ -67,7 +75,8 @@ $test-borderRadius: 5px;
                     }
 
                 .inpt-form-newtest {
-                    width: $test-width - 20 - 20;
+                    width: 100%;
+                    // width: $test-width - 20 - 20;
                     height: 42px;
                     padding: 0 10px;
 
@@ -75,6 +84,7 @@ $test-borderRadius: 5px;
                     border: 0;
                     background-color: #c9bfa9;
                     outline-style: none;
+                    box-sizing: border-box;
 
                     font-size: 16px;
                     font-family: $font-meta;
@@ -102,7 +112,6 @@ $test-borderRadius: 5px;
                 .choose-cover-newtest {
                     height: 42px;
                     padding: 0 10px;
-                    margin-right: 10px;
                     float: left;
 
                     border-radius: $test-borderRadius;
@@ -118,6 +127,7 @@ $test-borderRadius: 5px;
                 .descr-cover-newtest {
                     height: 42px;
                     max-width: $test-width - 200;
+                    margin-left: 10px;
                     display: inline-block;
                     // float: left;
 
@@ -162,10 +172,12 @@ $test-borderRadius: 5px;
 
             .wrapper-inpt_slide-form-newtest {
                 margin-left: 30px + 10px;
-                margin-right: 100px;
+                margin-right: 70px;
                 }
 
             .inpt_slide-form-newtest {
+                @include resetInput;
+
                 width: 100%;
                 height: 40px;
                 margin: 0;
@@ -195,7 +207,7 @@ $test-borderRadius: 5px;
         .inpt_submit-form-newtest {
             @include resetInput;
 
-            width: $test-width;
+            width: 100%;
             padding: 20px;
 
             border-radius: 0 0 $test-borderRadius $test-borderRadius;

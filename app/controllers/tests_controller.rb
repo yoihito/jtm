@@ -1,19 +1,20 @@
 class TestsController < ApplicationController
+	before_action :set_test, only: [:edit, :update,:upvote,:downvote]
+
 	def create
 		@test = Test.new(test_params)
 		@test.save
 	end
 
 	def update
+		@test.update(test_params)
 	end
 
 	def upvote
-		@test = Test.find(params[:id])
 		@test.upvote
 	end
 
 	def downvote
-		@test = Test.find(params[:id])
 		@test.downvote
 	end
 
@@ -26,6 +27,9 @@ class TestsController < ApplicationController
 	def index
 	end
 
+	def edit
+	end
+
 	def new
 		@test = Test.new
 		10.times { @test.slides.build }
@@ -34,7 +38,11 @@ class TestsController < ApplicationController
 private
 
 	def test_params
-		params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question])
+		params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question, :picture])
+	end
+
+	def set_test
+		@test = Test.find(params[:id])
 	end
 
 

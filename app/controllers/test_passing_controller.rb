@@ -5,9 +5,13 @@ class TestPassingController < ApplicationController
 	end
 
 	def save
-		@answers = UserAnswer.find_or_initialize_by(user_id: current_user.id, test_id: params[:id])
-		@answers.answers = answers_params
-		@answers.save
+		unless current_user.nil?
+			@answers = UserAnswer.find_or_initialize_by(user_id: current_user.id, test_id: params[:id])
+			@answers.answers = answers_params
+			@answers.save
+		else
+
+		end
 		render :nothing => true, :status => 200, :content_type => 'text/html'
 	end
 

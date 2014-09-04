@@ -3,7 +3,7 @@ class Test < ActiveRecord::Base
 	validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
 	translates :title,:description
 	has_and_belongs_to_many :slides
-	accepts_nested_attributes_for :slides
+	accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank?}
 	belongs_to :author, polymorphic: true
 	has_many :user_answers
 	has_many :users, through: :user_answers

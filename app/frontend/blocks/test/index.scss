@@ -3,8 +3,12 @@
 $test-borderRadius: 5px;
 
 .test {
-    width: $test-width;
+    width: 100%;
+    max-width: $test-width;
+    padding: 0 20px;
     margin: 0 auto 20px;
+
+    box-sizing: border-box;
     }
 
     .title-test {
@@ -18,7 +22,7 @@ $test-borderRadius: 5px;
 
 
 .newtest {
-    width: $test-width;
+    max-width: $test-width;
     margin: 0 auto 20px;
     }
 

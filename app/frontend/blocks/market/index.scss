@@ -2,7 +2,9 @@
 
 .market {
     padding-top: 35px;
+
     font-size: 0;
+    text-align: center;
     }
 
     .item-market {
@@ -15,6 +17,8 @@
 
         border-radius: 5px;
         box-shadow: 0 0 10px rgba(#000, .5);
+
+        text-align: left;
 
         &:hover {
             .details-item-market {

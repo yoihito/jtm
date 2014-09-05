@@ -57,7 +57,7 @@
     .footer-uedit
       button.t_inpt.submt_main-uedit tabindex="6" Save settigns
 
-= form_for '', html: {class: 'form-uedit'} do |f|
+= form_for @user, url: change_password_user_path(@user), html: {class: 'form-uedit'} do |f|
   .content-uedit
     p.descr_pre-form-newtest Also, you can change your password
 

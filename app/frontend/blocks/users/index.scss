@@ -20,7 +20,9 @@ $brad: 5px;
         text-shadow: 0 1px 0 #444;
         }
 
-    .form-uedit {}
+    .form-uedit {
+        margin-bottom: 30px;
+        }
 
         .content-uedit {
             padding: 20px 10px 0;
@@ -127,17 +129,31 @@ $brad: 5px;
                 @include resetInput;
 
                 width: 100%;
-                padding: 20px;
 
                 border-radius: 0 0 $brad $brad;
                 background-color: $color-green;
                 cursor: pointer;
 
                 color: #fff;
-                font-size: 20px;
                 font-family: $font-meta;
 
                 &:hover {
                     background-color: lighten($color-green, 3%);
                     }
+                }
+
+            .submt_main-uedit {
+                @extend .submt-uedit;
+
+                padding: 15px;
+
+                font-size: 16px;
+                }
+
+            .submt_paswd-uedit {
+                @extend .submt-uedit;
+
+                padding: 10px;
+
+                font-size: 16px;
                 }

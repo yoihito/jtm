@@ -25,7 +25,7 @@ class Test < ActiveRecord::Base
 
 	def author_name
 		if self.author
-			self.author.class_name
+			self.author.title
 		else
 			'noname'
 		end

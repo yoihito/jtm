@@ -1,0 +1,8 @@
+section.content._wo_info
+  .market
+    - @tests.each do |item|
+      = render 'item', {test: item}
+
+/section.info
+  h3.title_main-info
+    span.txt-title_main-info Recommendations

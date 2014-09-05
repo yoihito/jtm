@@ -1,8 +1,12 @@
 @import '../_merge';
 
 .info {
-    background: rgba(#fff, .05);
-    border-left: 1px solid rgba(#fff, .06);
+    background-color: rgba(#fff, .05);
+    box-shadow: inset 1px 0 0 rgba(#fff, .06);
+    }
+
+.info_brown {
+    background-color: $color-brown_light;
     }
 
     .title-info {
@@ -55,3 +59,37 @@
             position: relative;
             z-index: 200;
             }
+
+    .info_user {
+        margin-top: -30px;
+        }
+
+        .avatar-info_user {
+            width: 100%;
+            margin: auto;
+            }
+
+            .img-avatar-info_user {
+                width: 100%;
+                display: block;
+                }
+
+        .links-info_user {
+            margin: 30px 20px 20px;
+            }
+
+            .title-links-info_user {
+                margin-bottom: 10px;
+
+                font-size: 16px;
+                line-height: 20px;
+                font-family: $font-meta;
+                color: $color-brown;
+                }
+
+                .link-links-info_user {
+                    color: #444;
+                    text-decoration: none;
+                    font-size: 14px;
+                    font-family: $font-meta;
+                    }

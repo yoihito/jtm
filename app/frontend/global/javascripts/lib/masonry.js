@@ -1480,6 +1480,7 @@ Item.prototype.enableTransition = function(/* style */) {
   // }
   // enable transition styles
   // HACK always enable transform,opacity for IE10
+  console.log( this );
   this.css({
     transitionProperty: itemTransitionProperties,
     transitionDuration: this.layout.options.transitionDuration

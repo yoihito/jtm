@@ -1,6 +1,6 @@
 // Imported in all modules
 
-.btn {
+.soc {
     display: inline-block;
 
     border: 1px solid rgba(#000, .55);
@@ -12,21 +12,45 @@
     line-height: 20px;
     }
 
-    .btn_blue {
+    .soc_blue {
         background-color: #2c6bec;
 
         color: #fff;
         }
 
-    $btns: (
+    $socs: (
         fb: #617394,
         twitter: #4f92c1,
         instagram: #486272
         );
 
-    @each $name, $bgcol in $btns {
-        .btn_#{$name} {
+    @each $name, $bgcol in $socs {
+        .soc_#{$name} {
             background-image: linear-gradient(top, $bgcol, darken($bgcol, 2%));
+            }
+        }
+
+.btn {
+    display: inline-block;
+    }
+
+    $btns: (
+        green: $color-green,
+        blue: $color-blue
+        );
+
+    @each $name, $color in $btns {
+        .btn_#{$name} {
+            @extend .btn;
+
+            border-radius: 5px;
+            background-color: $color;
+
+            color: lighten($color, 50%);
+
+            &:hover {
+                background-color: lighten($color, 5%);
+                }
             }
         }
 

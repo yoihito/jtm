@@ -49,6 +49,11 @@
 
     .clearfix
 
+    .item-uedit
+      a.choose-cover-newtest.js-newtest-chooseCover href="" tabindex="2" Choose avatar
+      = f.file_field :picture, hidden: true, class: 'js-newtest-cover'
+      img.img-cover-newtest.js-newtest-srcCover src=@user.avatar.url alt=""
+
     .footer-uedit
       button.t_inpt.submt_main-uedit tabindex="6" Save settigns
 

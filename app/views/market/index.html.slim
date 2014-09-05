@@ -1,5 +1,7 @@
 - content_for :title, "Market"
 section.content._wo_info
+  = render '/layouts/shared/topline'
+
   - if @tests.empty?
     .warning_emptytests We haven't any test
   - else

@@ -1,5 +1,5 @@
 class PublishersController < ApplicationController
-  before_action :set_publisher, only: [:show, :edit, :update, :destroy]
+  before_action :set_publisher, only: [:show, :edit, :update, :destroy, :like, :dislike]
 
   # GET /publishers
   # GET /publishers.json
@@ -60,6 +60,15 @@ class PublishersController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def like
+    @publisher.like current_user
+  end
+
+  def dislike
+    @publisher.dislike current_user
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

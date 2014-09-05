@@ -1,4 +1,26 @@
-/@user.name
-- @user.passed_tests.each do |test|
-	= test.title
-/@user.avatar.url
+/ @user.name
+/ @user.passed_tests
+/ @user.avatar.url
+
+section.content._w_info
+  .market
+    - @user.passed_tests.each do |item|
+      = render '/market/item', {test: item}
+
+section.info.info_brown
+  h3.title_main-info
+    span.txt-title_main-info = @user.name || (current_user == @user ? 'Your Profile' : 'Profile')
+
+  .info_user
+    .avatar-info_user
+      = image_tag @user.avatar.url, {class: 'img-avatar-info_user'}
+
+    /.links-info_user
+      h4.title-links-info_user Links
+      ul.list-links-info_user
+        li
+          = link_to 'Facebook', '', {class: 'link-links-info_user'}
+        li
+          = link_to 'Facebook', '', {class: 'link-links-info_user'}
+        li
+          = link_to 'Facebook', '', {class: 'link-links-info_user'}

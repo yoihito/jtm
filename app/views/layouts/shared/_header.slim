@@ -6,7 +6,7 @@ header.header
 
     .u-header
       - if user_signed_in?
-        = link_to image_tag(current_user.avatar.url, {alt: '', class: 'img-avatar-u-header'}), '', {class: 'avatar-u-header'}
+        = link_to image_tag(current_user.avatar.url, {alt: '', class: 'img-avatar-u-header'}), current_user, {class: 'avatar-u-header'}
 
       - else
         = link_to 'Sign up', '', {class: 'signup-u-header js-signup-show'}
@@ -15,7 +15,7 @@ header.header
 
     h2.descr-header Your personal test for life
 
-    form.search-header action=""
+    /form.search-header action=""
       label.t_label
         input.t_inpt.inpt-search-header type="text" placeholder="Search"
         input.t_inpt.btn-search-header type="submit"

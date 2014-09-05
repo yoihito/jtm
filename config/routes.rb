@@ -15,8 +15,8 @@ Rails.application.routes.draw do
   resources :users
   resources :publishers do 
     member do 
-      get 'like'
-      get 'dislike'
+      post 'like'
+      post 'dislike'
     end
   end
   root 'market#index'

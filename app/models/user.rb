@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tests, as: :author
   has_many :user_answers
-  has_many :passed_tests, through: :user_answers, class_name: "Test"
+  has_many :passed_tests, through: :user_answers, source: :test
   has_and_belongs_to_many :voted_tests, class_name: "Test"
 
   def roles=(roles)

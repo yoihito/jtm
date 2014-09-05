@@ -6,11 +6,13 @@ class UsersController < ApplicationController
   end
 
   def edit
-  	
+
   end
 
   def update
-  	@user.update(user_params)
+  	@user.update_with_password(user_params)
+  	sign_in @user, :bypass => true
+  	render :edit
   end
 
 private
@@ -20,7 +22,7 @@ private
   end
 
   def user_params
-  	params.require(:user).permit(:name, :gender, :birthday, :password)
+  	params.require(:user).permit(:name, :current_password, :password, :language)
   end
 
 end

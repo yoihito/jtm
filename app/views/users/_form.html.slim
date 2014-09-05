@@ -1,0 +1,80 @@
+/= form_for @user do |f|
+	- @user.errors.full_messages.each do |msg|
+		= msg
+	= f.text_field :name
+	= f.text_field :language
+	= f.text_field :current_password
+	= f.text_field :password
+	= f.submit
+
+= form_for @user, html: {class: 'form-uedit'} do |f|
+  - @user.errors.full_messages.each do |msg|
+    .warning_form = msg
+  .content-uedit
+    .item-uedit
+      label.label-uedit
+        p.descr_pre-form-newtest Enter your name, people can get to know you
+      .wrapper-inpt-uedit
+        = f.text_field :name, { placeholder: 'Your Name', tabindex: '1', class: 't_inpt inpt-uedit' }
+        / input.t_inpt.inpt-uedit type="text" value=@user.name placeholder="Your Name" tabindex="1"
+
+    .item-uedit._half_l
+      label.label-uedit
+        p.descr_pre-form-newtest Select your gender
+      .wrapper-inpt-uedit
+        select.t_select.select-uedit tabindex="2"
+          option Custom
+          option Male
+          option Female
+
+    .item-uedit._half_r
+      label.label-uedit
+        p.descr_pre-form-newtest Your birthday
+      .wrapper-inpt-uedit
+        select.t_select.select_year-uedit tabindex="3"
+          option Year
+          option 1
+          option 2
+
+        select.t_select.select_month-uedit tabindex="4"
+          option Month
+          option 1
+          option 2
+
+        select.t_select.select_day-uedit tabindex="5"
+          option Day
+          option 1
+          option 2
+        / input.t_inpt.inpt-uedit type="text" value=@user.name placeholder="Your Name"
+
+    .clearfix
+
+    .item-uedit
+      a.choose-cover-newtest.js-newtest-chooseCover href="" tabindex="2" Choose avatar
+      = f.file_field :avatar, hidden: true, class: 'js-newtest-cover'
+      img.img-cover-newtest.js-newtest-srcCover src=@user.avatar.url alt=""
+
+    .footer-uedit
+      button.t_inpt.submt_main-uedit tabindex="6" Save settings
+
+= form_for @user, url: change_password_user_path(@user), html: {class: 'form-uedit'} do |f|
+  .content-uedit
+    p.descr_pre-form-newtest Also, you can change your password
+
+    .item-uedit._half_l
+      .wrapper-inpt-uedit
+        = f.text_field :current_password, { placeholder: 'Current password', tabindex: '7', class: 't_inpt inpt-uedit' }
+        / input.t_inpt.inpt-uedit type="password" placeholder="Current password" tabindex="6"
+    .item-uedit._half_r
+      .wrapper-inpt-uedit
+        = f.text_field :password, { placeholder: 'New password', tabindex: '8', class: 't_inpt inpt-uedit' }
+        / input.t_inpt.inpt-uedit.inpt_newPaswd-uedit type="password" placeholder="New password" tabindex="7"
+
+        input type="checkbox" class="inpt_checkbox-signup js-changeInptType" rel=".inpt_newPaswd-uedit" checked="on" id="inpt_checkbox-uedit"
+        label.label-signup for="inpt_checkbox-uedit"
+          span.descr_checkbox-signup Show password
+
+    .clearfix
+
+    .footer-uedit
+      button.t_inpt.submt_main-uedit tabindex="9" Change password

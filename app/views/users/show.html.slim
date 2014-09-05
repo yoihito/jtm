@@ -3,29 +3,14 @@
 / @user.avatar.url
 
 section.content._w_info
-  .market
-    - @user.passed_tests.each do |item|
-      = render '/market/item', {test: item}
+  - if @user.passed_tests.empty?
+    - if @user == current_user
+      .warning_emptytests Sorry, but you haven't passed tests yet :(
+    - else
+      .warning_emptytests Sorry, but #{@user.name} haven't passed tests yet :(
+  - else
+    .market
+      - @user.passed_tests.each do |item|
+        = render '/market/item', {test: item}
 
-section.info.info_brown
-  h3.title_main-info
-    span.txt-title_main-info = @user.name || (current_user == @user ? 'Your Profile' : 'Profile')
-
-  .info_user
-    .avatar-info_user
-      = image_tag @user.avatar.url, {class: 'img-avatar-info_user'}
-
-    - if current_user == @user
-      /.createPublic-info_user
-        a.link-createPublic-info_user href=new_publisher_path Create public
-
-
-    /.links-info_user
-      h4.title-links-info_user Links
-      ul.list-links-info_user
-        li
-          = link_to 'Facebook', '', {class: 'link-links-info_user'}
-        li
-          = link_to 'Facebook', '', {class: 'link-links-info_user'}
-        li
-          = link_to 'Facebook', '', {class: 'link-links-info_user'}
+= render 'info'

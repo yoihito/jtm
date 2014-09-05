@@ -1,0 +1,163 @@
+@import '../_merge';
+
+$brad: 5px;
+
+.uedit {
+    width: 100%;
+    max-width: $test-width;
+    padding: 0 20px;
+    margin: 0 auto 20px;
+
+    box-sizing: border-box;
+    }
+
+    .title-uedit {
+        margin-left: 20px;
+        padding: 50px 0 20px;
+
+        color: #fff;
+        font-family: $font-meta;
+        text-shadow: 0 1px 0 #444;
+        }
+
+    .form-uedit {
+        margin-bottom: 30px;
+        }
+
+        .content-uedit {
+            padding: 20px 10px 0;
+
+            border-radius: $brad;
+            background-color: $color-brown_light;
+
+            font-family: $font-meta;
+
+            .label-signup {
+                margin: 10px 0 0;
+                }
+            }
+
+            .item-uedit {
+                margin-bottom: 20px;
+
+                &._half {
+                    width: 50%;
+                    // padding: 0 10px;
+                    // margin: 0 -10px;
+                    float: left;
+
+                    box-sizing: border-box;
+
+                    @media screen and (max-width: 4 * $width-step-5) {
+                        width: 100%;
+                        padding: 0 !important;
+                        float: none;
+                        }
+                    }
+
+                &._half_l {
+                    @extend .item-uedit._half;
+
+                    padding-right: 10px;
+                    }
+                &._half_r {
+                    @extend .item-uedit._half;
+
+                    padding-left: 10px;
+                    }
+
+                .choose-cover-newtest {
+                    margin-bottom: 10px;
+                    }
+                }
+
+            .label-uedit {}
+
+            .wrapper-inpt-uedit {}
+
+            .select-uedit {
+                width: 100%;
+                height: 42px;
+                padding: 0 10px;
+                margin: 0;
+
+                border: 0;
+                background-color: #c9bfa9;
+
+                font-size: 14px;
+                color: #5c5443;
+                }
+
+            .select_year-uedit,
+            .select_month-uedit,
+            .select_day-uedit {
+                width: 32%;
+                height: 42px;
+                padding: 0 10px;
+                margin: 0 1% 0 0;
+
+                border: 0;
+                background-color: #c9bfa9;
+
+                font-size: 14px;
+                color: #5c5443;
+                }
+
+            .inpt-uedit {
+                width: 100%;
+                height: 42px;
+                padding: 0 10px;
+                margin: 0;
+
+                border: 0;
+                border-radius: $brad;
+                background-color: #c9bfa9;
+                box-sizing: border-box;
+                outline-style: none;
+
+                font-size: 16px;
+                font-family: $font-meta;
+                line-height: 20px;
+                color: #5c5443;
+
+                @include placeholder {
+                    color: lighten(#5c5443, 15%);
+                    }
+                }
+
+        .footer-uedit {
+            margin: 0 -10px;
+            }
+
+            .submt-uedit {
+                @include resetInput;
+
+                width: 100%;
+
+                border-radius: 0 0 $brad $brad;
+                background-color: $color-green;
+                cursor: pointer;
+
+                color: #fff;
+                font-family: $font-meta;
+
+                &:hover {
+                    background-color: lighten($color-green, 3%);
+                    }
+                }
+
+            .submt_main-uedit {
+                @extend .submt-uedit;
+
+                padding: 15px;
+
+                font-size: 16px;
+                }
+
+            .submt_paswd-uedit {
+                @extend .submt-uedit;
+
+                padding: 10px;
+
+                font-size: 16px;
+                }

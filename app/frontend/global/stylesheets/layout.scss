@@ -113,5 +113,9 @@
 
     &._w_info {
         margin-right: 320px;
+
+        @media screen and (max-width: 3 * $width-step-5) {
+            margin-right: 0;
+            }
         }
     }

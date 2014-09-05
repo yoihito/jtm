@@ -12,7 +12,11 @@ Rails.application.routes.draw do
   resources :questions
   resources :tests do
   end
-  resources :users
+  resources :users do 
+    member do
+      patch 'update/password', to: 'users#change_password', as: 'change_password'
+    end
+  end
   resources :publishers do 
     member do 
       get 'like'

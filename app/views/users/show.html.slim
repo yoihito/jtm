@@ -3,9 +3,12 @@
 / @user.avatar.url
 
 section.content._w_info
-  .market
-    - @user.passed_tests.each do |item|
-      = render '/market/item', {test: item}
+  - if @user.passed_tests.empty?
+    .warning_emptytests Sorry, but you haven't passed tests yet :(
+  - else
+    .market
+      - @user.passed_tests.each do |item|
+        = render '/market/item', {test: item}
 
 section.info.info_brown
   h3.title_main-info

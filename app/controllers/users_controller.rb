@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :change_password]
+  before_action :set_user, only: [:edit, :update, :change_password]
 
   def show
-
+    @user = User.includes(passed_tests:[:user_answers,:translations,:voters]).find(params[:id])
   end
 
   def edit
@@ -13,8 +13,8 @@ class UsersController < ApplicationController
   	@user.update(user_params)
   	render :edit
   end
-
-  def change_password
+ 
+ def change_password
   	@user.update_with_password(user_password_params)
   	sign_in @user, :bypass => true
   	render :edit

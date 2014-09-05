@@ -12,5 +12,6 @@ section.content._w_info
     .market
       - @user.passed_tests.each do |item|
         = render '/market/item', {test: item}
-
+  - @user.touched_publishers.each do |pub|
+  	= pub.title
 = render 'info'

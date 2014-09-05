@@ -3,7 +3,10 @@ html.html lang="en"
   head
     meta charset="utf-8"
 
-    title Just Test Me | #{yield(:title)}
+    - if yield(:title).empty?
+      title Just Test Me
+    - else
+      title #{yield(:title)} | Just Test Me
     meta name="description" content=""
 
     meta name="viewport" content="width=device-width,initial-scale=1.0,minimal-ui"

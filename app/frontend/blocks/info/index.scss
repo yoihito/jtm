@@ -95,6 +95,22 @@
                 line-height: 30px;
                 }
 
+        .setting-info_user {
+            margin: 20px;
+
+            text-align: center;
+            }
+
+            .link-setting-info_user {
+                // text-decoration: none;
+                font-family: $font-meta;
+                color: $color-brown;
+
+                &:hover {
+                    color: darken($color-brown, 10%);
+                    }
+                }
+
         .links-info_user {
             margin: 30px 20px 20px;
             }

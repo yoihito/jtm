@@ -1,1 +1,61 @@
-= render 'form'
+section.content._w_info
+  .uedit
+    h3.title-uedit Edit profile
+    form.form-uedit action=""
+      .content-uedit
+        .item-uedit
+          label.label-uedit
+            p.descr_pre-form-newtest Enter your name, people can get to know you
+          .wrapper-inpt-uedit
+            input.t_inpt.inpt-uedit type="text" value=@user.name placeholder="Your Name" tabindex="1"
+
+        .item-uedit._half_l
+          label.label-uedit
+            p.descr_pre-form-newtest Select your gender
+          .wrapper-inpt-uedit
+            select.t_select.select-uedit tabindex="2"
+              option Custom
+              option Male
+              option Female
+
+        .item-uedit._half_r
+          label.label-uedit
+            p.descr_pre-form-newtest Your birthday
+          .wrapper-inpt-uedit
+            select.t_select.select_year-uedit tabindex="3"
+              option Year
+              option 1
+              option 2
+
+            select.t_select.select_month-uedit tabindex="4"
+              option Month
+              option 1
+              option 2
+
+            select.t_select.select_day-uedit tabindex="5"
+              option Day
+              option 1
+              option 2
+            / input.t_inpt.inpt-uedit type="text" value=@user.name placeholder="Your Name"
+
+        .clearfix
+
+        p.descr_pre-form-newtest Also, you can change your password
+
+        .item-uedit._half_l
+          .wrapper-inpt-uedit
+            input.t_inpt.inpt-uedit type="password" placeholder="Current password" tabindex="6"
+        .item-uedit._half_r
+          .wrapper-inpt-uedit
+            input.t_inpt.inpt-uedit.inpt_newPaswd-uedit type="password" placeholder="New password" tabindex="7"
+
+            input type="checkbox" class="inpt_checkbox-signup js-changeInptType" rel=".inpt_newPaswd-uedit" checked="on" id="inpt_checkbox-uedit"
+            label.label-signup for="inpt_checkbox-uedit"
+              span.descr_checkbox-signup Show password
+
+        .clearfix
+
+        .footer-uedit
+          button.t_inpt.submt-uedit tabindex="8" Save settigns
+
+= render 'info'

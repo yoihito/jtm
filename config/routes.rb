@@ -10,7 +10,14 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :questions
-  resources :tests
+  resources :tests do
+  end
   resources :users
+  resources :publishers do 
+    member do 
+      get 'like'
+      get 'dislike'
+    end
+  end
   root 'market#index'
 end

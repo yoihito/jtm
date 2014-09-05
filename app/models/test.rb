@@ -9,10 +9,10 @@ class Test < ActiveRecord::Base
 	has_many :users, through: :user_answers
 	has_and_belongs_to_many :voters, class_name: "User"
 
-	def is_passed?(current_user)
-	  if current_user
+	def is_passed?(user)
+	  if user
 
-	  	id = self.user_answers.index{ |x| x.user_id == current_user.id}
+	  	id = self.user_answers.index{ |x| x.user_id == user.id}
 	  	id != nil
    	  else 
    	  	false
@@ -25,7 +25,7 @@ class Test < ActiveRecord::Base
 
 	def author_name
 		if self.author
-			self.author.class_name
+			self.author.title
 		else
 			'noname'
 		end
@@ -35,9 +35,9 @@ class Test < ActiveRecord::Base
 		self.voters.size>0 ? ((self.rating.to_f/self.voters.size)*5).to_i : 0
 	end
 
-	def upvote(current_user, value)
-	  if current_user and self.voters.where(id: current_user.id).count == 0 
-	  	self.voters<<current_user
+	def upvote(user, value)
+	  if user and self.voters.where(id: user.id).count == 0 
+	  	self.voters<<user
 	  	self.rating=self.rating.next
 	    self.save
 	    true
@@ -46,9 +46,9 @@ class Test < ActiveRecord::Base
 	  end
 	end
 
-	def downvote(current_user)
-	  if current_user and self.voters.where(id: current_user.id).count == 0 
-	  	self.voters<<current_user
+	def downvote(user)
+	  if user and self.voters.where(id: user.id).count == 0 
+	  	self.voters<<user
       	self.rating=self.rating.pred
 	  	self.save
 	  	true

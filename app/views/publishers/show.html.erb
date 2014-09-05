@@ -1,7 +1,9 @@
 <p id="notice"><%= notice %></p>
 
 <%= @publisher.likes.count %>
-
+<% @publisher.tests.each do |test| %>
+<%= test.title %>
+<% end %>
 
 <%= link_to 'Like', like_publisher_path(@publisher) %>
 <%= link_to 'Dislike', dislike_publisher_path(@publisher) %>

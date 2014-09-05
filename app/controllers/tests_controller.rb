@@ -32,7 +32,7 @@ class TestsController < ApplicationController
 
 	def new
 		@test = Test.new
-		10.times { @test.slides.build }
+		2.times { @test.slides.build }
 	end
 
 private

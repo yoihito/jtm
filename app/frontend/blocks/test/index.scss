@@ -137,8 +137,14 @@ $test-borderRadius: 5px;
                     line-height: 42px;
                     }
 
+                .img-cover-newtest {
+                    width: 100%;
+                    margin-top: 10px;
+                    display: block;
+                    }
+
     .slides-newtest {
-        margin-top: 10px;
+        // margin-top: 10px;
 
         .descr_pre-form-newtest {
             padding-left: 10px;
@@ -150,12 +156,13 @@ $test-borderRadius: 5px;
             position: relative;
 
             background-color: #f3f3f3;
-            overflow: hidden;
+            // overflow: hidden;
             }
 
             .slide-newtest {
                 height: 40px;
                 margin-bottom: 20px;
+                position: relative;
 
                 line-height: 40px;
                 }
@@ -198,8 +205,50 @@ $test-borderRadius: 5px;
                 }
 
             .pic-slide-newtest {
+                width: 60px;
                 float: right;
+
+                background-color: $color-brown_light;
+
+                text-align: center;
+                color: $color-brown;
+                font-family: $font-meta;
+                font-size: 14px;
+                text-decoration: none;
+                border-radius: $test-borderRadius
                 }
+
+            .img-slide-newtest {
+                height: 50px;
+                margin-top: - 50px / 2;
+                margin-bottom: 10px;
+                margin-left: 20px;
+                display: block;
+                top: 50%;
+                left: 100%;
+                position: absolute;
+                }
+
+        .append-slides-newtest {
+            width: 100%;
+            padding: 10px 20px;
+            margin: 10px 0;
+            display: inline-block;
+
+            border-radius: $test-borderRadius;
+            background-color: $color-brown_light;
+            box-sizing: border-box;
+
+            text-decoration: none;
+            color: $color-brown;
+            font-size: 14px;
+            font-family: $font-meta;
+            line-height: 30px;
+
+            &:hover {
+                background-color: lighten($color-brown_light, 5%);
+                }
+            }
 
     .footer-newtest {
         // padding: 20px;

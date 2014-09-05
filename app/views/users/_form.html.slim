@@ -9,7 +9,7 @@
 
 = form_for @user, html: {class: 'form-uedit'} do |f|
   - @user.errors.full_messages.each do |msg|
-    = msg
+    .warning_form = msg
   .content-uedit
     .item-uedit
       label.label-uedit

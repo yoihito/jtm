@@ -229,6 +229,27 @@ $test-borderRadius: 5px;
                 position: absolute;
                 }
 
+        .append-slides-newtest {
+            width: 100%;
+            padding: 10px 20px;
+            margin: 10px 0;
+            display: inline-block;
+
+            border-radius: $test-borderRadius;
+            background-color: $color-brown_light;
+            box-sizing: border-box;
+
+            text-decoration: none;
+            color: $color-brown;
+            font-size: 14px;
+            font-family: $font-meta;
+            line-height: 30px;
+
+            &:hover {
+                background-color: lighten($color-brown_light, 5%);
+                }
+            }
+
     .footer-newtest {
         // padding: 20px;
         }

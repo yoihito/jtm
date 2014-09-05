@@ -14,13 +14,15 @@
     p.descr_pre-form-newtest 3. Add your questions
     .content-slides-newtest
       = f.fields_for :slides do |s|
-        .slide-newtest
-          b.num-slide-newtest #{s.index+1}.
-          a.pic-slide-newtest.js-newtest-addPic href="" rel=s.index tabindex=(s.index + 100) Add pic
+        .slide-newtest class="#{'_hid' if s.index == 0}"
+          b.num-slide-newtest #{s.index}.
+          a.pic-slide-newtest.js-newtest-addPic href="" rel=s.index Add pic
           = s.file_field :picture, class: "inpt_slidePic-form-newtest js-newtest-slidePic js-newtest-slidePic_#{s.index}", hidden: true, rel: s.index
           .wrapper-inpt_slide-form-newtest
             = s.text_field :question, class: 't_inpt inpt_slide-form-newtest', tabindex: s.index + 3
           img.img-slide-newtest src="" alt="" class="js-newtest-slideImg_#{s.index}"
+
+      a.append-slides-newtest.js-newtest-addSlide rel="2" href="" Add another slide
 
   .footer-newtest
     = f.submit 'Create test', class: 'inpt_submit-form-newtest', tabindex: 300

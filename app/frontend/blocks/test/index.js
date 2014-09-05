@@ -33,7 +33,38 @@
                 app.utils.file.getBase64( FileReader, this.files[ 0 ], function( data ) {
                     $( '.js-newtest-slideImg_' + index ).attr( 'src', data );
                 });
-            });
+            })
+            .on( 'tap', '.js-newtest-addSlide', function( e ) {
+                e.preventDefault();
+
+                var
+                    $this = $( this ),
+                    $parent = $this.parent(),
+                    tpl = $parent.children().eq( 0 ).clone(),
+                    addLink = $this.clone(),
+                    index = _.parseInt( addLink.attr( 'rel' ) );
+
+                addLink.attr( 'rel', index + 1 );
+
+                tpl.removeClass( '_hid' );
+                tpl.find( '.num-slide-newtest' ).html( index + '.' );
+                tpl.find( '.js-newtest-addPic' ).attr( 'rel', index );
+                var $slidePic = tpl.find( '.js-newtest-slidePic' );
+                $slidePic.attr( 'class', $slidePic.attr( 'class' ).replace( '_0', '_' + index ) );
+                $slidePic.attr( 'id', $slidePic.attr( 'id' ).replace( '_0', '_' + index ) );
+                $slidePic.attr( 'name', $slidePic.attr( 'name' ).replace( '[0]', '[' + index + ']' ) );
+                $slidePic.attr( 'rel', index );
+                var $question = tpl.find( '.inpt_slide-form-newtest' );
+                $question.attr( 'id', $question.attr( 'id' ).replace( '_0', '_' + index ) );
+                $question.attr( 'name', $question.attr( 'name' ).replace( '[0]', '[' + index + ']' ) );
+                var $img = tpl.find( '.img-slide-newtest' );
+                $img.attr( 'class', $img.attr( 'class' ).replace( '_0', '_' + index ) );
+
+
+                $this.remove();
+                $parent.append( tpl );
+                $parent.append( addLink );
+            })
 
     });
 

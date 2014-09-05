@@ -2,7 +2,7 @@
 section.content._wo_info
   = render '/layouts/shared/topline'
 
-  .listpublic
+  .market
     - @publishers.each do |item|
       = render 'item', {public: item}
 

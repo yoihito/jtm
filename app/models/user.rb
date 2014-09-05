@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :tests, as: :author
+  has_many :likes, as: :author
   has_many :user_answers
   has_many :passed_tests, through: :user_answers, class_name: "Test"
   has_and_belongs_to_many :voted_tests, class_name: "Test"

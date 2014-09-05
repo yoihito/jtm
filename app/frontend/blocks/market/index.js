@@ -12,8 +12,8 @@
 
         $market
             .masonry({
-                itemSelector: '.item-market',
-                isLayoutInstant: true
+                itemSelector: '.item-market'
+                // isLayoutInstant: true
             })
 
         $marketImgs

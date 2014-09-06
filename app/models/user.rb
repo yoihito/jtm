@@ -11,6 +11,7 @@ class User < ActiveRecord::Base
   has_many :user_answers
   has_many :passed_tests, through: :user_answers, source: :test
   has_many :touched_publishers, through: :passed_tests, source: :author, source_type: 'Publisher'
+  has_many :comments, as: :author
   has_and_belongs_to_many :voted_tests, class_name: "Test"
 
   def roles=(roles)

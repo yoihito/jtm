@@ -4,7 +4,7 @@
 
 section.content._w_info
   - if @user.passed_tests.empty?
-    - if @user == current_user
+    - if it_me? @user
       .warning_emptytests Sorry, but you haven't passed tests yet :(
     - else
       .warning_emptytests Sorry, but #{@user.name} haven't passed tests yet :(

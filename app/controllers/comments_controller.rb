@@ -2,9 +2,17 @@ class CommentsController < ApplicationController
 	before_action :set_comment, only: [:update, :destroy]
 	
 	def create
-		@comment = Comment.new(comment_params)
+		@comment = Comment.new(create_comment_params)
 		@comment.author = current_user
-		@comment.save
+		respond_to do |f|
+			if @comment.save
+				f.html { redirect_to :back, notice: 'Comment was successfully published!'}
+			else
+				f.html { redirect_to :back }
+			end
+
+
+		end
 	end
 
 	def update

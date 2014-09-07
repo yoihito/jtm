@@ -1,7 +1,11 @@
 class TestPassingController < ApplicationController
 	def get
 		@test = Test.find(params[:id])
-    	@slides = @test.slides
+    	@slides = @test.slides.includes(:translations,comments:[:author])
+    	@slides.each_with_index do |s|
+    		s.init_comment_form
+    	end
+    	
 	end
 
 	def save
@@ -22,7 +26,7 @@ private
 
 	def answers_params
 		params.require(:slides)
-	end
+	end	
 
 
 end

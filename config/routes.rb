@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
 
   devise_for :users
+  resources :comments
   resources :questions
   resources :tests do
   end

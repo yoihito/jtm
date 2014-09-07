@@ -27,3 +27,11 @@ usection.content._wo_info
               .title-share-slide Share
               .wrapper-inpt-share-slide
                 input.inpt-share-slide type="text" value="#{try_test_url}"
+          = form_for slide.comment do |f|
+            = f.hidden_field :entity_id
+            = f.hidden_field :entity_type
+            = f.text_field :content
+            = f.submit
+          - slide.comments.each do |comment|
+            = comment.content
+            = comment.author.name

@@ -4,7 +4,7 @@
       h2.title-item-market = public.title
       .us-item-market
         b
-        ' 1 046 followers
+        ' 0 followers
       /.rating-item-market
         - stars_count = test.get_rating
         - stars_count.times
@@ -17,7 +17,7 @@
       / - if test.is_passed?(current_user)
       /   = link_to 'Results', try_test_path(test), {class: 'test-item-market _green' }
       / - else
-      /   = link_to 'Test me', try_test_path(test), {class: 'test-item-market _blue' }
+      = link_to 'Open', public, {class: 'test-item-market _blue' }
       .details-item-market Click for details
     .bg-content-item-market
       = image_tag public.avatar.url, {class: 'img-bg-content-item-market'}

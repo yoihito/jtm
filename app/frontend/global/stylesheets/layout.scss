@@ -40,10 +40,12 @@
 
 .info {
     width: $width-info;
-    top: ($header-height + 2) - 1px;
-    right: $width-sidebar;
+    top: 0;
+    right: 0;
+    // top: ($header-height + 2) - 1px;
+    // right: $width-sidebar;
     bottom: -1px;
-    position: fixed;
+    position: absolute;
     z-index: $main-zIndex + 3;
 
     @media (max-width: 3 * $width-step-5) {

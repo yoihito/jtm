@@ -49,6 +49,8 @@
             } else {
                 this.finish( $slideAnsw.closest( '.test' ) );
             }
+
+            $( '.main-window' ).scrollTop( - $( '.list-test' ).offset().top - 10 );
         },
 
         finish: function( $test ) {

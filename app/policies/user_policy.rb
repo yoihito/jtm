@@ -1,21 +1,17 @@
 class UserPolicy < ApplicationPolicy
 	permit :show
 
-	def edit(current_user, user)
-		same_user(current_user,user)
+	def update?
+		same_user
 	end
 
-	def update(current_user, user)
-		same_user(current_user,user)
-	end
-
-	def change_password(current_user, user)
-		same_user(current_user,user)
+	def change_password?
+		update?
 	end
 
 private
 	
-	def same_user(current_user, user)
-		current_user == user
+	def same_user
+		@user.id == @scope.id
 	end
 end

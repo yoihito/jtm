@@ -1,0 +1,4 @@
+- @tests.each do |test|
+	= form_for test, url: test_ratings_path(test), method: :post do |f|
+		= test.get_rating
+		= f.submit

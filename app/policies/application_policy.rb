@@ -8,6 +8,7 @@ class ApplicationPolicy
   end
 
   def initialize(user, scope)
+    Rails.logger.debug "#{user.inspect}"
     @user = user
     @scope = scope
   end

@@ -61,13 +61,6 @@ class PublishersController < ApplicationController
     end
   end
 
-  def like
-    @publisher.like current_user
-  end
-
-  def dislike
-    @publisher.dislike current_user
-  end
 
 
   private

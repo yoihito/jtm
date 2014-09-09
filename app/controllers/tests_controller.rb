@@ -10,14 +10,6 @@ class TestsController < ApplicationController
 		@test.update(test_params)
 	end
 
-	def upvote
-		@test.upvote
-	end
-
-	def downvote
-		@test.downvote
-	end
-
 	def destroy
 	end
 

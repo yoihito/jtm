@@ -1,11 +1,13 @@
 class CommentsController < ApplicationController
 	before_action :set_context
 	before_action :set_comment, only: [:update, :destroy]
+	after_action :verify_authorized
 	
 	def create
 		@comment = Comment.new(comment_params)
 		@comment.entity = @context
 		@comment.author = current_user
+		authorize @comment
 		respond_to do |f|
 			if @comment.save
 				f.html { redirect_to :back, notice: 'Comment was successfully published!'}
@@ -18,10 +20,12 @@ class CommentsController < ApplicationController
 	end
 
 	def update
+		authorize @comment
 		@comment.update(comment_params)
 	end
 
 	def destroy
+		authorize @comment
 		@comment.destroy
 	end
 

@@ -1,14 +1,6 @@
 - content_for :title, "Tests"
-section.content._wo_info
-  = render '/layouts/shared/topline'
 
-  - if @tests.empty?
-    .warning_emptytests We haven't any test
-  - else
-    .market
-      - @tests.each do |item|
-        = render 'item', {test: item}
+.tests
+  - @tests.each do |test|
+    = render 'item', item: test
 
-/section.info
-  h3.title_main-info
-    span.txt-title_main-info Recommendations

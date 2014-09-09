@@ -1,0 +1,54 @@
+@import '_merge';
+
+.menu {
+    width: $width-menu;
+    // height: 100%;
+    top: 0;
+    bottom: 0;
+    // left: 0;
+    position: fixed;
+
+    background-color: #f2f2f2;
+
+    font-family: $font-main;
+    }
+
+    .link-menu {
+        width: $width-menu;
+        height: $width-menu;
+        display: block;
+
+        border-bottom: 1px solid #ebeaea;
+
+        line-height: $width-menu;
+        text-decoration: none;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: #B8B8B6;
+        }
+
+    .link-menu:hover {
+        background-color: #eae8e8;
+        color: #636363;
+        }
+
+    .link-menu img {
+        width: $width-menu - 25px;
+        height: $width-menu - 25px;
+        margin: auto;
+        top: ($width-menu - 25px)/4;
+        position: relative;
+        display: block;
+
+        border-radius: 4px;
+        }
+
+    .link_settings-menu svg {
+        width: $width-menu - 40px;
+        height: $width-menu - 40px;
+        }
+
+    .link_settings-menu:hover svg {
+        fill: #636363;
+        }

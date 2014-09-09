@@ -5,7 +5,7 @@ class TestPassingController < ApplicationController
     	@slides.each_with_index do |s|
     		s.init_comment_form
     	end
-    	
+
 	end
 
 	def save
@@ -20,13 +20,14 @@ class TestPassingController < ApplicationController
 	end
 
 	def result
+    @test = Test.find(params[:id])
 	end
 
 private
 
 	def answers_params
 		params.require(:slides)
-	end	
+	end
 
 
 end

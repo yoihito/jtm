@@ -1,0 +1,17 @@
+@import '_merge';
+
+.t_html, .t_body {
+    height: 100%;
+    }
+
+.wrapper {
+    max-width: 2000px;
+    height: 100%;
+    margin: auto;
+    position: relative;
+    }
+
+.content {
+    padding: 30px;
+    margin-left: $width-menu;
+    }

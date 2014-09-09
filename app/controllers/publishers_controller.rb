@@ -41,7 +41,6 @@ class PublishersController < ApplicationController
   # PATCH/PUT /publishers/1
   # PATCH/PUT /publishers/1.json
   def update
-    authorize @publiser
     respond_to do |format|
       if @publisher.update(publisher_params)
         format.html { redirect_to @publisher, notice: 'Publisher was successfully updated.' }

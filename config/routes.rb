@@ -1,13 +1,20 @@
 Rails.application.routes.draw do
   devise_for :users
  
+
+  scope module: 'publishers' do
+    resources :publishers, only: [] do
+      resources :tests, only: [:index, :create, :destroy, :edit, :new, :update]
+    end
+  end
+
   resources :publishers do
     resource :likes, only: [:create, :destroy]
-    resources :tests, only: [:create, :destroy, :edit, :new, :update]
   end
+
   resources :comments
 
-  resources :tests do 
+  resources :tests, only: [:show, :index] do 
     resource :ratings, only: [:create, :destroy]
     member do 
       get 'pass', to: 'test_passing#get', as: 'try'
@@ -22,5 +29,5 @@ Rails.application.routes.draw do
     end
   end
   
-  root 'market#index'
+  root 'tests#index'
 end

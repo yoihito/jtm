@@ -1,17 +1,1 @@
-/ @user.name
-/ @user.passed_tests
-/ @user.avatar.url
-
-section.content._w_info
-  - if @user.passed_tests.empty?
-    - if it_me? @user
-      .warning_emptytests Sorry, but you haven't passed tests yet :(
-    - else
-      .warning_emptytests Sorry, but #{@user.name} haven't passed tests yet :(
-  - else
-    .market
-      - @user.passed_tests.each do |item|
-        = render '/market/item', {test: item}
-  - @user.touched_publishers.each do |pub|
-  	= pub.title
-= render 'info'
+= link_to "Edit user", edit_user_path(@user)

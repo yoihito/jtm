@@ -1,10 +1,22 @@
+unless Publisher.any?
+	5.times {
+		Publisher.create(title: Faker::Name.name, description: Faker::Lorem.paragraph)
+	}
+end
+
+
 unless Slide.any?
-	Slide.create(question:'How are you dick?', description:'Dick - penis');
-	Slide.create(question:'How are you Nigga?', description:'Nigga - nigger');
-	Slide.create(question:'How are you alchoholic?', description:'Fuck you!');
+	5.times {
+		Slide.create(question: Faker::Lorem.sentence, description: Faker::Lorem.paragraph);
+	}
 end
 
 unless Test.any?
-	test = Test.create(title:'Awesome test')
-	test.slides << Slide.all
+	10.times {
+		publisher = Publisher.order("RANDOM()").take
+		test = Test.create(title: Faker::Lorem.sentence, author: publisher)
+		test.slides << Slide.order("RANDOM()").limit(3)
+	}
 end
+
+

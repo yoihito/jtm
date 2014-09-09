@@ -35,7 +35,7 @@ class Test < ActiveRecord::Base
 		self.voters.size>0 ? ((self.rating.to_f/self.voters.size)*5).to_i : 0
 	end
 
-	def upvote(user, value)
+	def upvote(user)
 	  if user and self.voters.where(id: user.id).count == 0 
 	  	self.voters<<user
 	  	self.rating=self.rating.next

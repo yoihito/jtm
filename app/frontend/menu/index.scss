@@ -1,0 +1,146 @@
+@import '_merge';
+
+.sidemenu {
+    width: $width-menu;
+    top: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 10000;
+
+    background-color: #f2f2f2;
+
+    @media screen and (max-width: $width-small) {
+        bottom: auto;
+        position: absolute;
+
+        &._opened {
+            bottom: 0;
+            }
+        }
+    }
+
+    .link-sidemenu {
+        width: $width-menu;
+        height: $width-menu;
+        display: block;
+
+        border-bottom: 1px solid #ebeaea;
+
+        line-height: $width-menu;
+        text-decoration: none;
+        font-size: 40px;
+        font-weight: bold;
+        text-align: center;
+        color: #B8B8B6;
+        }
+
+    .link-sidemenu:hover {
+        background-color: #eae8e8;
+        color: #636363;
+        }
+
+    .link-sidemenu img {
+        width: $width-menu - 25px;
+        height: $width-menu - 25px;
+        margin: auto;
+        top: ($width-menu - 25px)/4;
+        position: relative;
+        display: block;
+
+        border-radius: 4px;
+        }
+
+    .link_settings-sidemenu svg {
+        width: $width-menu - 40px;
+        height: $width-menu - 40px;
+        }
+
+    .link_settings-sidemenu:hover svg {
+        fill: #636363;
+        }
+
+    .link_trigger-sidemenu svg {
+        width: $width-menu - 25px;
+        height: $width-menu - 25px;
+        margin: auto;
+        top: ($width-menu - 25px)/4;
+        position: relative;
+
+        &:hover {
+            fill: #636363;
+            }
+        }
+
+.menu {
+    width: $width-menu_big;
+    top: 0;
+    bottom: 0;
+    left: $width-menu;
+    position: absolute;
+    z-index: 10001;
+
+    background-color: #ebe9e9;
+    box-shadow: inset 5px 0 3px -5px rgba(0,0,0,0.1);
+
+
+    &._hid {
+        display: none;
+        }
+
+    @media screen and (min-width: $width) {
+        &, &._hid {
+            left: 0;
+            display: block;
+            }
+        }
+    }
+
+    .title-menu {
+        padding: 15px 25px 10px;
+
+        overflow: hidden;
+
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        color: #1f2336;
+        font-size: 19px;
+        }
+
+    .link-menu {
+        display: block;
+        padding: 10px 25px;
+        position: relative;
+
+        color: #8c8c8b;
+        font-size: 14px;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+            background-color: #d8d7d7;
+
+            text-decoration: none;
+            color: #1f2336;
+            }
+        }
+
+.menu-shadow {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    z-index: 9999;
+
+    background-color: rgba(0,0,0,0.55);
+
+    &._hid {
+        display: none;
+        }
+
+    @media screen and (min-width: $width) {
+        &, &._hid {
+            display: none;
+            }
+        }
+    }

@@ -1,23 +1,17 @@
-/ <p id="notice"><%= notice %></p>
+.publisher
+  .info-publisher
+    = image_tag @publisher.avatar.url, {class: "img-info-publisher"}
+    .content-info-publisher
+      h2.title-info-publisher = @publisher.title
+      p.descr-info-publisher = @publisher.description
+      .follow-publisher
+        = link_to "+ Follow", "", {class: "link_blue-follow-publisher"}
+        /= link_to "Following", "", {class: "link_gray-follow-publisher"}
+        /= link_to "Unfollow", "", {class: "link_gray-follow-publisher"}
+        span <b>10 000</b> followers
 
-/ <%= @publisher.likes.count %>
-/ <%= image_tag @publisher.avatar.url %>
-/ <% @publisher.tests.each do |test| %>
-/ <%= test.title %>
-/ <%= image_tag test.picture.url %>
-/ <% end %>
+  .filter
+    .tab-filter = link_to "All", "#filter-all"
+    .tab-filter = link_to "Popular", "#filter-popular"
 
-/ <%= link_to 'Like', like_publisher_path(@publisher) %>
-/ <%= link_to 'Dislike', dislike_publisher_path(@publisher) %>
-/ <%= link_to 'Edit', edit_publisher_path(@publisher) %> |
-/ <%= link_to 'Back', publishers_path %>
-
-section.content._w_info
-  - if @publisher.tests.empty?
-    .warning_emptytests "#{@publisher.title}" haven't any test
-  - else
-    .market
-      - @publisher.tests.each do |item|
-        = render '/market/item', {test: item}
-
-= render 'info'
+  = render "tests/list", {list: @publisher.tests, hideAuthor: true}

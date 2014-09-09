@@ -1,9 +1,11 @@
 class LikesController < ApplicationController
+	after_action :verify_authorized
 
 	def create
 		@like = Like.new
 		@like.entity = context
 		@like.author = current_user
+		authorize @like
 		unless @like.entity.liked? current_user
 			@like.save
 			redirect_to :back
@@ -14,6 +16,7 @@ class LikesController < ApplicationController
 	end
 
 	def destroy
+		authorize Like.new
 		if context.liked? current_user
 			like = Like.where(entity: context, author: current_user).take
 			like.destroy

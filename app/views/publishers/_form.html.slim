@@ -18,6 +18,8 @@
       .wrapper-inpt-uedit
         = f.text_field :title, { placeholder: 'Title', class: 't_inpt inpt-publicedit' }
 
+        = f.text_field :description
+
     .item-publicedit
       a.choose-cover-newtest.js-newtest-chooseCover href="" tabindex="2" Choose avatar
       = f.file_field :avatar, hidden: true, class: 'js-newtest-cover'

@@ -10,8 +10,13 @@ class UsersController < ApplicationController
   end
 
   def update
-  	@user.update(user_params)
-  	render :edit
+    respond_to do |format|
+  	  if @user.update(user_params)
+        format.html { redirect_to @user, notice: "Successfully updated"} 
+      else
+        format.html { render :edit }
+      end
+    end
   end
  
  def change_password

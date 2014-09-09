@@ -1,6 +1,7 @@
 class Publishers::TestsController < ApplicationController
-  before_action :set_publishers_test, only: [:show, :edit, :update, :destroy]
   before_action :set_publisher#, only: [:index, :new, :edit, :create, :update, :destroy, :edit]
+  before_action :set_publishers_test, only: [:show, :edit, :update, :destroy]
+  
 
   # GET /publishers/tests
   # GET /publishers/tests.json
@@ -11,6 +12,7 @@ class Publishers::TestsController < ApplicationController
   # GET /publishers/tests/1
   # GET /publishers/tests/1.json
   def show
+
   end
 
   # GET /publishers/tests/new
@@ -66,7 +68,8 @@ class Publishers::TestsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_publishers_test
-      @publishers_test = Test.find(params[:id])
+      @publishers_test = Test.find_by(id: params[:id])
+      @publishers_test.author == @publisher or raise ActiveRecord::RecordNotFound
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

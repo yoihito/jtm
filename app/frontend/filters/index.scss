@@ -2,9 +2,7 @@
 
 .filter {
     margin-bottom: 30px;
-    margin-left: 20px;
 
-    font-family: $font-main;
     font-weight: bold;
     font-size: 14px;
 
@@ -15,7 +13,7 @@
         border-left: 1px solid #fff;
         background-image: linear-gradient(bottom, rgba(#ccc, .2), rgba(#ccc, .05));
 
-        color: #2c6bec;
+        color: $color-blue;
         }
     a:hover {
         background-image: linear-gradient(top, rgba(#ccc, .2), rgba(#ccc, .05));

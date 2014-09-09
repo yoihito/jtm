@@ -1,11 +1,8 @@
 - content_for :title, "Tests"
 
 .filter
-  .tab-filter = link_to 'Everything', '#filter-all'
-  .tab-filter = link_to 'Popular', '#filter-popular'
-  .tab-filter = link_to 'Discussed', '#filter-discussed'
+  .tab-filter = link_to "All", "#filter-all"
+  .tab-filter = link_to "Popular", "#filter-popular"
+  .tab-filter = link_to "Discussed", "#filter-discussed"
 
-.tests
-  - @tests.each do |test|
-    = render 'item', item: test
-
+= render "list", list: @tests

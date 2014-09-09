@@ -1,8 +1,10 @@
 class CommentsController < ApplicationController
+	before_action :set_context
 	before_action :set_comment, only: [:update, :destroy]
 	
 	def create
-		@comment = Comment.new(create_comment_params)
+		@comment = Comment.new(comment_params)
+		@comment.entity = @context
 		@comment.author = current_user
 		respond_to do |f|
 			if @comment.save
@@ -16,7 +18,7 @@ class CommentsController < ApplicationController
 	end
 
 	def update
-		@comment.update(update_comment_params)
+		@comment.update(comment_params)
 	end
 
 	def destroy
@@ -30,12 +32,13 @@ private
 	end
 
 
-	def create_comment_params
-		params.require(:comment).permit(:content,:entity_id, :entity_type)
+	def comment_params
+		params.require(:comment).permit(:content)
 	end
 
-	def update_comment_params
-		params.require(:comment).permit(:content)
+	def set_context
+		if params[:test_id]
+			@context = Test.find(params[:test_id])
 	end
 
 

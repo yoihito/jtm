@@ -12,9 +12,10 @@ Rails.application.routes.draw do
     resource :likes, only: [:create, :destroy]
   end
 
-  resources :comments
+  
 
   resources :tests, only: [:show, :index] do 
+    resources :comments, only: [:create, :update, :destroy]
     resource :ratings, only: [:create, :destroy]
     member do 
       get 'pass', to: 'test_passing#get', as: 'try'

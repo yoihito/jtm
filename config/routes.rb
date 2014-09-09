@@ -10,18 +10,18 @@ Rails.application.routes.draw do
 
   devise_for :users
   resources :questions
-  resources :tests do
-  end
+  resources :tests
   resources :users do 
     member do
       patch 'update/password', to: 'users#change_password', as: 'change_password'
     end
   end
-  resources :publishers do 
-    member do 
-      post 'like'
-      post 'dislike'
-    end
+
+  resources :likes, only: [:destroy]
+
+  resources :publishers do
+    resources :likes
+    resources :tests, only: [:new, :edit, :update, :create, :destroy]
   end
   root 'market#index'
 end

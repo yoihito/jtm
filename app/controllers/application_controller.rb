@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   before_filter :configure_devise_params, if: :devise_controller?
 #  check_authorization unless :devise_controller?
-  protect_from_forgery with: :exception
+ # protect_from_forgery with: :exception
  # rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
   
 protected

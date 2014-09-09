@@ -15,15 +15,16 @@
     / Background image
     = image_tag item.picture.url
 
-    / Test AUTHOR
-    = link_to image_tag(item.author.avatar.url), item.author, {class: "author-test"}
+    - unless local_assigns[:hideAuthor]
+      / Test AUTHOR
+      = link_to image_tag(item.author.avatar.url), item.author, {class: "author-test"}
 
   .meta-test
     / Followers count
     <b>#{item.users_answered}</b> users
 
     / Link to test me
-    = link_to 'Test me', '', {class: "go-test"}
+    = link_to 'Test me', '', {class: "go-test js-test-start", rel: item.id}
 
   / List of comments
   .comments-test

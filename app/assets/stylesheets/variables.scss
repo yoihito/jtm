@@ -1,6 +1,14 @@
 // Dimensions
     $width: 1400px;
+    $width-step: 830px;
+    $width-small: 450px;
+
     $width-menu: 70px;
+    $width-menu_big: 200px;
+    $width-item: 280px;
+
+    $margin_h-item: 50px;
+    $margin_v-item: 30px;
 
     $p-darken: 10%;
 
@@ -11,6 +19,8 @@
     $fonts-middle: 16px;
 
 // Colors
+    $color-blue: #2c6bec;
+
     $color-turquoise: #1abc9c;
     $color-greensea: #16a085;
 

@@ -4,14 +4,30 @@
     height: 100%;
     }
 
+.t_body {
+    font-family: $font-main;
+    }
+
 .wrapper {
-    max-width: 2000px;
-    height: 100%;
-    margin: auto;
+    max-width: 2500px;
+    min-height: 100%;
+    margin: 0 auto;
     position: relative;
     }
 
 .content {
-    padding: 30px;
+    min-width: $width-item + 50;
+    padding: 30px 50px;
     margin-left: $width-menu;
+
+    box-sizing: border-box;
+
+    @media screen and (min-width: $width) {
+        margin-left: $width-menu_big;
+        }
+
+    @media screen and (max-width: $width-small) {
+        margin-left: 0;
+        padding: (15px + $width-menu) 25px 15px;
+        }
     }

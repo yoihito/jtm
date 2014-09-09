@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include Pundit
   before_filter :configure_devise_params, if: :devise_controller?
 #  check_authorization unless :devise_controller?
   protect_from_forgery with: :exception

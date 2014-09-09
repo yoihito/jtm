@@ -1,4 +1,4 @@
-class RatingController < ApplicationController
+class RatingsController < ApplicationController
 	before_action :set_context, only: [:create, :destroy]
 
 	def create

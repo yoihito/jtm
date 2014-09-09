@@ -10,12 +10,6 @@ class PublishersController < ApplicationController
   # GET /publishers/1
   # GET /publishers/1.json
   def show
-
-    if @publisher.liked? current_user
-      @like = @publisher.likes.where(author: current_user).take
-    else
-      @like = Like.new
-    end
   end
 
   # GET /publishers/new

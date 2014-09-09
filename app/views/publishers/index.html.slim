@@ -1,0 +1,9 @@
+- content_for :title, "Publishers"
+
+.filter
+  .tab-filter = link_to "All", "#filter-all"
+  .tab-filter = link_to "Popular", "#filter-popular"
+
+.publishers
+  - @publishers.each do |publisher|
+    = render "item", item: publisher

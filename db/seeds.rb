@@ -1,6 +1,6 @@
 unless Publisher.any?
 	5.times {
-		Publisher.create(title: Faker::Name.name)
+		Publisher.create(title: Faker::Name.name, description: Faker::Lorem.paragraph)
 	}
 end
 

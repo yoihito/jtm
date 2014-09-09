@@ -5,7 +5,7 @@ class TestsController < ApplicationController
 	end
 
 	def index
-		@tests = Test.all
+		@tests = Test.includes([:user_answers,:translations,:voters, :author]).order(:id).reverse_order
 	end
 
 private

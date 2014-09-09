@@ -1,4 +1,8 @@
-- @tests.each do |test|
-	= form_for test, url: test_ratings_path(test), method: :post do |f|
-		= test.get_rating
-		= f.submit
+- content_for :title, "Tests"
+
+.filter
+  .tab-filter = link_to "All", "#filter-all"
+  .tab-filter = link_to "Popular", "#filter-popular"
+  .tab-filter = link_to "Discussed", "#filter-discussed"
+
+= render "list", list: @tests

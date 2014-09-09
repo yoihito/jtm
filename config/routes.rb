@@ -29,5 +29,5 @@ Rails.application.routes.draw do
     end
   end
   
-  root 'market#index'
+  root 'tests#index'
 end

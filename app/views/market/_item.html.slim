@@ -1,5 +1,33 @@
 .test
-  .content-test
-    h2.title-test = item.title
-    .count-test #{item.users_answered} users
-  .bg-test = image_tag item.picture.url
+  .bg-test
+    .content-test
+      / Title
+      h2.title-test = item.title
+
+      / Rating
+      .rating-test
+        - stars_count = item.get_rating
+        - stars_count.times
+          span.item-rating-test._active
+        - (5 - stars_count).times
+          span.item-rating-test
+
+    / Background image
+    = image_tag item.picture.url
+
+    / Test AUTHOR
+    = link_to image_tag(item.author.avatar.url), item.author, {class: "author-test"}
+
+  .meta-test
+    / Followers count
+    <b>#{item.users_answered}</b> users
+
+    / Link to test me
+    = link_to 'Test me', '', {class: "go-test"}
+
+  / List of comments
+  .comments-test
+    / Comment
+    .comment-test
+      = link_to image_tag("http://localhost:3000/images/original/missing.png"), "", {class: "author-comment-test"}
+      p Really likes this test ;).

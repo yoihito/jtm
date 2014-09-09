@@ -1,0 +1,41 @@
+@import '_merge';
+
+.filter {
+    margin-bottom: 30px;
+    margin-left: 20px;
+
+    font-family: $font-main;
+    font-weight: bold;
+    font-size: 14px;
+
+    a {
+        padding: 10px 15px;
+        display: block;
+
+        border-left: 1px solid #fff;
+        background-image: linear-gradient(bottom, rgba(#ccc, .2), rgba(#ccc, .05));
+
+        color: #2c6bec;
+        }
+    a:hover {
+        background-image: linear-gradient(top, rgba(#ccc, .2), rgba(#ccc, .05));
+        }
+    }
+
+    .tab-filter {
+        margin-right: -1px;
+        display: inline-block;
+
+        border: 1px solid #ddd;
+        overflow: hidden;
+
+        $radius: 10px;
+        &:first-child {
+            border-radius: $radius 0 0 $radius;
+
+            a {border: 0;}
+            }
+        &:last-child {
+            border-radius: 0 $radius $radius 0;
+            }
+        }

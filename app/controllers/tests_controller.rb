@@ -1,38 +1,15 @@
 class TestsController < ApplicationController
-	before_action :set_test, only: [:edit, :update,:upvote,:downvote]
-
-	def create
-		@test = Test.new(test_params)
-		@test.save
-	end
-
-	def update
-		@test.update(test_params)
-	end
-
-	def destroy
-	end
+	before_action :set_test, only: [:show]
 
 	def show
 	end
 
 	def index
-	end
-
-	def edit
-		
-	end
-
-	def new
-		@test = Test.new
-		2.times { @test.slides.build }
+		@tests = Test.all
 	end
 
 private
 
-	def test_params
-		params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question, :picture])
-	end
 
 	def set_test
 		@test = Test.find(params[:id])

@@ -6,8 +6,16 @@
 <%= test.title %>
 <%= image_tag test.picture.url %>
 <% end %>
+<% unless @publisher.liked? current_user %>
+	<%= form_for [@publisher, @like] do |f| %>
+		<%= f.submit %>
+	<% end %>
+<% else %>
+	<%= form_for [@publisher, @like], method: :delete do |f| %>
+		<%= f.submit %>
+	<% end %>
+<% end %>
 
-<%= link_to 'Like', like_publisher_path(@publisher) %>
-<%= link_to 'Dislike', dislike_publisher_path(@publisher) %>
+
 <%= link_to 'Edit', edit_publisher_path(@publisher) %> |
 <%= link_to 'Back', publishers_path %>

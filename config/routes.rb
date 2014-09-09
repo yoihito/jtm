@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   resources :likes, only: [:destroy]
 
   resources :publishers do
-    resources :likes
+    resources :likes, only: [:create, :destroy]
     resources :tests, only: [:new, :edit, :update, :create, :destroy]
   end
   root 'market#index'

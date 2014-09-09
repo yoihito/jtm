@@ -14,9 +14,9 @@ class LikesController < ApplicationController
 	end
 
 	def destroy
-		@like = Like.find(params[:id])
-		if @like.entity.liked? current_user
-			@like.destroy
+		if context.liked? current_user
+			like = Like.where(entity: context, author: current_user).take
+			like.destroy
 			redirect_to :back
 		else
 			head :bad_request

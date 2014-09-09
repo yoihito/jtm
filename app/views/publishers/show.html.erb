@@ -7,11 +7,11 @@
 <%= image_tag test.picture.url %>
 <% end %>
 <% unless @publisher.liked? current_user %>
-	<%= form_for [@publisher, @like] do |f| %>
+	<%= form_for [@publisher, Like.new] do |f| %>
 		<%= f.submit %>
 	<% end %>
 <% else %>
-	<%= form_for [@publisher, @like], method: :delete do |f| %>
+	<%= form_for [@publisher, Like.new], method: :delete do |f| %>
 		<%= f.submit %>
 	<% end %>
 <% end %>

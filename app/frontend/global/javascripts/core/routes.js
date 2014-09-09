@@ -5,11 +5,11 @@
     app.routes = {
 
         tests: {
-            show: '/tests/results/:id',
-            save: '/tests/save/:id',
-            saveAfter: '/tests/result/:id',
-            upvote: '/tests/upvote/:id',
-            downvote: '/tests/downvote/:id'
+            show: '/tests/:id/result/',
+            save: '/tests/:id/save/',
+            saveAfter: '/tests/:id/result/',
+            upvote: '/tests/:id/ratings/', //post
+            downvote: '/tests/:id/ratings/' //delete
         },
 
         default_type: 'post',

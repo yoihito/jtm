@@ -2,11 +2,12 @@ Rails.application.routes.draw do
   devise_for :users
  
   resources :publishers do
-    resources :likes, only: [:create, :destroy]
+    resource :likes, only: [:create, :destroy]
     resources :tests, only: [:create, :destroy, :edit, :new, :update]
   end
 
   resources :tests do 
+    resource :ratings, only: [:create, :destroy]
     member do 
       get 'pass', to: 'test_passing#get', as: 'try'
       post 'save', to: 'test_passing#save'

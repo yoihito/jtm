@@ -1,11 +1,11 @@
 class Publishers::TestsController < ApplicationController
   before_action :set_publishers_test, only: [:show, :edit, :update, :destroy]
-  before_action :set_context, only: [:create, :update, :destroy, :edit]
+  before_action :set_publisher#, only: [:index, :new, :edit, :create, :update, :destroy, :edit]
 
   # GET /publishers/tests
   # GET /publishers/tests.json
   def index
-    @publishers_tests = Test.all
+    @publishers_tests = @publisher.tests
   end
 
   # GET /publishers/tests/1
@@ -27,7 +27,7 @@ class Publishers::TestsController < ApplicationController
   # POST /publishers/tests.json
   def create
     @publishers_test = Test.new(publishers_test_params)
-    @publishers_test.author = @context
+    @publishers_test.author = @publisher
     respond_to do |format|
       if @publishers_test.save
         format.html { redirect_to @publishers_test, notice: 'Test was successfully created.' }
@@ -74,9 +74,11 @@ class Publishers::TestsController < ApplicationController
       params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question, :picture])
     end
 
-    def set_context
+    def set_publisher
       if params[:publisher_id]
-      @context = Publisher.find(params[:publisher_id])
+        @publisher = Publisher.find(params[:publisher_id])
+      end 
     end
 
 end
+

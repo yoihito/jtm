@@ -10,10 +10,9 @@ table
   tbody
     - @publishers_tests.each do |publishers_test|
       tr
-        td = link_to 'Show', publishers_test
-        td = link_to 'Edit', edit_publishers_test_path(publishers_test)
+        td = link_to 'Edit', edit_publisher_test_path(@publisher.id, publishers_test)
         td = link_to 'Destroy', publishers_test, data: {:confirm => 'Are you sure?'}, :method => :delete
 
 br
 
-= link_to 'New Test', new_publishers_test_path
+= link_to 'New Test', new_publisher_test_path

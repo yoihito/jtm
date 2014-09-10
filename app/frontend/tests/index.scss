@@ -474,16 +474,16 @@
                     text-decoration: none;
 
                     &[href*='no'] {
-                        background-color: $color-pomegranate;
+                        background-color: $color-peterriver;
                         &:hover {
-                            background-color: $color-alizarin;
+                            background-color: lighten($color-peterriver, 7%);
                             }
                         }
                     &[href*='yes'] {
-                        width: 160px;
-                        background-color: $color-nephritis;
+                        /* width: 160px; */
+                        background-color: $color-peterriver;
                         &:hover {
-                            background-color: $color-emerald;
+                            background-color: lighten($color-peterriver, 7%);
                             }
                         }
                     &[href*='maybe'] {

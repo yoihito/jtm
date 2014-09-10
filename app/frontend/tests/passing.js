@@ -5,14 +5,12 @@
     $(function() {
 
         var
-            store = [],
-            isProccess = true,
             savePassing = function( $list ) {
 
                 app.utils.ajax( 'test_save', { id: $list.attr( 'data-testid' ) }, {
-                    data: { slides: store },
+                    data: { slides: app.test_store },
                     success: function() {
-                        $list.trigger( 'stopPassing' );
+                        $list.trigger( 'savedPassing' );
                     }
                 });
 
@@ -28,13 +26,12 @@
                     $item = $this.closest( '.item-testgo' ),
                     $list = $item.parent();
 
-                if ( isProccess ) {
-                    store.push( answ );
+                if ( app.test_passing ) {
+                    app.test_store.push( answ );
 
                     if ( $item.next().size() ) {
                         $item.removeClass( '_active' ).next().addClass( '_active' );
                     } else {
-                        isProccess = false;
                         savePassing( $list );
                     }
                 }

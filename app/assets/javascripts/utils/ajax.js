@@ -21,10 +21,10 @@
             method = routeParsed[ 1 ],
             url = routeParsed[ 0 ];
 
-        if ( method !== 'post' && method !== 'get' ) {
-            data[ 'method' ] = method;
-            method = 'post';
-        }
+        // if ( method !== 'post' && method !== 'get' ) {
+        //     data[ 'method' ] = method;
+        //     method = 'post';
+        // }
 
         if ( !data[ 'data' ] ) {
             data[ 'data' ] = {};

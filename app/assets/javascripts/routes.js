@@ -6,6 +6,9 @@
         test_start: ['/tests/:id/pass', 'get'],
         test_save: '/tests/:id/save',
 
+        publisher_like: '/publishers/:id/likes',
+        publisher_dislike: ['/publishers/:id/likes', 'delete'],
+
         method: 'post'
     };
 

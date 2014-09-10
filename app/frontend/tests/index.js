@@ -25,16 +25,23 @@
 
                 $shadow.toggleClass( '_hid' );
 
-                var testId = this.getAttribute( 'rel' );
+                var
+                    $this = $( this ),
+                    testId = $this.attr( 'rel' );
+
+                app.test_passing = true;
+                app.test_store = [];
 
                 app.utils.ajax( 'test_start', { id: testId }, {
                     success: function( data ) {
                         $( '.t_html' ).addClass( '_overhide' );
                         $( '.testgo' ).removeClass( '_hid' )
                             .find( '.body-content-testgo' ).html( data )
-                                .find( '.list-testgo' ).on( 'stopPassing', function( e ) {
+                                .find( '.list-testgo' ).on( 'savedPassing', function( e ) {
                                     e.preventDefault();
 
+                                    app.test_passing = false;
+                                    $this.addClass( '_hid' ).next().removeClass( '_hid' );
                                     stopPassing();
                                 });
 

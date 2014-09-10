@@ -11,5 +11,5 @@ class Publisher < ActiveRecord::Base
 	def liked?(user)
 		not self.likes.where(author: user).empty?
 	end
-	
+
 end

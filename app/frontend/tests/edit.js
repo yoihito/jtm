@@ -41,14 +41,23 @@
 
                 tpl.removeClass( '_hid' );
 
-                tpl.find( '.content-form-test' )
-                    .find( '.inpt-form-test' ).attr( 'data-rel', '.js-edittest_' + k ).end()
-                    .find( '.choose-form-test' ).attr( 'data-file-rel', k+1 ).end()
-                    .find( '.js-edittest-trigger_change' ).attr( 'data-file-rel', k+1 ).attr( 'data-rel', ".js-edittest_" + (k+2) ).end()
+                var $content = tpl.find( '.content-form-test' );
+                var $content_inpt = $content.find( '.inpt-form-test' );
+                $content_inpt.attr( 'data-rel', '.js-edittest_' + k );
+                $content_inpt.attr( 'id', $content_inpt.attr( 'id' ).replace( '_0_', '_' + count + '_' ) );
+                $content_inpt.attr( 'name', $content_inpt.attr( 'name' ).replace( '[0]', '[' + count + ']' ) );
+                $content.find( '.choose-form-test' ).attr( 'data-file-rel', k+1 );
+                var $content_file = $content.find( '.js-edittest-trigger_change' );
+                $content_file.attr( 'data-file-rel', k+1 ).attr( 'data-rel', ".js-edittest_" + (k+2) );
+                $content_file.attr( 'id', $content_file.attr( 'id' ).replace( '_0_', '_' + count + '_' ) );
+                $content_file.attr( 'name', $content_file.attr( 'name' ).replace( '[0]', '[' + count + ']' ) );
+                var $content_descr = $content.find( '.textarea-form-test' );
+                $content_descr.attr( 'id', $content_descr.attr( 'id' ).replace( '_0_', '_' + count + '_' ) );
+                $content_descr.attr( 'name', $content_descr.attr( 'name' ).replace( '[0]', '[' + count + ']' ) );
 
-                tpl.find( '.preview_cover-form-test' )
-                    .find( 'img' ).attr( 'class', 'js-edittest_' + (k+2) ).end()
-                    .find( '.title-preview_cover-form-test' ).attr( 'class', 'title-preview_cover-form-test js-edittest_' + k );
+                var $preview = tpl.find( '.preview_cover-form-test' );
+                $preview.find( 'img' ).attr( 'class', 'js-edittest_' + (k+2) );
+                $preview.find( '.title-preview_cover-form-test' ).attr( 'class', 'title-preview_cover-form-test js-edittest_' + k );
 
                 link.attr( 'data-count', count + 1 );
 

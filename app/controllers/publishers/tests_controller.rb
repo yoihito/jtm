@@ -2,7 +2,7 @@ class Publishers::TestsController < ApplicationController
   before_action :set_publisher#, only: [:index, :new, :edit, :create, :update, :destroy, :edit]
   before_action :set_publishers_test, only: [:show, :edit, :update, :destroy]
   after_action :verify_authorized, except: [:index]
-  
+
 
   # GET /publishers/tests
   # GET /publishers/tests.json
@@ -87,7 +87,7 @@ class Publishers::TestsController < ApplicationController
     def set_publisher
       if params[:publisher_id]
         @publisher = Publisher.find(params[:publisher_id])
-      end 
+      end
     end
 
 end

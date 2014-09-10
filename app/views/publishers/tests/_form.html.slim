@@ -27,13 +27,13 @@
 
       .slide-form-test.line-form-test class=("_hid" if s.index == 0)
         .content-form-test
-          = f.text_field :title, placeholder: "Enter title of your new test", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_#{k}"
+          = s.text_field :question, placeholder: "Enter title of your new test", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_#{k}"
 
           a.choose-form-test.js-edittest-choose data-file-rel=(k+1) href="" Choose avatar
 
-          = f.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => k+1, "data-rel" => ".js-edittest_#{k+2}"
+          = s.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => k+1, "data-rel" => ".js-edittest_#{k+2}"
 
-          = f.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
+          = s.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
         .preview_cover-form-test
           = image_tag "http://localhost:3000/images/original/missing.png", class: "js-edittest_#{k+2}"
           .title-preview_cover-form-test class="js-edittest_#{k}"

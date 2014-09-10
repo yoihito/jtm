@@ -5,10 +5,14 @@
       h2.title-info-publisher = @publisher.title
       p.descr-info-publisher = @publisher.description
       .follow-publisher
-        = link_to "Like", "", {class: "link_blue-follow-publisher"}
-        /= link_to "Liked", "", {class: "link_gray-follow-publisher"}
-        /= link_to "Dislike", "", {class: "link_gray-follow-publisher"}
-        span <b>0</b> followers
+        - if @publisher.liked? current_user
+          = link_to "Like", "", {class: "link_blue-follow-publisher _hid js-publisher-like", rel: @publisher.id}
+          = link_to "Liked", "", {class: "link_gray-follow-publisher js-publisher-liked", rel: @publisher.id}
+        - else
+          = link_to "Like", "", {class: "link_blue-follow-publisher js-publisher-like", rel: @publisher.id}
+          = link_to "Liked", "", {class: "link_gray-follow-publisher _hid js-publisher-liked", rel: @publisher.id}
+
+        span <b>#{@publisher.likes.count}</b> users liked
 
   .meta-publisher
     - unless @publisher.tests.empty?
@@ -16,6 +20,7 @@
         .tab-filter = link_to "All", "#filter-all"
         .tab-filter = link_to "Popular", "#filter-popular"
 
-    = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher _fl_l"}
+    - if @publisher.owners.exists? current_user
+      = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher _fl_l"}
 
   = render "tests/list", {list: @publisher.tests, hideAuthor: true}

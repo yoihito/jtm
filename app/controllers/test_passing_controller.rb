@@ -6,6 +6,10 @@ class TestPassingController < ApplicationController
     		s.init_comment_form
     	end
 
+    respond_to do |format|
+      format.html { render action: 'get', layout: nil }
+    end
+
 	end
 
 	def save

@@ -13,8 +13,12 @@
         bottom: auto;
         position: absolute;
 
+        background-color: transparent;
+
         &._opened {
             bottom: 0;
+
+            background-color: #f2f2f2;
             }
         }
     }
@@ -59,16 +63,22 @@
         fill: #636363;
         }
 
+    .link_trigger-sidemenu {
+        &:hover svg {
+            fill: #636363;
+            }
+
+        @media screen and (max-width: $width-step) {
+            border: 0;
+            }
+        }
+
     .link_trigger-sidemenu svg {
         width: $width-menu - 25px;
         height: $width-menu - 25px;
         margin: auto;
         top: ($width-menu - 25px)/4;
         position: relative;
-
-        &:hover {
-            fill: #636363;
-            }
         }
 
 .menu {
@@ -81,11 +91,6 @@
 
     background-color: #ebe9e9;
     box-shadow: inset 5px 0 3px -5px rgba(0,0,0,0.1);
-
-
-    &._hid {
-        display: none;
-        }
 
     @media screen and (min-width: $width) {
         &, &._hid {
@@ -133,10 +138,6 @@
     z-index: 9999;
 
     background-color: rgba(0,0,0,0.55);
-
-    &._hid {
-        display: none;
-        }
 
     @media screen and (min-width: $width) {
         &, &._hid {

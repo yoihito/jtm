@@ -8,6 +8,14 @@
     font-family: $font-main;
     }
 
+._overhide {
+    overflow: hidden;
+    }
+
+._hid {
+    display: none;
+    }
+
 .wrapper {
     max-width: 2500px;
     min-height: 100%;

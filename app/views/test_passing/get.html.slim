@@ -1,0 +1,18 @@
+// Includes in modal window
+// See: tests/_list
+.list-testgo data-count=@slides.size data-testid=@test.id
+  - @slides.each_with_index do |slide, n|
+    .item-testgo class=("_active" if n == 0)
+      .head-item-testgo
+        / a.stop-item-testgo.js-test-stop href=""
+          ' &laquo;
+          span Go back
+
+      .title-item-testgo = slide.question
+
+      .answers-item-testgo
+        a.js-testgo-answ rel="1" href="#answ-no" No
+        a.js-testgo-answ rel="2" href="#answ-yes" Yes
+        a.js-testgo-answ rel="3" href="#answ-maybe" Maybe
+
+      = image_tag slide.picture, {class: "img-item-testgo"}

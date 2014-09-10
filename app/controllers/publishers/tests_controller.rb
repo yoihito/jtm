@@ -1,6 +1,7 @@
 class Publishers::TestsController < ApplicationController
   before_action :set_publisher#, only: [:index, :new, :edit, :create, :update, :destroy, :edit]
   before_action :set_publishers_test, only: [:show, :edit, :update, :destroy]
+  after_action :verify_authorized, except: [:index]
   
 
   # GET /publishers/tests
@@ -12,17 +13,20 @@ class Publishers::TestsController < ApplicationController
   # GET /publishers/tests/1
   # GET /publishers/tests/1.json
   def show
-
+    authorize @publishers_test
   end
 
   # GET /publishers/tests/new
   def new
     @publishers_test = Test.new
+    @publishers_test.author = @publisher
+    authorize @publishers_test
     2.times { @publishers_test.slides.build }
   end
 
   # GET /publishers/tests/1/edit
   def edit
+    authorize @publishers_test
   end
 
   # POST /publishers/tests
@@ -30,9 +34,10 @@ class Publishers::TestsController < ApplicationController
   def create
     @publishers_test = Test.new(publishers_test_params)
     @publishers_test.author = @publisher
+    authorize @publishers_test
     respond_to do |format|
       if @publishers_test.save
-        format.html { redirect_to @publishers_test, notice: 'Test was successfully created.' }
+        format.html { redirect_to publisher_tests_path(publisher_id: @publisher.id), notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @publishers_test }
       else
         format.html { render :new }
@@ -44,6 +49,7 @@ class Publishers::TestsController < ApplicationController
   # PATCH/PUT /publishers/tests/1
   # PATCH/PUT /publishers/tests/1.json
   def update
+    authorize @publishers_test
     respond_to do |format|
       if @publishers_test.update(publishers_test_params)
         format.html { redirect_to @publishers_test, notice: 'Test was successfully updated.' }
@@ -58,6 +64,7 @@ class Publishers::TestsController < ApplicationController
   # DELETE /publishers/tests/1
   # DELETE /publishers/tests/1.json
   def destroy
+    authorize @publishers_test
     @publishers_test.destroy
     respond_to do |format|
       format.html { redirect_to publishers_tests_url, notice: 'Test was successfully destroyed.' }

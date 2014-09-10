@@ -20,7 +20,7 @@ class TestPassingController < ApplicationController
 	end
 
 	def result
-    @test = Test.find(params[:id])
+      @test = Test.find(params[:id])
 	end
 
 private

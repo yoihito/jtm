@@ -1,10 +1,43 @@
-= form_for [@publisher, @publishers_test] do |f|
+= form_for [@publisher, @publishers_test], html: {class: "form-test"} do |f|
   - if @publishers_test.errors.any?
     #error_explanation
       h2 = "#{pluralize(@publishers_test.errors.count, "error")} prohibited this publishers_test from being saved:"
       ul
         - @publishers_test.errors.full_messages.each do |message|
           li = message
-  = f.text_field :title
 
-  .actions = f.submit 'Save'
+  .line-form-test
+    .title-line-form-test Add cover:
+    .content-form-test
+      = f.text_field :title, placeholder: "Enter title of your new test", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_0"
+      a.choose-form-test.js-edittest-choose data-file-rel="3" href="" Choose avatar
+      = f.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => "3", "data-rel" => ".js-edittest_1"
+      = f.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
+    .preview_cover-form-test
+      = image_tag "http://localhost:3000/images/original/missing.png", class: "js-edittest_1"
+      .title-preview_cover-form-test.js-edittest_0
+      / .title-preview_cover-form-test Sed fugit distinctio est eos.
+      / .title-preview_cover-form-test Et libero magni ea corporis reprehenderit quibusdam.
+      / .title-preview_cover-form-test Reiciendis molestiae qui aut occaecati officia qui enim id.
+
+  .slides-form-test
+    .title-line-form-test Add slides:
+    = f.fields_for :slides do |s|
+      - k = s.index * 3 + 4
+
+      .slide-form-test.line-form-test class=("_hid" if s.index == 0)
+        .content-form-test
+          = f.text_field :title, placeholder: "Enter title of your new test", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_#{k}"
+
+          a.choose-form-test.js-edittest-choose data-file-rel=(k+1) href="" Choose avatar
+
+          = f.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => k+1, "data-rel" => ".js-edittest_#{k+2}"
+
+          = f.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
+        .preview_cover-form-test
+          = image_tag "http://localhost:3000/images/original/missing.png", class: "js-edittest_#{k+2}"
+          .title-preview_cover-form-test class="js-edittest_#{k}"
+
+    .addSlide-form-test.js-edittest-addAnotherSlide data-count="2" + Add another slide
+
+  = f.submit "Create", class: "btn_create-form-test"

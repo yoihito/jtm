@@ -11,9 +11,10 @@
         span <b>0</b> followers
 
   .meta-publisher
-    .filter._fl_l
-      .tab-filter = link_to "All", "#filter-all"
-      .tab-filter = link_to "Popular", "#filter-popular"
+    - unless @publisher.tests.empty?
+      .filter._fl_l
+        .tab-filter = link_to "All", "#filter-all"
+        .tab-filter = link_to "Popular", "#filter-popular"
 
     = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher _fl_l"}
 

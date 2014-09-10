@@ -1,14 +1,14 @@
 class TestPassingController < ApplicationController
 	def get
 		@test = Test.find(params[:id])
-    	@slides = @test.slides.includes(:translations,comments:[:author])
+    	@slides = @test.slides.includes(:translations)#,comments:[:author])
     	@slides.each_with_index do |s|
     		s.init_comment_form
     	end
 
-    respond_to do |format|
-      format.html { render action: 'get', layout: nil }
-    end
+  	  	respond_to do |format|
+    	  format.html { render action: 'get', layout: nil }
+    	end
 
 	end
 
@@ -25,6 +25,7 @@ class TestPassingController < ApplicationController
 
 	def result
       @test = Test.find(params[:id])
+
 	end
 
 private

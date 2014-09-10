@@ -1,5 +1,5 @@
 class PublishersController < ApplicationController
-  before_action :set_publisher, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_publisher, only: [:edit, :update, :destroy, :like, :dislike]
   after_action :verify_authorized, except: [:index, :show]
 
   # GET /publishers
@@ -11,6 +11,7 @@ class PublishersController < ApplicationController
   # GET /publishers/1
   # GET /publishers/1.json
   def show
+    @publisher = Publisher.includes(:likes,tests:[:translations,:voters,:user_answers]).find(params[:id])
   end
 
   # GET /publishers/new
@@ -63,6 +64,7 @@ class PublishersController < ApplicationController
   # DELETE /publishers/1.json
   def destroy
     authorize @publisher
+
     @publisher.destroy
     respond_to do |format|
       format.html { redirect_to publishers_url, notice: 'Publisher was successfully destroyed.' }

@@ -20,7 +20,7 @@ class LikesController < ApplicationController
 		if context.liked? current_user
 			like = Like.where(entity: context, author: current_user).take
 			like.destroy
-			redirect_to :back
+			redirect_to :back,  status: 303  
 		else
 			head :bad_request
 		end

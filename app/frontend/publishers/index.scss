@@ -148,6 +148,35 @@ $publisher-img-width: 200px;
                 line-height: 1.5em;
                 }
 
+    .meta-publisher {
+        @include clearfix;
+
+        padding: 10px 0;
+
+        .filter {
+            margin-right: 50px;
+            }
+        }
+
+    .createTest-publisher {
+        padding: 0 50px;
+        top: -10px;
+        position: relative;
+
+        background-color: $color-nephritis;
+        box-shadow: inset 0 -5px 0 rgba(#000, .15);
+
+        color: #fff;
+        line-height: 60px;
+        font-weight: bold;
+        font-size: 18px;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $color-emerald;
+            }
+        }
+
     .follow-publisher {
         margin: 20px 0;
 

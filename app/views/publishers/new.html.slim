@@ -1,0 +1,16 @@
+= form_for @publisher, html: {class: 'form-publicedit'} do |f|
+  .content-publicedit
+
+    .item-publicedit
+      label.label-uedit
+        p.descr_pre-form-newtest Enter public title
+      .wrapper-inpt-uedit
+        = f.text_field :title, { placeholder: 'Title', class: 't_inpt inpt-publicedit' }
+
+    .item-publicedit
+      a.choose-cover-newtest.js-newtest-chooseCover href="" tabindex="2" Choose avatar
+      = f.file_field :avatar, hidden: true, class: 'js-newtest-cover'
+      img.img-cover-newtest.js-newtest-srcCover src='' alt=""
+
+    .footer-publicedit
+      button.t_inpt.submt_main-publicedit Create public page

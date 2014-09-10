@@ -10,20 +10,23 @@
             imgcount = 0,
             imgcount_max = $listImgs.size();
 
-        $list
-            .masonry({
-                itemSelector: selector_item,
-                transitionDuration: '.1s'
-                // Switch off animation:
-                // isLayoutInstant: true
-            })
+        // $list
+        //     .masonry({
+        //         itemSelector: selector_item,
+        //         transitionDuration: '.1s'
+        //         // Switch off animation:
+        //         // isLayoutInstant: true
+        //     })
 
         $listImgs
             .on( 'load', function() {
                 imgcount++;
 
                 if (imgcount == imgcount_max) {
-                    $list.masonry();
+                    $list.masonry({
+                        itemSelector: selector_item,
+                        transitionDuration: '.1s'
+                    });
                 }
             });
     };

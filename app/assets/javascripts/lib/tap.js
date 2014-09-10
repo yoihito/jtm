@@ -19,6 +19,8 @@ utils.attachEvent = function( element, eventName, callback ) {
 utils.fireEvent = function( e ) {
     var oEvent = utils.createEvent( eventName );
 
+    oEvent.parentEvent = e;
+
     return document.createEvent ? e.target.dispatchEvent( oEvent ) : e.target.fireEvent( 'on' + e.eventType, e );
 };
 
@@ -93,14 +95,14 @@ handlers = {
     },
 
     end: function( e ) {
-        e = utils.getRealEvent( e );
-
         if ( coords.offset[ 0 ] < fingerOffsetMax && coords.offset[ 1 ] < fingerOffsetMax && !utils.fireEvent( e ) ) {
             e.preventDefault();
         }
     },
 
     click: function( e ) {
+        e = utils.getRealEvent( e );
+
         if ( !utils.fireEvent( e ) ) {
             return e.preventDefault();
         }

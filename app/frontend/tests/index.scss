@@ -366,6 +366,35 @@
                 }
             }
 
+.testgo-circle {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    z-index: 20000;
+
+    border-radius: 10000px;
+    background-color: rgba(#fff, .5);
+
+    &._animated {
+        transition-duration: .35s;
+        }
+    }
+
+.testgo-circle_full {
+    width: 20px;
+    height: 20px;
+    position: fixed;
+    z-index: 20001;
+
+    border-radius: 10000px;
+    background-color: #fff;
+
+    &._animated {
+        transition-duration: .35s;
+        transition-delay: .1s;
+        }
+    }
+
 .testgo {
     top: 0;
     right: 0;
@@ -374,13 +403,30 @@
     position: fixed;
     z-index: 20001;
 
+    // transition-duration: .4s;
+
+    // border-radius: 10000px;
+    opacity: 0.1;
     overflow: auto;
+
+    &._showed {
+        opacity: 1;
+        transition-duration: 1s;
+        }
+
+    &._animated {
+        opacity: 1;
+        // border-radius: 0;
+        // transition-duration: .4s;
+        // transition-delay: .1s;
+        overflow: hidden;
+        }
     }
 
     .content-testgo {
         min-width: 320px;
         min-height: 100%;
-        padding: 50px 30px;
+        // padding: 50px 30px;
         position: relative;
 
         box-sizing: border-box;
@@ -388,7 +434,7 @@
         }
 
         .list-testgo {
-            max-width: 700px;
+            // max-width: 700px;
             min-width: 260px;
             margin: auto;
             position: relative;
@@ -398,8 +444,8 @@
         .item-testgo {
             display: none;
 
-            border-radius: 10px;
-            background-color: #fff;
+            // border-radius: 10px;
+            // background-color: #fff;
             overflow: hidden;
 
             &._active {
@@ -409,33 +455,66 @@
 
             .img-item-testgo {
                 width: 100%;
+                max-width: 640px;
+                padding: 20px;
+                margin: auto;
                 display: block;
+
+                box-sizing: border-box;
                 }
 
             .head-item-testgo {}
 
             .title-item-testgo {
-                margin: 20px;
+                max-width: 600px;
+                padding: 0 130px;
+                margin: 20px auto;
 
                 font-size: 30px;
                 text-align: center;
+
+                @media screen and (max-width: $width-small) {
+                    padding: 0;
+                    margin: 90px 10px 20px;
+                    }
                 }
 
             .stop-item-testgo {
-                max-width: 600px;
-                min-width: 320px;
-                padding: 20px;
-                margin: auto;
+                $corn-width: 12px;
+                $bgcol: #f3f3f3;
+
+                width: 70px;
+                // max-width: 600px;
+                // min-width: 320px;
+                padding: 20px 20px 20px (20px - $corn-width);
+                margin: 15px 15px 15px (15px + $corn-width);
                 top: 0;
                 position: absolute;
+                z-index: 100000;
 
-                opacity: 0.5;
+                background-color: $bgcol;
+                // opacity: 0.5;
 
                 text-decoration: none;
                 font-size: 14px;
                 font-weight: bold;
-                color: $color-clouds;
+                color: $color-midnightblue;
                 line-height: 10px;
+                text-align: center;
+
+                &:after {
+                    @include pseudo;
+
+                    width: 0;
+                    height: 0;
+                    top: 0;
+                    left: -$corn-width;
+                    position: absolute;
+
+                    border-style: solid;
+                    border-width: 25px $corn-width 25px 0;
+                    border-color: transparent $bgcol transparent transparent;
+                    }
 
                 span {
                     display: inline-block;
@@ -446,9 +525,9 @@
 
             .answers-item-testgo {
                 padding: 20px 20px 10px;
-                margin-bottom: -90px;
+                // margin-bottom: -90px;
 
-                background-color: rgba(#000, .3);
+                // background-color: rgba(#000, .3);
                 position: relative;
 
                 font-size: 0;
@@ -464,7 +543,7 @@
                     margin: 0 10px 10px;
                     display: inline-block;
 
-                    border-radius: 5px;
+                    // border-radius: 5px;
                     box-shadow: inset 0 -3px 0 rgba(#000, .2);
 
                     text-shadow: 0 1px 0 rgba(#000, .5);
@@ -521,9 +600,10 @@
         position: absolute;
         z-index: 1;
 
-        background-color: rgba(0,0,0,.85);
+        // background-color: rgba(0,0,0,.85);
+        background-color: transparent;
 
-        cursor: pointer;
+        // cursor: pointer;
 
         &:hover + .stop-item-testgo {
             opacity: 1;

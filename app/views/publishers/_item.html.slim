@@ -1,5 +1,6 @@
 .item-publishers
   a.link-item-publishers.content-item-publishers href=publisher_path(item)
-    = image_tag item.avatar.url, {class: "img-item-publishers"}
+    .avatar-item-publisher
+      = image_tag item.avatar.url, {class: "img-item-publishers"}
     h3.title-item-publishers = item.title
     p.descr-item-publishers = item.description

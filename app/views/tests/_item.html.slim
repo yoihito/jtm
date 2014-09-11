@@ -32,8 +32,8 @@
       = link_to 'Results', '', {class: "go-test _passed js-test-start", rel: item.id}
 
   / List of comments
-  .comments-test
+  /.comments-test
     / Comment
     .comment-test
-      = link_to image_tag("http://localhost:3000/images/original/missing.png"), "", {class: "author-comment-test"}
-      p Really likes this test ;).
+      = link_to image_tag(item.author.avatar.url), "", {class: "author-comment-test"}
+      p = item.description

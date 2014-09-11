@@ -17,8 +17,19 @@
 
   .menu._hid
     .title-menu Sections
-    = link_to "Tests", root_path, {class: "link-menu"}
-    = link_to "Publishers", publishers_path, {class: "link-menu"}
+
+    p
+      = link_to "Tests", root_path, {class: "link-menu"}
+      /= link_to "+", new_publisher_path, {class: "link_cut-menu"}
+
+    p
+      = link_to "Publishers", publishers_path, {class: "link-menu"}
+      = link_to "+", new_publisher_path, {class: "link_cut-menu"}
+
     = link_to "Settings", "", {class: "link-menu"}
+    - if user_signed_in?
+      = link_to "Log out", destroy_user_session_path, {class: "link-menu link_auth-menu"}
+    - else
+      = link_to "Sign in", new_user_session_path, {class: "link-menu link_auth-menu"}
 
 .menu-shadow.js-menu-trigger._hid data-rel=".menu,.menu-shadow"

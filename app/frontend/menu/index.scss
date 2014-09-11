@@ -112,12 +112,14 @@
         }
 
     .link-menu {
-        display: block;
+        height: 20px;
         padding: 10px 25px;
         position: relative;
+        display: block;
 
         color: #8c8c8b;
         font-size: 14px;
+        line-height: 20px;
         font-weight: bold;
         text-decoration: none;
 
@@ -126,6 +128,51 @@
 
             text-decoration: none;
             color: #1f2336;
+            }
+        }
+
+    .link_auth-menu {
+        padding: 10px 15px;
+        margin: 10px;
+
+        background-color: #d8d7d7;
+        }
+
+    .link_cut-menu {
+        $delta: 10px;
+
+        width: 40px - $delta;
+        height: 40px - $delta;
+        margin-right: $delta/2;
+        margin-bottom: $delta - 40;
+        top: $delta/2 - 40;
+        position: relative;
+        float: right;
+
+        // background-color: #ebe9e9;
+        // background-color: #d8d7d7;
+        background: $color-greensea asset-url('icon/_plus.svg') no-repeat 50%;
+        background-size: 40px - $delta - 20;
+
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 40px - $delta;
+        text-decoration: none;
+        text-align: center;
+        color: transparent;
+
+        &:after {
+            @include pseudo;
+
+            top: -$delta/2;
+            right: -$delta/2;
+            bottom: -$delta/2;
+            left: -$delta/2;
+            position: absolute;
+            }
+
+        &:hover {
+            background-color: $color-turquoise;
             }
         }
 

@@ -112,13 +112,13 @@
             text-shadow: 0 1px 0 rgba(#000, .4);
 
 
-            &._blue {
+            &._free {
                 background-color: lighten(#2c6bec, 5%);
                 &:hover {
                     background-color: lighten(#2c6bec, 10%);
                     }
                 }
-            &._green {
+            &._passed {
                 background-color: $color-nephritis;
                 &:hover {
                     background-color: $color-emerald;

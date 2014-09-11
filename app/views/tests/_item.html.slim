@@ -25,11 +25,11 @@
 
     - if !item.is_passed?(current_user)
       / Link to test me
-      = link_to 'Test me', '', {class: "go-test _blue js-test-start", rel: item.id}
-      = link_to 'Results', '', {class: "go-test _green _hid js-test-start", rel: item.id}
+      = link_to 'Test me', '', {class: "go-test _free js-test-start", rel: item.id}
+      = link_to 'Results', '', {class: "go-test _passed _hid js-test-start", rel: item.id}
     - else
       / Link to results
-      = link_to 'Results', '', {class: "go-test _green js-test-start", rel: item.id}
+      = link_to 'Results', '', {class: "go-test _passed js-test-start", rel: item.id}
 
   / List of comments
   .comments-test

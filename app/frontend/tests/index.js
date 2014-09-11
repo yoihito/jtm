@@ -108,7 +108,9 @@
                                 .find( '.list-testgo' ).on( 'savedPassing', function( e ) {
                                     e.preventDefault();
 
-                                    $this.addClass( '_hid' ).next().removeClass( '_hid' );
+                                    if ( $this.hasClass( '_free' ) ) {
+                                        $this.addClass( '_hid' ).next().removeClass( '_hid' );
+                                    }
                                     stopPassing();
                                 });
                     },

@@ -22,6 +22,8 @@
             .on( 'tap', '.js-publisher-liked', function( e ) {
                 e.preventDefault();
 
+                var $this = $( this );
+
                 app.utils.ajax( 'publisher_dislike', { id: this.getAttribute( 'rel' ) }, {
                     success: function() {
                         var $b = $this.addClass( '_hid' ).prev().removeClass( '_hid' ).parent().find( 'b' );

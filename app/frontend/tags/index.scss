@@ -90,6 +90,7 @@
         padding: 0 50px;
         top: -10px;
         position: relative;
+        display: inline-block;
 
         box-shadow: inset 0 -5px 0 rgba(#000, .15);
 
@@ -98,6 +99,10 @@
         font-weight: bold;
         font-size: 18px;
         text-decoration: none;
+
+        @media screen and (max-width: $width-small + 100) {
+            padding: 0 20px;
+            }
         }
 
     .btn_purple-header {

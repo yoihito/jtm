@@ -11,3 +11,5 @@
 .publishers
   - @publishers.each do |publisher|
     = render "item", item: publisher
+
+= link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header"}

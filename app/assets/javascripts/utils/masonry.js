@@ -6,7 +6,7 @@
 
         var
             $list = $( selector_list ),
-            $listImgs = $list.find( 'img' ),
+            $listImgs = $list.find( '.bg-test > img' ),
             imgcount = 0,
             imgcount_max = $listImgs.size();
 

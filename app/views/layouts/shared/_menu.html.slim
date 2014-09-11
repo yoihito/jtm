@@ -26,7 +26,8 @@
       = link_to "Publishers", publishers_path, {class: "link-menu"}
       = link_to "+", new_publisher_path, {class: "link_cut-menu"}
 
-    = link_to "Settings", "", {class: "link-menu"}
+    /= link_to "Settings", "", {class: "link-menu"}
+
     - if user_signed_in?
       = link_to "Log out", destroy_user_session_path, {class: "link-menu link_auth-menu"}
     - else

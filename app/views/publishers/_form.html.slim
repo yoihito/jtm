@@ -18,7 +18,10 @@
     img.avatar-form-publisher.js-publisher-form-avatar src=@publisher.avatar.url alt=""
 
   .line-form
-    button Create free
+    - if local_assigns[:isEdit]
+      button Save changes
+    - else
+      button Create free
 
   / .content-publicedit
 

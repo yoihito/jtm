@@ -4,7 +4,7 @@
 
     $(function() {
 
-        app.utils.masonry( '.tests', '.test' );
+        app.utils.masonry( '.tests', '.test', '.bg-test > img' );
 
         var
             $shadow = $( '.tests-shadow' ),

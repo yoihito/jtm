@@ -2,11 +2,11 @@
 
     var app = window.app;
 
-    app.utils.masonry = function( selector_list, selector_item ) {
+    app.utils.masonry = function( selector_list, selector_item, selector_img ) {
 
         var
             $list = $( selector_list ),
-            $listImgs = $list.find( '.bg-test > img' ),
+            $listImgs = $list.find( selector_img || 'img' ),
             imgcount = 0,
             imgcount_max = $listImgs.size();
 

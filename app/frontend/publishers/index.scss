@@ -1,13 +1,13 @@
 @import "_merge";
 
 // Variables
-$item-publishers-img-width: 200px;
+$item-publishers-img-width: 160px;
 $publisher-img-width: 200px;
 
 .publishers {}
 
     .item-publishers {
-        width: 600px;
+        width: 500px;
         margin: 0 0 $margin_v-item 0;
         display: inline-block;
 
@@ -86,7 +86,7 @@ $publisher-img-width: 200px;
 
         .descr-item-publishers {
             margin-left: $item-publishers-img-width + 30px;
-            margin-right: 50px;
+            // margin-right: 50px;
 
             text-decoration: none;
             line-height: 1.5em;

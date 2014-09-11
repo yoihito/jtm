@@ -24,10 +24,19 @@
 
     p
       = link_to "Publishers", publishers_path, {class: "link-menu"}
-      - if user_signed_in?
-        = link_to "+", new_publisher_path, {class: "link_cut-menu"}
 
     /= link_to "Settings", "", {class: "link-menu"}
+
+    - if user_signed_in?
+      .title-menu Public pages
+
+      p = link_to "+ Create new", new_publisher_path, {class: "link_green-menu"}
+
+      - current_user.publishers.each do |p|
+        a.public-menu href=publisher_path(p)
+          = image_tag p.avatar.url
+          span = p.title
+
 
     - if user_signed_in?
       = link_to "Log out", destroy_user_session_path, {class: "link-menu link_auth-menu"}

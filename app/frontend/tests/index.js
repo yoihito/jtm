@@ -106,10 +106,15 @@
 
                         $testgo.find( '.body-content-testgo' ).html( data )
                                 .find( '.list-testgo' ).on( 'savedPassing', function( e ) {
+                                    var $b;
+
                                     e.preventDefault();
 
                                     if ( $this.hasClass( '_free' ) ) {
                                         $this.addClass( '_hid' ).next().removeClass( '_hid' );
+                                        $b = $this.parent().find( 'b' );
+
+                                        $b.text( parseInt( $b.text() ) + 1 );
                                     }
                                     stopPassing();
                                 });

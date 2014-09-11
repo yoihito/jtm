@@ -20,4 +20,5 @@ html.t_html lang="en"
       section.content
         = yield
 
-    = render "layouts/shared/counter"
+    - if Rails.env.production?
+      = render "layouts/shared/counter"

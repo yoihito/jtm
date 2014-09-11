@@ -6,7 +6,7 @@
     .tab-filter = link_to "Popular", "#filter-popular"
 
   - if user_signed_in?
-    = link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header _fl_l"}
+    = link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header createPublicLink-publishers _fl_l"}
 
 .publishers
   - @publishers.each do |publisher|

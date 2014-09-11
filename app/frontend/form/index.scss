@@ -56,6 +56,8 @@
 
     .checkbox_input-form {
         cursor: pointer;
+        position: absolute;
+        visibility: hidden;
 
         &:checked + .checkbox_label-form:after {
             opacity: 1;

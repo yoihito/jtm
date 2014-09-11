@@ -10,7 +10,7 @@
     .title-line-form-test Add cover:
     .content-form-test
       = f.text_field :title, placeholder: "Enter title of your new test", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_0"
-      a.choose-form-test.js-edittest-choose data-file-rel="3" href="" Choose avatar
+      a.choose-form-test.js-edittest-choose data-file-rel="3" href="" Choose picture
       = f.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => "3", "data-rel" => ".js-edittest_1"
       = f.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
     .preview_cover-form-test
@@ -27,9 +27,9 @@
 
       .slide-form-test.line-form-test class=("_hid" if s.index == 0)
         .content-form-test
-          = s.text_field :question, placeholder: "Enter title of your new test", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_#{k}"
+          = s.text_field :question, placeholder: "Enter question", class: "inpt-form-test js-edittest-trigger_type", "data-rel" => ".js-edittest_#{k}"
 
-          a.choose-form-test.js-edittest-choose data-file-rel=(k+1) href="" Choose avatar
+          a.choose-form-test.js-edittest-choose data-file-rel=(k+1) href="" Choose picture
 
           = s.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => k+1, "data-rel" => ".js-edittest_#{k+2}"
 

@@ -15,7 +15,7 @@
   .line-form
     a.choose-form.js-choose-img data-target=".js-publisher-new-avatar" href="" Choose publics page avatar
     = f.file_field :avatar, hidden: true, class: 'js-publisher-new-avatar'
-    img.avatar-form-publisher.js-publisher-form-avatar src="" alt=""
+    img.avatar-form-publisher.js-publisher-form-avatar src=@publisher.avatar.url alt=""
 
   .line-form
     button Create free

@@ -153,14 +153,16 @@ $publisher-img-width: 200px;
 
         padding: 10px 0;
 
-        .filter {
+        ._fl_l {
+            margin-top: 10px;
             margin-right: 50px;
             }
         }
 
     .createTest-publisher {
+        min-width: 135px;
         padding: 0 50px;
-        top: -10px;
+        margin-bottom: 26px;
         position: relative;
 
         background-color: $color-nephritis;
@@ -174,6 +176,10 @@ $publisher-img-width: 200px;
 
         &:hover {
             background-color: $color-emerald;
+            }
+
+        &._fl_l {
+            margin-top: 0;
             }
         }
 

@@ -83,6 +83,7 @@
 
 .menu {
     width: $width-menu_big;
+    padding-bottom: 60px;
     top: 0;
     bottom: 0;
     left: $width-menu;
@@ -132,13 +133,20 @@
         }
 
     .link_auth-menu {
+        width: $width-menu_big - 20 - 15 * 2;
         padding: 10px 15px;
-        right: 10px;
         bottom: 10px;
-        left: 10px;
+        left: 11px;
         position: absolute;
+        display: inline-block;
 
         background-color: #d8d7d7;
+
+        @media screen and (max-width: $width-small) {
+            margin: 10px 0;
+            bottom: 0;
+            position: relative;
+            }
 
         &._free {
             background-color: $color-orange;

@@ -97,7 +97,9 @@ $publisher-img-width: 200px;
             }
 
     .createPublicLink-publishers {
-        min-width: 200px;
+        @media screen and (max-width: $width-small) {
+            padding: 0 20px !important;
+            }
         }
 
 .publisher {}
@@ -177,6 +179,10 @@ $publisher-img-width: 200px;
         font-weight: bold;
         font-size: 18px;
         text-decoration: none;
+
+        @media screen and (max-width: $width-small) {
+            padding: 0 20px !important;
+            }
 
         &:hover {
             background-color: $color-emerald;

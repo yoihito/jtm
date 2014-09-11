@@ -139,6 +139,16 @@
         position: absolute;
 
         background-color: #d8d7d7;
+
+        &._free {
+            background-color: $color-orange;
+            color: #fff;
+            text-align: center;
+
+            &:hover {
+                background-color: $color-sunflower;
+                }
+            }
         }
 
     .link_green-menu {

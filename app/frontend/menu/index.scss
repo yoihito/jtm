@@ -142,6 +142,8 @@
 
         background-color: #d8d7d7;
 
+        text-align: center;
+
         @media screen and (max-width: $width-small) {
             margin: 10px 0;
             bottom: 0;
@@ -151,7 +153,6 @@
         &._free {
             background-color: $color-orange;
             color: #fff;
-            text-align: center;
 
             &:hover {
                 background-color: $color-sunflower;

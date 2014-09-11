@@ -78,6 +78,14 @@
         }
     }
 
+.header {
+    @include clearfix;
+
+    .filter {
+        margin-right: 30px;
+        }
+    }
+
 .wrapper {
     max-width: 2500px;
     min-height: 100%;

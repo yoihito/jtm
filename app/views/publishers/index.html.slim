@@ -1,8 +1,11 @@
 - content_for :title, "Publishers"
 
-.filter
-  .tab-filter = link_to "All", "#filter-all"
-  .tab-filter = link_to "Popular", "#filter-popular"
+.header
+  .filter._fl_l
+    .tab-filter = link_to "All", "#filter-all"
+    .tab-filter = link_to "Popular", "#filter-popular"
+
+  = link_to "+ Create new public page", new_publisher_path, {class: "createTest-publisher _fl_l"}
 
 .publishers
   - @publishers.each do |publisher|

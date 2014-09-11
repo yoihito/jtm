@@ -43,6 +43,7 @@ private
 	def set_context
 		if params[:test_id]
 			@context = Test.find(params[:test_id])
+		end
 	end
 
 

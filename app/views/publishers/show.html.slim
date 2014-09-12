@@ -16,7 +16,7 @@
 
   .meta-publisher
     - unless @publisher.tests.empty?
-      .filter.filter_purple._fl_l
+      .filter._fl_l
         .tab-filter = link_to "All", "#filter-all"
         .tab-filter = link_to "Popular", "#filter-popular"
 
@@ -24,7 +24,7 @@
       = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher _fl_l"}
 
     - if @publisher.owners.exists? current_user
-      .filter.filter_purple._fl_l
+      .filter._fl_l
         .tab-filter = link_to "Settings", edit_publisher_path
 
   = render "tests/list", {list: @publisher.tests, hideAuthor: true}

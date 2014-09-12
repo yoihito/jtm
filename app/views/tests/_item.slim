@@ -6,7 +6,7 @@
 
       / Rating
       .rating-test
-        - stars_count = item.get_rating
+        - stars_count = item.rating
         - stars_count.times
           span.item-rating-test._active
         - (5 - stars_count).times

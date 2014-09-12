@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909214655) do
+ActiveRecord::Schema.define(version: 20140912155900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,6 +69,15 @@ ActiveRecord::Schema.define(version: 20140909214655) do
     t.integer "publisher_id", null: false
   end
 
+  create_table "ratings", force: true do |t|
+    t.integer  "test_id"
+    t.string   "test_type"
+    t.integer  "user_id"
+    t.integer  "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "slide_translations", force: true do |t|
     t.integer  "slide_id",    null: false
     t.string   "locale",      null: false
@@ -115,7 +124,6 @@ ActiveRecord::Schema.define(version: 20140909214655) do
     t.integer  "author_id"
     t.string   "author_type"
     t.boolean  "has_background"
-    t.integer  "rating",               default: 0
     t.integer  "answers_count",        default: 0
     t.boolean  "published",            default: false
     t.datetime "created_at"
@@ -125,6 +133,7 @@ ActiveRecord::Schema.define(version: 20140909214655) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "rating",               default: 0
   end
 
   create_table "tests_users", id: false, force: true do |t|

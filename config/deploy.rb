@@ -17,7 +17,7 @@ set :log_level, :debug
 set :pty, true
 
 set :linked_files, %w{config/database.yml config/secrets.yml}
-set :linked_dirs, %w{public/uploads tmp/pids}
+set :linked_dirs, %w{public/system tmp/pids}
 
 after "deploy", "deploy:cleanup"
 

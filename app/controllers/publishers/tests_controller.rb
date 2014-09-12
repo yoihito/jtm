@@ -81,7 +81,7 @@ class Publishers::TestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publishers_test_params
-      params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question, :picture])
+      params.require(:test).permit(:title, :description ,:picture, slides_attributes: [:id,:question, :description, :picture])
     end
 
     def set_publisher

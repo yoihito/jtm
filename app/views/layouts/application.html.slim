@@ -18,6 +18,8 @@ html.t_html lang="en"
       = render "layouts/shared/menu"
 
       section.content
+        - unless user_signed_in? or devise_controller?
+          = link_to "Sign in", new_user_session_path, {class: "btn_yellow-header _fl_r btn_userSignin"}
         = yield
 
     - if Rails.env.production?

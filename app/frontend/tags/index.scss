@@ -20,6 +20,10 @@
     float: left;
     }
 
+._fl_r {
+    float: right;
+    }
+
 .link_back {
     $corn-width: 12px;
     $bgcol: #f3f3f3;
@@ -90,7 +94,7 @@
         padding: 0 50px;
         top: -10px;
         position: relative;
-        display: inline-block;
+        // display: inline-block;
 
         box-shadow: inset 0 -5px 0 rgba(#000, .15);
 
@@ -112,6 +116,22 @@
 
         &:hover {
             background-color: $color-amethyst;
+            }
+        }
+
+    .btn_yellow-header {
+        @extend .btn-header;
+
+        background-color: $color-orange;
+
+        &:hover {
+            background-color: $color-sunflower;
+            }
+        }
+
+    .btn_userSignin {
+        @media screen and (max-width: $width-step) {
+            display: none;
             }
         }
 

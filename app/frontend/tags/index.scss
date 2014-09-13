@@ -24,6 +24,10 @@
     float: right;
     }
 
+._no_margin {
+    margin: 0 !important;
+    }
+
 .link_back {
     $corn-width: 12px;
     $bgcol: #f3f3f3;
@@ -81,6 +85,10 @@
         display: inline-block;
         }
     }
+
+    .title_big .filter {
+        margin-top: 15px;
+        }
 
 .header {
     @include clearfix;

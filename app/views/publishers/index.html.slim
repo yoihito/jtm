@@ -6,8 +6,6 @@
   - if user_signed_in?
     = link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header createPublicLink-publishers _fl_l"}
 
-.publishers
-  - @publishers.each do |publisher|
-    = render "item", item: publisher
+= render "list", list: @publishers
 
 = link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header"}

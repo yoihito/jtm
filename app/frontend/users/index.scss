@@ -55,10 +55,36 @@ $user-img-width: 200px;
             max-width: 500px;
             padding: 10px 0 10px 30px;
 
-            line-height: 1.5em;
             vertical-align: middle;
+
+            p {
+                margin-bottom: 10px;
+
+                line-height: 1.5em;
+                }
 
             @media screen and (max-width: $width-step) {
                 padding-left: 0;
                 }
+            }
+
+    .cont-user {
+        @include clearfix;
+
+        .title_big {
+            margin-bottom: 0;
+            }
+        }
+
+        .l-cont-user,
+        .r-cont-user {}
+
+        .r-cont-user {
+            width: 450px;
+            float: right;
+            }
+
+        .l-cont-user {
+            // margin-right: 500px;
+            // overflow: hidden;
             }

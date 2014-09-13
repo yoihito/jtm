@@ -6,13 +6,18 @@
       .r-descr-info-user
         .title-info-user = @user.name
         p You passed <strong>#{@user.user_answers.size}</strong> tests
+        .filter._no_margin
+          .tab-filter = link_to "Settings", edit_user_path
 
   .meta-publisher
-    - unless @user.passed_tests.empty?
-      = render "tests/filter", position: "l"
-
     - if it_me? @user
-      .filter._fl_l
-        .tab-filter = link_to "Settings", edit_user_path
 
-  = render "tests/list", list: @user.passed_tests
+  .cont-user
+    .l-cont-user
+      .meta-publisher
+        .title_big
+          span._fl_l Passed tests
+          - unless @user.passed_tests.empty?
+            = render "tests/filter", position: "l"
+
+      = render "tests/list", list: @user.passed_tests

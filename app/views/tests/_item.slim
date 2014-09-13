@@ -1,4 +1,4 @@
-.test
+.test id="test_#{item.id}"
   .bg-test
     .content-test
       / Title
@@ -25,11 +25,11 @@
 
     - if !item.is_passed?(current_user)
       / Link to test me
-      = link_to 'Test me', '', {class: "go-test _free js-test-start", rel: item.id}
-      = link_to 'Results', '', {class: "go-test _passed _hid js-test-start", rel: item.id}
+      = link_to "Test me", "#test_#{item.id}", {class: "go-test _free js-test-start", rel: item.id}
+      = link_to "Results", "#test_#{item.id}", {class: "go-test _passed _hid js-test-start", rel: item.id}
     - else
       / Link to results
-      = link_to 'Results', '', {class: "go-test _passed js-test-start", rel: item.id}
+      = link_to "Results", "#test_#{item.id}", {class: "go-test _passed js-test-start", rel: item.id}
 
   / List of comments
   .comments-test

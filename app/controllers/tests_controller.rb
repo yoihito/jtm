@@ -9,7 +9,7 @@ class TestsController < ApplicationController
 		if params[:q] && params[:q][:s]
 				@order = params[:q][:s]
 		end
-		@q = Test.search(params[:q])
+		@q = Test.search
 		if !current_user.nil? && current_user.passed_tests.count>0
 			@tests = @q.result
 					.includes([:user_answers, :translations, :author, comments: [:author]])

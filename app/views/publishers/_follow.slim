@@ -8,4 +8,4 @@
     = link_to "Liked", "", {class: "link_gray-follow-publisher _hid js-publisher-liked", rel: @publisher.id}
     = link_to "Dislike", "", {class: "link_gray-follow-publisher _hid js-publisher-dislike", rel: @publisher.id}
 
-  span <b>#{@publisher.likes.count}</b> users liked
+  span <b>#{@publisher.likes.size}</b> users liked

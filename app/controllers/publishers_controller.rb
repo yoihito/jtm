@@ -11,7 +11,13 @@ class PublishersController < ApplicationController
   # GET /publishers/1
   # GET /publishers/1.json
   def show
-    @publisher = Publisher.includes(:likes,tests:[:translations,:voters,:user_answers]).find(params[:id])
+    @publisher = Publisher.find(params[:id])
+    @order = 'created_at desc'
+    if params[:q] && params[:q][:s]
+        @order = params[:q][:s]
+    end
+    @q = Test.where(author: @publisher).includes(:translations,:user_answers).search
+    @tests = @q.result.order(@order)
   end
 
   # GET /publishers/new

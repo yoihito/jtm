@@ -26,11 +26,24 @@ class UsersController < ApplicationController
     end
   end
  
- def change_password
+  def change_password
     authorize @user
   	@user.update_with_password(user_password_params)
   	sign_in @user, :bypass => true
   	render :edit
+  end
+
+  def change_avatar
+    authorize @user
+    respond_to do |format|
+      if @user.update(user_avatar_params)
+        format.html { render :nothing => true, :status => 200, :content_type => 'text/html' } 
+      else
+        format.html { render :nothing => true, :status => 404, :content_type => 'text/html' }
+      end
+    end
+    
+    
   end
 
 private
@@ -40,12 +53,16 @@ private
   end
 
   def user_params
-  	p = params.require(:user).permit(:name, :language, :gender, :birthday, :avatar)
-  	{name: p[:name], language: p[:language], profile:{gender: p[:gender], birthday: p[:birthday]}, avatar: p[:avatar]}
+  	p = params.require(:user).permit(:name, :language, :gender, :birthday)
+  	{name: p[:name], language: p[:language], profile:{gender: p[:gender], birthday: p[:birthday]}}
   end
 
   def user_password_params
   	params.require(:user).permit(:current_password, :password)
+  end
+
+  def user_avatar_params
+    params.require(:user).permit(:picture)
   end
 
 end

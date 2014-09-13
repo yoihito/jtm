@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   resources :users do
     member do
       patch 'update/password', to: 'users#change_password', as: 'change_password'
+      patch 'update/avatar', to: 'users#change_avatar', as: 'change_avatar'
     end
   end
 

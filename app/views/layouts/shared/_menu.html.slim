@@ -32,7 +32,7 @@
 
       - current_user.publishers.each do |p|
         a.public-menu href=publisher_path(p)
-          = image_tag p.avatar.url
+          = image_tag p.avatar.url(:thumb)
           span = p.title
 
       p = link_to "+ Create #{current_user.publishers.size ? 'new' : 'first'}", new_publisher_path, {class: "link_green-menu"}

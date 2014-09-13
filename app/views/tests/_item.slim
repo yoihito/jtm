@@ -13,11 +13,11 @@
           span.item-rating-test
 
     / Background image
-    = image_tag item.picture.url
+    = image_tag item.picture.url(:medium)
 
     - unless item.description or local_assigns[:hideAuthor]
       / Test AUTHOR
-      = link_to image_tag(item.author.avatar.url), item.author, {class: "author-test"}
+      = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-test"}
 
   .meta-test
     / Followers count
@@ -36,5 +36,5 @@
     / Comment
     - if item.description and !local_assigns[:hideAuthor]
       .comment-test
-        = link_to image_tag(item.author.avatar.url), item.author, {class: "author-comment-test"}
+        = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-comment-test"}
         p = item.description

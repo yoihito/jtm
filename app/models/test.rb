@@ -1,6 +1,8 @@
 class Test < ActiveRecord::Base
-	has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>"}, default_url: ':style/missing.png'
+	has_attached_file :picture, styles: { retina_medium: "560x3200>", medium: "280x3200>"}, default_url: ':style/missing.png'
 	validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+	validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
+	validates_attachment :picture, size: { in: 0..1500.kilobytes}
 	validate :slides_count_limit
 	translates :title,:description
 	has_and_belongs_to_many :slides

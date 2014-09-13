@@ -27,6 +27,7 @@ class Publishers::TestsController < ApplicationController
   # GET /publishers/tests/1/edit
   def edit
     authorize @publishers_test
+    1.times { @publishers_test.slides.build }
   end
 
   # POST /publishers/tests

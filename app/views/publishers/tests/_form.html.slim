@@ -14,7 +14,7 @@
       = f.file_field :picture, hidden: true, class: "js-edittest-trigger_change js-edittest-choose_img", "data-file-rel" => "3", "data-rel" => ".js-edittest_1"
       = f.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
     .preview_cover-form-test
-      = image_tag "http://localhost:3000/images/original/missing.png", class: "js-edittest_1"
+      = image_tag @publishers_test.picture.url(:medium), class: "js-edittest_1"
       .title-preview_cover-form-test.js-edittest_0
       / .title-preview_cover-form-test Sed fugit distinctio est eos.
       / .title-preview_cover-form-test Et libero magni ea corporis reprehenderit quibusdam.
@@ -35,9 +35,9 @@
 
           = s.text_area :description, placeholder: "Enter description", class: "textarea-form-test"
         .preview_cover-form-test
-          = image_tag "http://localhost:3000/images/original/missing.png", class: "js-edittest_#{k+2}"
+          = image_tag s.object.picture.url(:medium), class: "js-edittest_#{k+2}"
           .title-preview_cover-form-test class="js-edittest_#{k}"
-
+    
     .addSlide-form-test.js-edittest-addAnotherSlide data-count="2" + Add another slide
 
   = f.submit "Create", class: "btn_create-form-test"

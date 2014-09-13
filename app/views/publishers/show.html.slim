@@ -2,7 +2,7 @@
   .info-publisher
     .descr-info-publisher
       .l-descr-info-publisher
-        = image_tag @publisher.avatar.url, {class: "img-info-publisher"}
+        = image_tag @publisher.avatar.url(:medium), {class: "img-info-publisher"}
       .r-descr-info-publisher
         .title-info-publisher = @publisher.title
         p = @publisher.description

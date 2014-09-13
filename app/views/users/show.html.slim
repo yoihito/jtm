@@ -3,7 +3,7 @@
     .descr-info-user
       .l-descr-info-user
         .avatar-info-user
-          = image_tag @user.avatar.url, {class: "img-info-user"}
+          = image_tag @user.avatar.url(:medium), {class: "img-info-user"}
           a.upd-avatar-info-user.js-choose-img data-target=".js-user-avatar" href="" Update profile picture
           input.js-user-avatar type="file" hidden="true" name="avatar" data-uid=@user.id
       .r-descr-info-user
@@ -26,7 +26,7 @@
     a.title_big href="" #{if it_me?(@user) then "My" else "User's"} publishers
     .list-cont-user
       .full-list-cont-user
-        - @user.publishers.each do |publisher|
+        - @publishers.each do |publisher|
           = render "publishers/item", item: publisher
 
       .link-list-cont-user
@@ -45,5 +45,3 @@
 
       = render "tests/list", list: @profile_tests
 
-  - @publishers.each do |x|
-    = x.title

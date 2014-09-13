@@ -5,15 +5,36 @@
         = image_tag @user.avatar.url, {class: "img-info-user"}
       .r-descr-info-user
         .title-info-user = @user.name
-        p You passed <strong>#{@user.user_answers.size}</strong> tests
+        / p You passed <strong>#{@user.user_answers.size}</strong> tests
         .filter._no_margin
           .tab-filter = link_to "Settings", edit_user_path
 
-  .meta-publisher
-    - if it_me? @user
-
   .cont-user
-    .l-cont-user
+    a.title_big href="" Passed tests
+    .list-cont-user
+      .full-list-cont-user
+        - @user.passed_tests.each do |test|
+          = render "tests/item", item: test
+        = render "tests/modal"
+
+      .link-list-cont-user
+        = link_to "View all passed tests »", tests_path
+
+    a.title_big href="" #{if it_me?(@user) then "My" else "User's"} publishers
+    .list-cont-user
+      .full-list-cont-user
+        - 5.times
+          - @user.publishers.each do |publisher|
+            = render "publishers/item", item: publisher
+
+      .link-list-cont-user
+        = link_to "View all users publishers »", tests_path
+
+  / .meta-publisher
+  /   - if it_me? @user
+
+  /.cont-user
+    /.l-cont-user
       .meta-publisher
         .title_big
           span._fl_l Passed tests

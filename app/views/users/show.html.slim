@@ -38,7 +38,10 @@
       .meta-publisher
         .title_big
           span._fl_l Passed tests
-          - unless @user.passed_tests.empty?
+          - unless @profile_tests.empty?
             / = render "tests/filter", position: "l"
 
-      = render "tests/list", list: @user.passed_tests
+      = render "tests/list", list: @profile_tests
+
+  - @publishers.each do |x|
+    = x.title

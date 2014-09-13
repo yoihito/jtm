@@ -13,7 +13,7 @@ class TestsController < ApplicationController
 		if !current_user.nil? && current_user.passed_tests.count>0
 			@tests = @q.result
 					.includes([:user_answers, :translations, :author, comments: [:author]])
-					.where('id not in (?)', current_user.passed_tests.map{|x| x.id}.join(','))
+					.where('id not in (?)', current_user.passed_tests.map{|x| x.id})
 					.order(@order)
 		else
 			@tests = @q.result.includes([:user_answers, :translations, :author, comments: [:author]]).order(@order)

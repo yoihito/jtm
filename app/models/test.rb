@@ -6,11 +6,12 @@ class Test < ActiveRecord::Base
 	has_and_belongs_to_many :slides
 	accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank?}
 	belongs_to :author, polymorphic: true
-	has_many :user_answers, dependent: :delete_all
+	has_many :user_answers, dependent: :delete_all, inverse_of: :test
 	has_many :users, through: :user_answers
 	has_many :ratings, dependent: :delete_all
 	has_many :voters, through: :ratings, source: :user, class_name: "User"
 	has_many :comments, as: :entity, dependent: :delete_all
+
 	
 
 	def slides_count_limit

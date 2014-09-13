@@ -24,6 +24,39 @@ $user-img-width: 200px;
             // border-radius: $user-img-width;
             }
 
+        .avatar-info-user {
+            position: relative;
+
+            cursor: pointer;
+
+            &:hover .upd-avatar-info-user {
+                opacity: 1;
+                }
+            }
+
+            .upd-avatar-info-user {
+                padding: 10px 20px;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                position: absolute;
+
+                background-color: rgba(#000, .6);
+                opacity: 0;
+                @include transit {
+                    transition-property: opacity, background-color;
+                    }
+
+                color: #fff;
+                font-size: 14px;
+                text-align: center;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: rgba(#000, .8);
+                    }
+                }
+
         .title-info-user {
             margin-bottom: 5px;
 

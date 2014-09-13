@@ -9,6 +9,8 @@
         publisher_like: '/publishers/:id/likes',
         publisher_dislike: ['/publishers/:id/likes', 'delete'],
 
+        user_avatar: ['/users/:id', 'put'],
+
         method: 'post'
     };
 

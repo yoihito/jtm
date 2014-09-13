@@ -48,8 +48,8 @@
 
 @mixin transit($k: 1) {
     @content;
-    transition-duration: $anim-dur * $k;
-    transition-timing-function: $anim-fn;
+    transition-duration: .1s * $k;
+    transition-timing-function: cubic-bezier(.4, 0, .2, 1);
     }
 
 @function unpack($shorthand) {

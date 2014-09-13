@@ -16,7 +16,7 @@
     a.title_big href="" Passed tests
     .list-cont-user
       .full-list-cont-user
-        - @user.passed_tests.each do |test|
+        - @profile_tests.each do |test|
           = render "tests/item", item: test
         = render "tests/modal"
 

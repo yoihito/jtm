@@ -9,6 +9,10 @@ class UserPolicy < ApplicationPolicy
 		update?
 	end
 
+	def change_avatar?
+		update?
+	end
+
 private
 	
 	def same_user

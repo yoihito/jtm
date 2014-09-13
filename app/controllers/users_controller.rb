@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :change_password]
+  before_action :set_user, only: [:edit, :update, :change_password, :change_avatar]
   after_action :verify_authorized, except: [:show]
 
   def show
@@ -62,7 +62,7 @@ private
   end
 
   def user_avatar_params
-    params.require(:user).permit(:picture)
+    params.require(:user).permit(:avatar)
   end
 
 end

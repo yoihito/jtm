@@ -1,6 +1,7 @@
 class Test < ActiveRecord::Base
 	has_attached_file :picture, styles: { medium: "300x300>", thumb: "100x100>"}, default_url: ':style/missing.png'
 	validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
+	validate :slides_count_limit
 	translates :title,:description
 	has_and_belongs_to_many :slides
 	accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank?}
@@ -11,6 +12,12 @@ class Test < ActiveRecord::Base
 	has_many :voters, through: :ratings, source: :user, class_name: "User"
 	has_many :comments, as: :entity, dependent: :delete_all
 	
+
+	def slides_count_limit
+		if slides.size>10
+			errors.add(:too_much,'Too much slides. Max count is 10');
+		end
+	end
 
 	def is_passed?(user)
 	  if user

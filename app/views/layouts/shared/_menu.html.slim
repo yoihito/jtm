@@ -1,0 +1,46 @@
+.sidemenu
+  / a.item_logo-menu href="" JTM
+
+  ul
+    li = link_to (render "../assets/images/icon/hamburger.svg"), "", {class: "link-sidemenu link_trigger-sidemenu js-menu-trigger", "data-rel" => ".menu,.menu-shadow"}
+
+  / ul
+  / 	- if user_signed_in?
+  /   	li = link_to image_tag(current_user.avatar.url), current_user, { class: "link-sidemenu" }
+
+
+
+  /   li = link_to "T", root_path, { class: "link-sidemenu" }
+  /   li = link_to "P", publishers_path, { class: "link-sidemenu" }
+
+  /   li = link_to (render "../assets/images/icon/settings.svg"), "", { class: "link-sidemenu link_settings-sidemenu" }
+
+  .menu._hid
+    / Menu block: sections
+    .title-menu Sections
+
+    - if user_signed_in?
+      p = link_to "My profile", current_user, {class: "link-menu"}
+
+    p = link_to "Tests", root_path, {class: "link-menu"}
+
+    p = link_to "Publishers", publishers_path, {class: "link-menu"}
+
+    / Menu block: my publishers
+    - if user_signed_in?
+      .title-menu My publishers
+
+      - current_user.publishers.each do |p|
+        a.public-menu href=publisher_path(p)
+          = image_tag p.avatar.url
+          span = p.title
+
+      p = link_to "+ Create #{current_user.publishers.size ? 'new' : 'first'}", new_publisher_path, {class: "link_green-menu"}
+
+    / AUTH links
+    - if user_signed_in?
+      = link_to "Log out", destroy_user_session_path, {class: "link-menu link_auth-menu"}
+    - else
+      = link_to "Sign in", new_user_session_path, {class: "link-menu link_auth-menu _free"}
+
+.menu-shadow.js-menu-trigger._hid data-rel=".menu,.menu-shadow"

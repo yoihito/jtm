@@ -1,0 +1,40 @@
+.test id="test_#{item.id}"
+  .bg-test
+    .content-test
+      / Title
+      h2.title-test = item.title
+
+      / Rating
+      .rating-test
+        - stars_count = item.rating
+        - stars_count.times
+          span.item-rating-test._active
+        - (5 - stars_count).times
+          span.item-rating-test
+
+    / Background image
+    = image_tag item.picture.url
+
+    - unless item.description or local_assigns[:hideAuthor]
+      / Test AUTHOR
+      = link_to image_tag(item.author.avatar.url), item.author, {class: "author-test"}
+
+  .meta-test
+    / Followers count
+    <b>#{item.users_answered}</b> users
+
+    - if !item.is_passed?(current_user)
+      / Link to test me
+      = link_to "Test me", "#test_#{item.id}", {class: "go-test _free js-test-start", rel: item.id}
+      = link_to "Results", "#test_#{item.id}", {class: "go-test _passed _hid js-test-start", rel: item.id}
+    - else
+      / Link to results
+      = link_to "Results", "#test_#{item.id}", {class: "go-test _passed js-test-start", rel: item.id}
+
+  / List of comments
+  .comments-test
+    / Comment
+    - if item.description and !local_assigns[:hideAuthor]
+      .comment-test
+        = link_to image_tag(item.author.avatar.url), item.author, {class: "author-comment-test"}
+        p = item.description

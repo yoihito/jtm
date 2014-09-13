@@ -1,15 +1,17 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:edit, :update, :change_password]
+  after_action :verify_authorized, except: [:show]
 
   def show
     @user = User.includes(passed_tests:[:user_answers,:translations,:voters]).find(params[:id])
   end
 
   def edit
-
+    authorize @user
   end
 
   def update
+    authorize @user
     respond_to do |format|
   	  if @user.update(user_params)
         format.html { redirect_to @user, notice: "Successfully updated"} 
@@ -20,6 +22,7 @@ class UsersController < ApplicationController
   end
  
  def change_password
+    authorize @user
   	@user.update_with_password(user_password_params)
   	sign_in @user, :bypass => true
   	render :edit

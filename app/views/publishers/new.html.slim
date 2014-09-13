@@ -1,11 +1,6 @@
-/ <h1>New publisher</h1>
+.publisher
+  .title_big
+    = link_to "All publishers", publishers_path, {class: "link_back _yellow"}
+    span Create your own new public page
 
-/ <%= render 'form' %>
-
-/ <%= link_to 'Back', publishers_path %>
-
-section.content._wo_info
-  .publicedit
-    h3.title-publicedit Create new public page
-
-    = render 'form'
+  = render "form"

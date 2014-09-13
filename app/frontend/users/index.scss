@@ -1,0 +1,90 @@
+@import '_merge';
+
+.users {}
+
+$user-img-width: 200px;
+
+.user {}
+
+    .info-user {
+        max-width: 730px;
+        padding: 30px 50px (30px + 5px) 30px;
+        margin-bottom: 30px;
+
+        // background-color: #f2f2f2;
+        // box-shadow: inset 0 -5px 0 #ddd;
+
+        color: $color-midnightblue;
+        }
+
+        .img-info-user {
+            width: $user-img-width;
+            display: block;
+
+            // border-radius: $user-img-width;
+            }
+
+        .title-info-user {
+            margin-bottom: 5px;
+
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 1.3em;
+            }
+
+        .descr-info-user {
+            @include clearfix;
+
+            display: table;
+            }
+
+        .l-descr-info-user,
+        .r-descr-info-user {
+            display: table-cell;
+
+            @media screen and (max-width: $width-step) {
+                display: block;
+                }
+            }
+
+        .l-descr-info-publisher {
+            text-align: center;
+            }
+
+        .r-descr-info-user {
+            max-width: 500px;
+            padding: 10px 0 10px 30px;
+
+            vertical-align: middle;
+
+            p {
+                margin-bottom: 10px;
+
+                line-height: 1.5em;
+                }
+
+            @media screen and (max-width: $width-step) {
+                padding-left: 0;
+                }
+            }
+
+    .cont-user {
+        @include clearfix;
+
+        .title_big {
+            margin-bottom: 0;
+            }
+        }
+
+        .l-cont-user,
+        .r-cont-user {}
+
+        .r-cont-user {
+            width: 450px;
+            float: right;
+            }
+
+        .l-cont-user {
+            // margin-right: 500px;
+            // overflow: hidden;
+            }

@@ -1,0 +1,16 @@
+.tests
+  - if local_assigns[:list]
+    - list.each do |test|
+      = render "tests/item", item: test, hideAuthor: local_assigns[:hideAuthor]
+  - else
+    p Empty list
+
+.tests-shadow._hid
+
+.testgo-circle._hid
+.testgo-circle_full._hid
+.testgo._hid
+  .content-testgo
+    .body-content-testgo
+    .bg-testgo
+    a.stop-item-testgo.js-test-stop href="" &laquo; Go back

@@ -1,5 +1,6 @@
 class PublishersController < ApplicationController
-  before_action :set_publisher, only: [:show, :edit, :update, :destroy, :like, :dislike]
+  before_action :set_publisher, only: [:edit, :update, :destroy, :like, :dislike]
+  after_action :verify_authorized, except: [:index, :show]
 
   # GET /publishers
   # GET /publishers.json
@@ -10,24 +11,31 @@ class PublishersController < ApplicationController
   # GET /publishers/1
   # GET /publishers/1.json
   def show
+    @publisher = Publisher.includes(:likes,tests:[:translations,:voters,:user_answers]).find(params[:id])
   end
 
   # GET /publishers/new
   def new
     @publisher = Publisher.new
+    authorize @publisher
   end
 
   # GET /publishers/1/edit
   def edit
+    authorize @publisher
   end
 
   # POST /publishers
   # POST /publishers.json
   def create
+
     @publisher = Publisher.new(publisher_params)
+
+    authorize @publisher
 
     respond_to do |format|
       if @publisher.save
+        current_user.publishers << @publisher
         format.html { redirect_to @publisher, notice: 'Publisher was successfully created.' }
         format.json { render :show, status: :created, location: @publisher }
       else
@@ -40,6 +48,7 @@ class PublishersController < ApplicationController
   # PATCH/PUT /publishers/1
   # PATCH/PUT /publishers/1.json
   def update
+    authorize @publisher
     respond_to do |format|
       if @publisher.update(publisher_params)
         format.html { redirect_to @publisher, notice: 'Publisher was successfully updated.' }
@@ -54,6 +63,8 @@ class PublishersController < ApplicationController
   # DELETE /publishers/1
   # DELETE /publishers/1.json
   def destroy
+    authorize @publisher
+
     @publisher.destroy
     respond_to do |format|
       format.html { redirect_to publishers_url, notice: 'Publisher was successfully destroyed.' }

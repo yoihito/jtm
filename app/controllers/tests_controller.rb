@@ -1,38 +1,21 @@
 class TestsController < ApplicationController
-	before_action :set_test, only: [:edit, :update,:upvote,:downvote]
-
-	def create
-		@test = Test.new(test_params)
-		@test.save
-	end
-
-	def update
-		@test.update(test_params)
-	end
-
-	def destroy
-	end
+	before_action :set_test, only: [:show]
 
 	def show
 	end
 
 	def index
-	end
-
-	def edit
+		@order = 'created_at desc'
+		if params[:q] && params[:q][:s]
+				@order = params[:q][:s]
+		end
+		@q = Test.search(params[:q])
+		@tests = @q.result.includes([:user_answers, :translations, :author, comments: [:author]]).order(@order)
 		
-	end
-
-	def new
-		@test = Test.new
-		2.times { @test.slides.build }
 	end
 
 private
 
-	def test_params
-		params.require(:test).permit(:title, :picture, slides_attributes: [:id,:question, :picture])
-	end
 
 	def set_test
 		@test = Test.find(params[:id])

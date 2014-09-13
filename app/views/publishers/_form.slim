@@ -1,0 +1,42 @@
+/ <%= simple_form_for(@publisher) do |f| %>
+/   <%= f.error_notification %>
+
+/   <div class="form-inputs">
+/   </div>
+
+/   <div class="form-actions">
+/     <%= f.button :submit %>
+/   </div>
+/ <% end %>
+
+= form_for @publisher, html: {class: 'form form-publisher'} do |f|
+  .line-form = f.text_field :title, placeholder: "Enter title of new public page"
+  .line-form = f.text_area :description, placeholder: "Enter description"
+  .line-form
+    a.choose-form.js-choose-img data-target=".js-publisher-new-avatar" href="" Choose publics page avatar
+    = f.file_field :avatar, hidden: true, class: 'js-publisher-new-avatar'
+    img.avatar-form-publisher.js-publisher-form-avatar src=@publisher.avatar.url alt=""
+
+  .line-form
+    - if local_assigns[:isEdit]
+      button Save changes
+    - else
+      button Create free
+
+  / .content-publicedit
+
+  /   .item-publicedit
+  /     label.label-uedit
+  /       p.descr_pre-form-newtest Enter public title
+  /     .wrapper-inpt-uedit
+  /       = f.text_field :title, { placeholder: 'Title', class: 't_inpt inpt-publicedit' }
+
+  /       = f.text_field :description
+
+  /   .item-publicedit
+  /     a.choose-cover-newtest.js-newtest-chooseCover href="" tabindex="2" Choose avatar
+  /     = f.file_field :avatar, hidden: true, class: 'js-newtest-cover'
+  /     img.img-cover-newtest.js-newtest-srcCover src='' alt=""
+
+  /   .footer-publicedit
+  /     button.t_inpt.submt_main-publicedit Create public page

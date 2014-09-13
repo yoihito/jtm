@@ -1,12 +1,6 @@
-/ <h1>Editing publisher</h1>
+.publisher
+  .title_big
+    = link_to "Go back", publisher_path(@publisher), {class: "link_back _yellow"}
+    span Change information of public: #{@publisher.title}
 
-/ <%= render 'form' %>
-
-/ <%= link_to 'Show', @publisher %> |
-/ <%= link_to 'Back', publishers_path %>
-
-section.content._wo_info
-  .publicedit
-    h3.title-publicedit Create new public page
-
-    = render 'form'
+  = render "form", isEdit: true

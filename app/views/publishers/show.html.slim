@@ -1,23 +1,22 @@
-/ <p id="notice"><%= notice %></p>
+.publisher
+  .info-publisher
+    .descr-info-publisher
+      .l-descr-info-publisher
+        = image_tag @publisher.avatar.url, {class: "img-info-publisher"}
+      .r-descr-info-publisher
+        .title-info-publisher = @publisher.title
+        p = @publisher.description
+        = render "follow", publisher: @publisher
 
-/ <%= @publisher.likes.count %>
-/ <%= image_tag @publisher.avatar.url %>
-/ <% @publisher.tests.each do |test| %>
-/ <%= test.title %>
-/ <%= image_tag test.picture.url %>
-/ <% end %>
+  - if @publisher.owners.exists? current_user
+    = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher"}
 
-/ <%= link_to 'Like', like_publisher_path(@publisher) %>
-/ <%= link_to 'Dislike', dislike_publisher_path(@publisher) %>
-/ <%= link_to 'Edit', edit_publisher_path(@publisher) %> |
-/ <%= link_to 'Back', publishers_path %>
+  .meta-publisher
+    - unless @publisher.tests.empty?
+      = render "tests/filter", position: "l"
 
-section.content._w_info
-  - if @publisher.tests.empty?
-    .warning_emptytests "#{@publisher.title}" haven't any test
-  - else
-    .market
-      - @publisher.tests.each do |item|
-        = render '/market/item', {test: item}
+    - if @publisher.owners.exists? current_user
+      .filter._fl_l
+        .tab-filter = link_to "Settings", edit_publisher_path
 
-= render 'info'
+  = render "tests/list", {list: @publisher.tests, hideAuthor: true}

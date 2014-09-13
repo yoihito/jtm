@@ -1,0 +1,4 @@
+.filter class="_fl_#{if local_assigns[:position] then position}"
+  .tab-filter = link_to "All", tests_path
+  .tab-filter = sort_link @q, :rating, "Popular", default_order: :desc
+  .tab-filter = sort_link @q, :comments_count, "Discussed", default_order: :desc

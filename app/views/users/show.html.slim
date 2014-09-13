@@ -1,17 +1,23 @@
-/ @user.name
-/ @user.passed_tests
-/ @user.avatar.url
+.user
+  .info-user
+    .descr-info-user
+      .l-descr-info-user
+        = image_tag @user.avatar.url, {class: "img-info-user"}
+      .r-descr-info-user
+        .title-info-user = @user.name
+        p You passed <strong>#{@user.user_answers.size}</strong> tests
+        .filter._no_margin
+          .tab-filter = link_to "Settings", edit_user_path
 
-section.content._w_info
-  - if @user.passed_tests.empty?
+  .meta-publisher
     - if it_me? @user
-      .warning_emptytests Sorry, but you haven't passed tests yet :(
-    - else
-      .warning_emptytests Sorry, but #{@user.name} haven't passed tests yet :(
-  - else
-    .market
-      - @user.passed_tests.each do |item|
-        = render '/market/item', {test: item}
-  - @user.touched_publishers.each do |pub|
-  	= pub.title
-= render 'info'
+
+  .cont-user
+    .l-cont-user
+      .meta-publisher
+        .title_big
+          span._fl_l Passed tests
+          - unless @user.passed_tests.empty?
+            = render "tests/filter", position: "l"
+
+      = render "tests/list", list: @user.passed_tests

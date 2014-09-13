@@ -7,7 +7,9 @@ class Publishers::TestsController < ApplicationController
   # GET /publishers/tests
   # GET /publishers/tests.json
   def index
+    authorize @publisher
     @publishers_tests = @publisher.tests
+
   end
 
   # GET /publishers/tests/1

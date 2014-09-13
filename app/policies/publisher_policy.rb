@@ -12,5 +12,9 @@ class PublisherPolicy < ApplicationPolicy
 		@scope.owners.exists?(@user)
 	end
 
+	def index?
+		@scope.owners.exists?(@user)
+	end
+
 
 end

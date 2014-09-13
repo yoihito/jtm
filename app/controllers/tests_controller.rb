@@ -5,7 +5,16 @@ class TestsController < ApplicationController
 	end
 
 	def index
-		@tests = Test.includes([:user_answers,:translations,:voters, :author]).order(:id).reverse_order
+		if params[:q]
+			if params[:q][:s]
+				@order = params[:q][:s]
+			else
+				@order = 'created_at desc'
+			end
+		end
+		@q = Test.search(params[:q])
+		@tests = @q.result.includes([:user_answers, :translations, :author, comments: [:author]]).order(@order)
+		
 	end
 
 private

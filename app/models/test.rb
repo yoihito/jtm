@@ -5,11 +5,12 @@ class Test < ActiveRecord::Base
 	has_and_belongs_to_many :slides
 	accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank?}
 	belongs_to :author, polymorphic: true
-	has_many :user_answers
+	has_many :user_answers, dependent: :delete_all
 	has_many :users, through: :user_answers
-	has_many :ratings
-
+	has_many :ratings, dependent: :delete_all
 	has_many :voters, through: :ratings, source: :user, class_name: "User"
+	has_many :comments, as: :entity, dependent: :delete_all
+	
 
 	def is_passed?(user)
 	  if user
@@ -41,6 +42,10 @@ class Test < ActiveRecord::Base
 	def downvote(user)
 	  update_rating(user,0)
 	  refresh_rating
+	end
+
+	def comments_count
+		self.comments.count
 	end
 private
 

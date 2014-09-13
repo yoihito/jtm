@@ -7,13 +7,12 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
   validates :name, presence: true
 
-  has_many :tests, as: :author
-  has_many :likes, as: :author
-  has_many :user_answers
+  has_many :likes, as: :author, dependent: :delete_all
+  has_many :user_answers, dependent: :delete_all
   has_many :passed_tests, through: :user_answers, source: :test
   has_many :touched_publishers, through: :passed_tests, source: :author, source_type: 'Publisher'
-  has_many :comments, as: :author
-  has_many :ratings
+  has_many :comments, as: :author, dependent: :delete_all
+  has_many :ratings, dependent: :delete_all
   has_and_belongs_to_many :publishers, class_name: 'Publisher'
   has_and_belongs_to_many :voted_tests, class_name: "Test"
 

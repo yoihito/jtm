@@ -1,9 +1,7 @@
 - content_for :title, "Publishers"
 
 .header
-  .filter._fl_l
-    .tab-filter = link_to "All", "#filter-all"
-    .tab-filter = link_to "Popular", "#filter-popular"
+  = render "filter", position: "l"
 
   - if user_signed_in?
     = link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header createPublicLink-publishers _fl_l"}

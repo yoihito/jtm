@@ -1,6 +1,18 @@
 .user
   .info-user
-    = link_to "Edit user", edit_user_path(@user)
-    .name-info-user Name: #{@user.name}
-    = image_tag @user.avatar.url
+    .descr-info-user
+      .l-descr-info-user
+        = image_tag @user.avatar.url, {class: "img-info-user"}
+      .r-descr-info-user
+        .title-info-user = @user.name
+        p You passed <strong>#{@user.user_answers.size}</strong> tests
 
+  .meta-publisher
+    - unless @user.passed_tests.empty?
+      = render "tests/filter", position: "l"
+
+    - if it_me? @user
+      .filter._fl_l
+        .tab-filter = link_to "Settings", edit_user_path
+
+  = render "tests/list", list: @user.passed_tests

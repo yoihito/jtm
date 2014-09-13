@@ -1,26 +1,16 @@
 .publisher
   .info-publisher
-    = image_tag @publisher.avatar.url, {class: "img-info-publisher"}
-    .content-info-publisher
-      h2.title-info-publisher = @publisher.title
-      p.descr-info-publisher = @publisher.description
-      .follow-publisher
-        - if @publisher.liked? current_user
-          = link_to "Like", "", {class: "link_blue-follow-publisher _hid js-publisher-like", rel: @publisher.id}
-          = link_to "Liked", "", {class: "link_gray-follow-publisher js-publisher-liked", rel: @publisher.id}
-          = link_to "Dislike", "", {class: "link_gray-follow-publisher _hid js-publisher-dislike", rel: @publisher.id}
-        - else
-          = link_to "Like", "", {class: "link_blue-follow-publisher js-publisher-like", rel: @publisher.id}
-          = link_to "Liked", "", {class: "link_gray-follow-publisher _hid js-publisher-liked", rel: @publisher.id}
-          = link_to "Dislike", "", {class: "link_gray-follow-publisher _hid js-publisher-dislike", rel: @publisher.id}
-
-        span <b>#{@publisher.likes.count}</b> users liked
+    .descr-info-publisher
+      .l-descr-info-publisher
+        = image_tag @publisher.avatar.url, {class: "img-info-publisher"}
+      .r-descr-info-publisher
+        .title-info-publisher = @publisher.title
+        p = @publisher.description
+        = render "follow", publisher: @publisher
 
   .meta-publisher
     - unless @publisher.tests.empty?
-      .filter._fl_l
-        .tab-filter = link_to "All", "#filter-all"
-        .tab-filter = link_to "Popular", "#filter-popular"
+      = render "tests/filter", position: "l"
 
     - if @publisher.owners.exists? current_user
       = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher _fl_l"}

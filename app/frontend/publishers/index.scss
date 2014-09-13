@@ -62,8 +62,6 @@ $publisher-img-width: 200px;
             float: left;
             position: relative;
 
-            // border-radius: 100px;
-
             @media screen and (max-width: $width-step) {
                 margin: 0 auto 20px;
                 display: block;
@@ -86,7 +84,6 @@ $publisher-img-width: 200px;
 
         .descr-item-publishers {
             margin-left: $item-publishers-img-width + 30px;
-            // margin-right: 50px;
 
             text-decoration: none;
             line-height: 1.5em;
@@ -99,54 +96,111 @@ $publisher-img-width: 200px;
 .publisher {}
 
     .info-publisher {
-        @include clearfix;
+        max-width: 730px;
+        padding: 30px 50px (30px + 5px) 30px;
+        margin-bottom: 30px;
 
-        padding: 20px 40px 20px 20px;
-        margin-bottom: 5px + 30px;
-        display: inline-block;
-
-        // border-radius: 10px;
         background-color: #f2f2f2;
-        box-shadow: 0 5px 0 #ddd;
+        box-shadow: inset 0 -5px 0 #ddd;
 
-        @media screen and (max-width: $width-step) {
-            padding-right: 20px;
-            }
+        color: $color-midnightblue;
         }
 
         .img-info-publisher {
             width: $publisher-img-width;
-            float: left;
+            display: inline-block;
 
-            // border-radius: 5px;
+            border-radius: $publisher-img-width;
+            }
+
+        .title-info-publisher {
+            margin-bottom: 5px;
+
+            font-size: 40px;
+            font-weight: bold;
+            line-height: 1.3em;
+            }
+
+        .descr-info-publisher {
+            @include clearfix;
+
+            display: table;
+            }
+
+        .l-descr-info-publisher,
+        .r-descr-info-publisher {
+            display: table-cell;
 
             @media screen and (max-width: $width-step) {
-                margin: auto;
                 display: block;
-                float: none;
                 }
             }
 
-        .content-info-publisher {
-            margin-left: $publisher-img-width + 30px;
+        .l-descr-info-publisher {
+            text-align: center;
+            }
 
-            color: $color-midnightblue;
+        .r-descr-info-publisher {
+            max-width: 500px;
+            padding: 10px 0 0 30px;
+
+            line-height: 1.5em;
+            vertical-align: middle;
 
             @media screen and (max-width: $width-step) {
-                margin-left: 0;
+                padding-left: 0;
                 }
             }
 
-            .title-info-publisher {
-                margin: 10px 0 5px;
+    // .info-publisher {
+    //     @include clearfix;
 
-                font-size: 30px;
-                }
+    //     padding: 20px 40px 20px 20px;
+    //     margin-bottom: 5px + 30px;
+    //     display: inline-block;
 
-            .descr-info-publisher {
-                max-width: 500px;
-                line-height: 1.5em;
-                }
+    //     // border-radius: 10px;
+    //     background-color: #f2f2f2;
+    //     box-shadow: 0 5px 0 #ddd;
+
+    //     @media screen and (max-width: $width-step) {
+    //         padding-right: 20px;
+    //         }
+    //     }
+
+    //     .img-info-publisher {
+    //         width: $publisher-img-width;
+    //         float: left;
+
+    //         // border-radius: 5px;
+
+    //         @media screen and (max-width: $width-step) {
+    //             margin: auto;
+    //             display: block;
+    //             float: none;
+    //             }
+    //         }
+
+    //     .content-info-publisher {
+    //         margin-left: $publisher-img-width + 30px;
+
+    //         color: $color-midnightblue;
+
+    //         @media screen and (max-width: $width-step) {
+    //             margin-left: 0;
+    //             }
+    //         }
+
+    //         .title-info-publisher {
+    //             margin: 10px 0 5px;
+
+    //             font-size: 30px;
+    //             }
+
+    //         .descr-info-publisher {
+    //             max-width: 500px;
+    //             line-height: 1.5em;
+    //             }
 
     .meta-publisher {
         @include clearfix;

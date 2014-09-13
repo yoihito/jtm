@@ -23,9 +23,8 @@
     a.title_big href="" #{if it_me?(@user) then "My" else "User's"} publishers
     .list-cont-user
       .full-list-cont-user
-        - 5.times
-          - @user.publishers.each do |publisher|
-            = render "publishers/item", item: publisher
+        - @user.publishers.each do |publisher|
+          = render "publishers/item", item: publisher
 
       .link-list-cont-user
         = link_to "View all users publishers »", tests_path

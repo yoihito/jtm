@@ -14,10 +14,11 @@
                 $pattern = $items.eq( 0 ),
 
                 item_width = $pattern.outerWidth() + parseInt( $pattern.css( 'marginRight' ) ) + parseInt( $pattern.css( 'marginLeft' ) ),
-                list_width = Math.floor( $parent.width() / item_width ) * item_width - 50;
+                list_width = Math.floor( $parent.width() / item_width ) * item_width,
 
-            console.log( list_width );
-            $list.css( { maxWidth: list_width } )
+                maxWidth = Math.min( list_width, item_width * $items.length ) - 50;
+
+            $list.css( { maxWidth: maxWidth } )
         };
 
     $(function() {

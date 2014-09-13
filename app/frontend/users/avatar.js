@@ -14,7 +14,7 @@
                             user: { avatar: result }
                         },
                         success: function() {
-                            console.log( 'asd' );
+                            $( '.img-info-user' ).attr( 'src', result );
                         }
                     } );
                 });

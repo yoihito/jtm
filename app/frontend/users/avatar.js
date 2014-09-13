@@ -11,7 +11,7 @@
                 app.utils.file.getBase64( FileReader, that.files[ 0 ], function( result ) {
                     app.utils.ajax( 'user_avatar', { id: parseInt( that.getAttribute( 'data-uid' ) ) }, {
                         data: {
-                            avatar: result
+                            user: { avatar: result }
                         },
                         success: function() {
                             console.log( 'asd' );

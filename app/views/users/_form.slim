@@ -1,0 +1,6 @@
+= form_for @user, html: {class: "form"} do |f|
+  = f.label :name, "Your name:", class: "label-form"
+  .line-form = f.text_field :name
+
+  .line-form
+    button Save changes

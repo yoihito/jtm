@@ -15,7 +15,8 @@
 
         color: $color-blue;
         }
-    a:hover {
+    a:hover,
+    ._active a:hover {
         background-image: linear-gradient(top, rgba(#ccc, .2), rgba(#ccc, .05));
         }
     }

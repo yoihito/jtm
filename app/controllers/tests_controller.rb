@@ -5,18 +5,24 @@ class TestsController < ApplicationController
 	end
 
 	def index
-		@order = 'created_at desc'
+		@q = Test.includes([:user_answers, :translations, :author, comments: [:author]]).search
+    @order = 'created_at desc'
 		if params[:q] && params[:q][:s]
 				@order = params[:q][:s]
 		end
-		@q = Test.search
-		if !current_user.nil? && current_user.passed_tests.count>0
-			@tests = @q.result
-					.includes([:user_answers, :translations, :author, comments: [:author]])
-					.where('id not in (?)', current_user.passed_tests.map{|x| x.id})
-					.order(@order)
+
+		if !current_user.nil? && current_user.user_answers.count>0
+
+      if @order == 'passed_tests desc'
+        @tests = @q.result
+            .where('id in (?)', current_user.user_answers.map{|x| x.test_id})
+      else
+        @tests = @q.result
+            .where('id not in (?)', current_user.user_answers.map{|x| x.test_id})
+            .order(@order)
+      end
 		else
-			@tests = @q.result.includes([:user_answers, :translations, :author, comments: [:author]]).order(@order)
+			@tests = @q.result.order(@order)
 		end
 
 	end

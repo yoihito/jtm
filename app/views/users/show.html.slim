@@ -9,8 +9,10 @@
       .r-descr-info-user
         .title-info-user = @user.name
         / p You passed <strong>#{@user.user_answers.size}</strong> tests
-        .filter._no_margin
-          .tab-filter = link_to "Settings", edit_user_path
+
+    - if it_me? @user
+      .filter.settings-info-user
+        .tab-filter = link_to "Settings", edit_user_path
 
   .cont-user
     a.title_big href="" Passed tests

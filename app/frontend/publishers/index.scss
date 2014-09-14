@@ -99,6 +99,7 @@ $publisher-img-width: 200px;
         max-width: 730px;
         padding: 30px 50px (30px + 5px) 30px;
         margin-bottom: 30px;
+        position: relative;
 
         background-color: #f2f2f2;
         box-shadow: inset 0 -5px 0 #ddd;
@@ -150,6 +151,12 @@ $publisher-img-width: 200px;
             @media screen and (max-width: $width-step) {
                 padding-left: 0;
                 }
+            }
+
+        .settings-info-publisher {
+            top: 10px;
+            right: 10px;
+            position: absolute;
             }
 
     // .info-publisher {

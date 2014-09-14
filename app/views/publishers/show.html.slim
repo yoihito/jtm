@@ -14,15 +14,19 @@
         p = @publisher.description
         = render "follow", publisher: @publisher
 
+    - if @publisher.owners.exists? current_user
+      .filter.settings-info-publisher
+        .tab-filter = link_to "Settings", edit_publisher_path
+
   - if @publisher.owners.exists? current_user
     = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher"}
 
   .meta-publisher
     - unless @tests.empty?
-      = render "tests/filter", position: "l"
+      = render "tests/filter"
 
-    - if @publisher.owners.exists? current_user
-      .filter._fl_l
-        .tab-filter = link_to "Settings", edit_publisher_path
+    / - if @publisher.owners.exists? current_user
+    /   .filter._fl_l
+    /     .tab-filter = link_to "Settings", edit_publisher_path
 
   = render "tests/list", {list: @tests, hideAuthor: true}

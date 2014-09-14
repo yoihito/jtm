@@ -15,7 +15,7 @@
         .tab-filter = link_to "Settings", edit_user_path
 
   .cont-user
-    a.title_big href="" Passed tests
+    a.title_big href="/tests?q%5Bs%5D=passed_tests+desc" Passed tests
     .list-cont-user
       .full-list-cont-user
         - @profile_tests.reverse.each do |test|
@@ -23,16 +23,16 @@
         = render "tests/modal"
 
       .link-list-cont-user
-        = link_to "View all passed tests »", tests_path
+        = link_to "View all passed tests »", "/tests?q%5Bs%5D=passed_tests+desc"
 
-    a.title_big href="" #{if it_me?(@user) then "My" else "User's"} publishers
+    .title_big #{if it_me?(@user) then "My" else "User's"} publishers
     .list-cont-user
       .full-list-cont-user
         - @publishers.each do |publisher|
           = render "publishers/item", item: publisher
 
-      .link-list-cont-user
-        = link_to "View all users publishers »", tests_path
+      /.link-list-cont-user
+      /  = link_to "View all users publishers »", tests_path
 
   / .meta-publisher
   /   - if it_me? @user

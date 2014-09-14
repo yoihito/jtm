@@ -26,7 +26,7 @@
     - if user_signed_in?
       / p = link_to "My profile", current_user, {class: "link-menu"}
       p
-        a.link_wImg-menu href=current_user
+        a.link_wImg-menu href=user_path(current_user)
           = image_tag current_user.avatar.url(:thumb)
           span My profile
 

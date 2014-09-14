@@ -1,7 +1,7 @@
 class CreateSlides < ActiveRecord::Migration
   def up
     create_table :slides do |t|
-      
+
       t.boolean :has_image
       t.references :author, polymorphic: true
       t.string :has_background_color

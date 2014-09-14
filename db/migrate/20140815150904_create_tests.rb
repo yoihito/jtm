@@ -1,7 +1,7 @@
 class CreateTests < ActiveRecord::Migration
   def up
     create_table :tests do |t|
-      
+
       t.references :author, polymorphic: true
       t.boolean :has_background
       t.integer :rating
@@ -14,7 +14,7 @@ class CreateTests < ActiveRecord::Migration
     Test.create_translation_table! :title=>:string, :description => :string
   end
 
-  def down 
+  def down
   	drop_table :tests
   	Test.drop_translation_table!
   end

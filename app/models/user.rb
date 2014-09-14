@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :publishers, class_name: 'Publisher'
   has_and_belongs_to_many :voted_tests, class_name: "Test"
 
+
+
   def roles=(roles)
   	self.roles_mask = (roles & ROLES).map { |r| 2**ROLES.index(r) }.inject(0, :+)
   end

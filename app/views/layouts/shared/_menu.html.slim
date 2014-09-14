@@ -3,7 +3,7 @@
 
   ul
     li = link_to (render file: "../assets/images/logo_square.svg"), root_path, {class: "link-sidemenu link_logo-sidemenu"}
-    li = link_to (render "../assets/images/icon/hamburger.svg"), "", {class: "link-sidemenu link_trigger-sidemenu js-menu-trigger", "data-rel" => ".menu,.menu-shadow"}
+    li = link_to (render "../assets/images/icon/hamburger.svg"), "#", {class: "link-sidemenu link_trigger-sidemenu js-menu-trigger", "data-rel" => ".menu,.menu-shadow"}
 
   / ul
   / 	- if user_signed_in?

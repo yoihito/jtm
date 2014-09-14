@@ -27,7 +27,11 @@ class TestPassingController < ApplicationController
     @test = Test.find(params[:id])
     @answers = @test.user_answers
     respond_to do |format|
-      format.html { }
+      if request.xhr?
+        format.html { render layout: nil }
+      else
+        format.html { render 'result' }
+      end
     end
 	end
 

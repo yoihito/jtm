@@ -24,7 +24,7 @@ class TestPassingController < ApplicationController
 	end
 
 	def result
-    @test = Test.find(params[:id])
+    @test = Test.includes(comments:[:author]).find(params[:id])
     @answers = @test.user_answers
     respond_to do |format|
       if request.xhr?

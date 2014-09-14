@@ -18,7 +18,7 @@ class TestsController < ApplicationController
 		else
 			@tests = @q.result.includes([:user_answers, :translations, :author, comments: [:author]]).order(@order)
 		end
-		
+
 	end
 
 private

@@ -19,13 +19,13 @@ class UsersController < ApplicationController
     authorize @user
     respond_to do |format|
   	  if @user.update(user_params)
-        format.html { redirect_to @user, notice: "Successfully updated"} 
+        format.html { redirect_to @user, notice: "Successfully updated"}
       else
         format.html { render :edit }
       end
     end
   end
- 
+
   def change_password
     authorize @user
   	@user.update_with_password(user_password_params)
@@ -37,13 +37,13 @@ class UsersController < ApplicationController
     authorize @user
     respond_to do |format|
       if @user.update(user_avatar_params)
-        format.html { render :nothing => true, :status => 200, :content_type => 'text/html' } 
+        format.html { render :nothing => true, :status => 200, :content_type => 'text/html' }
       else
         format.html { render :nothing => true, :status => 404, :content_type => 'text/html' }
       end
     end
-    
-    
+
+
   end
 
 private

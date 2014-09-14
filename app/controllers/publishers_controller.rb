@@ -66,6 +66,17 @@ class PublishersController < ApplicationController
     end
   end
 
+  def change_avatar
+    authorize @publisher
+    respond_to do |format|
+      if @publisher.update(publisher_avatar_params)
+        format.html { render :nothing => true, :status => 200, :content_type => 'text/html' }
+      else
+        format.html { render :nothing => true, :status => 404, :content_type => 'text/html' }
+      end
+    end
+  end
+
   # DELETE /publishers/1
   # DELETE /publishers/1.json
   def destroy
@@ -90,4 +101,8 @@ class PublishersController < ApplicationController
     def publisher_params
       params.require(:publisher).permit(:title, :description,:avatar)
     end
+
+  def publisher_avatar_params
+    params.require(:publisher).permit(:avatar)
+  end
 end

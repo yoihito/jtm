@@ -3,7 +3,7 @@ class CreateComments < ActiveRecord::Migration
     create_table :comments do |t|
       t.references :author, polymorphic: true
       t.references :entity, polymorphic: true
-      t.text :content, default: ""
+      t.text :content, default: ''
       t.timestamps
     end
   end

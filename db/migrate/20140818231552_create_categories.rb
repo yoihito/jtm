@@ -5,12 +5,11 @@ class CreateCategories < ActiveRecord::Migration
       t.timestamps
     end
 
-    Category.create_translation_table! :title => :string
+    Category.create_translation_table! title: :string
   end
 
   def down
-  	drop_table :categories
-  	Category.drop_translation_table!
-
+    drop_table :categories
+    Category.drop_translation_table!
   end
 end

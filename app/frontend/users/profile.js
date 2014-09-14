@@ -41,6 +41,8 @@
             height += delta_height;
 
             $list.css( { maxWidth: maxWidth, maxHeight: maxHeight, height: height } )
+
+            $( '.js-user-count_passedtests' ).text( count_visible + 1 );
         };
 
     $(function() {

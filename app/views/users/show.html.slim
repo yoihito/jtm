@@ -15,15 +15,20 @@
         .tab-filter = link_to "Settings", edit_user_path
 
   .cont-user
-    a.title_big href="/tests?q%5Bs%5D=passed_tests+desc" Passed tests
+    / a.title_big href="/tests?q%5Bs%5D=passed_tests+desc" <b>a</b> #{if it_me?(@user) then "Passed" else "passed"} tests
+    - if it_me? @user
+      a.title_big href="/tests?q%5Bs%5D=passed_tests+desc" Passed tests
+    - else
+      .title_big <b class="js-user-count_passedtests">0</b> last passed tests
     .list-cont-user
       .full-list-cont-user
         - @profile_tests.reverse.each do |test|
           = render "tests/item", item: test
         = render "tests/modal"
 
-      .link-list-cont-user
-        = link_to "View all passed tests »", "/tests?q%5Bs%5D=passed_tests+desc"
+      - if it_me? @user
+        .link-list-cont-user
+          = link_to "View all passed tests »", "/tests?q%5Bs%5D=passed_tests+desc"
 
     .title_big #{if it_me?(@user) then "My" else "User's"} publishers
     .list-cont-user

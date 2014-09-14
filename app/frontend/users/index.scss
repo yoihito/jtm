@@ -119,6 +119,8 @@ $user-img-width: 200px;
         .list-cont-user {
             width: 100%;
             margin-bottom: 50px;
+            position: relative;
+
             overflow: hidden;
 
             .test {
@@ -127,6 +129,7 @@ $user-img-width: 200px;
 
             .item-publishers {
                 width: 500px;
+                margin-bottom: 20px;
                 }
             .content-item-publishers {
                 margin-right: $margin_h-item;
@@ -149,6 +152,10 @@ $user-img-width: 200px;
                 }
 
             .link-list-cont-user {
+                right: 0;
+                bottom: 0;
+                position: absolute;
+
                 text-align: right;
 
                 color: $color-midnightblue;

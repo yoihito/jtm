@@ -2,7 +2,7 @@
   / a.item_logo-menu href="" JTM
 
   ul
-    li = link_to (render file: "../assets/images/logo_square.svg"), root_path, {class: "link-sidemenu"}
+    li = link_to (render file: "../assets/images/logo_square.svg"), root_path, {class: "link-sidemenu link_logo-sidemenu"}
     li = link_to (render "../assets/images/icon/hamburger.svg"), "", {class: "link-sidemenu link_trigger-sidemenu js-menu-trigger", "data-rel" => ".menu,.menu-shadow"}
 
   / ul
@@ -18,12 +18,17 @@
 
   .menu._hid
     p.logo-menu
+      = render file: "../assets/images/logo_rect.svg"
 
     / Menu block: sections
     .title-menu Sections
 
     - if user_signed_in?
-      p = link_to "My profile", current_user, {class: "link-menu"}
+      / p = link_to "My profile", current_user, {class: "link-menu"}
+      p
+        a.link_wImg-menu href=current_user
+          = image_tag current_user.avatar.url(:thumb)
+          span My profile
 
     p = link_to "Tests", root_path, {class: "link-menu"}
 
@@ -34,7 +39,7 @@
       .title-menu My publishers
 
       - current_user.publishers.each do |p|
-        a.public-menu href=publisher_path(p)
+        a.link_public-menu href=publisher_path(p)
           = image_tag p.avatar.url(:thumb)
           span = p.title
 

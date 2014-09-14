@@ -54,6 +54,12 @@
         border-radius: 4px;
         }
 
+    .link_logo-sidemenu {
+        @media screen and (max-width: $width-small) {
+            display: none;
+            }
+        }
+
     .link_settings-sidemenu svg {
         width: $width-menu - 40px;
         height: $width-menu - 40px;
@@ -104,16 +110,27 @@
     .logo-menu {
         @include clearfix;
 
+        height: 70px;
         padding: 0;
+        display: block;
 
         background-color: #a0c2ce;
 
         text-align: center;
 
+        @media screen and (min-width: $width-small) {
+            display: none;
+            }
+
+        @media screen and (min-width: $width) {
+            display: block;
+            }
+
         svg {
-            width: 70px;
+            // width: 70px;
             height: 70px;
-            float: right;
+            display: inline-block;
+            // float: right;
 
             // fill: #fff;
 
@@ -191,7 +208,7 @@
             }
         }
 
-    .public-menu {
+    .link_wImg-menu {
         @extend .link-menu;
 
         height: auto;
@@ -210,6 +227,14 @@
             display: block;
 
             line-height: 16px;
+            }
+        }
+
+    .link_public-menu {
+        @extend .link_wImg-menu;
+
+        img {
+            border-radius: 20px;
             }
         }
 

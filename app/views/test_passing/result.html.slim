@@ -7,6 +7,7 @@
 
     = render "comments_list", list: @test.comments
 
+<<<<<<< HEAD
   javascript:
     (function( window, $ ) {
       var slidesCount = #{@test.slides.size};
@@ -60,5 +61,56 @@
       var myNewChart = new Chart(ctx).Line(data, {
         responsive: true
       });
+=======
+javascript:
+  (function( window, $ ) {
+    var slidesCount = #{@test.slides.size};
+    var answers = #{ @answers.map{|ans| ans.answers}.to_json   };
+    var rate = [_.range(0,slidesCount,0),_.range(0,slidesCount,0),_.range(0,slidesCount,0)];
+
+    answers.forEach(function(ans) {
+      ans.forEach(function(value,ind){
+        rate[value][ind]++;
+      })
+    });
+    var data = {};
+    data.labels = _.range(0, slidesCount, 1);
+    data.datasets = [
+        {
+            label: "Number of no answers",
+            fillColor: "rgba(255, 163, 172, 0.2)",
+            strokeColor: "rgba(255, 163, 172, 1)",
+            pointColor: "rgba(255, 163, 172, 1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: rate[0]
+        },
+        {
+            label: "Number of yes answers",
+            fillColor: "rgba(163, 172, 255, 0.2)",
+            strokeColor: "rgba(163, 172, 255, 1)",
+            pointColor: "rgba(163, 172, 255, 1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: rate[1]
+        },
+        {
+            label: "Number of maybe answers",
+            fillColor: "rgba(172,255,163,0.2)",
+            strokeColor: "rgba(172,255,163,1)",
+            pointColor: "rgba(172,255,163,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: rate[2]
+        }
+    ];
+
+    var ctx = document.getElementById("ResultChart").getContext("2d");
+    var myNewChart = new Chart(ctx).Line(data,{showTooltips: false,scaleLabel: " "
+    });
+>>>>>>> Some changes
 
     })( window, jQuery );

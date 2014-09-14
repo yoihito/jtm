@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :publishers do
     resource :likes, only: [:create, :destroy]
+    member do
+      put 'update/avatar', to: 'publishers#change_avatar', as: 'change_avatar'
+    end
   end
 
 

@@ -2,6 +2,7 @@
   / a.item_logo-menu href="" JTM
 
   ul
+    li = link_to (render file: "../assets/images/logo_square.svg"), root_path, {class: "link-sidemenu"}
     li = link_to (render "../assets/images/icon/hamburger.svg"), "", {class: "link-sidemenu link_trigger-sidemenu js-menu-trigger", "data-rel" => ".menu,.menu-shadow"}
 
   / ul
@@ -16,6 +17,8 @@
   /   li = link_to (render "../assets/images/icon/settings.svg"), "", { class: "link-sidemenu link_settings-sidemenu" }
 
   .menu._hid
+    p.logo-menu
+
     / Menu block: sections
     .title-menu Sections
 

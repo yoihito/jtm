@@ -101,6 +101,28 @@
         }
     }
 
+    .logo-menu {
+        @include clearfix;
+
+        padding: 0;
+
+        background-color: #a0c2ce;
+
+        text-align: center;
+
+        svg {
+            width: 70px;
+            height: 70px;
+            float: right;
+
+            // fill: #fff;
+
+            #logo-bg {
+                // fill: #a0c2ce;
+                }
+            }
+        }
+
     .title-menu {
         padding: 15px 25px 10px;
 

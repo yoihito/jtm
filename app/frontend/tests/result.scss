@@ -1,0 +1,26 @@
+@import '_merge';
+
+.finalcard {
+    position: relative;
+    z-index: 2;
+}
+
+.chart-finalcard {
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+}
+
+.comments-finalcard {
+    width: 100%;
+    max-width: 640px;
+    margin: auto;
+}
+
+.comment-finalcard {
+    width: 100%;
+}
+
+.js-finalcard-submit-comment {
+
+}

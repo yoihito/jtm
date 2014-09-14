@@ -27,7 +27,7 @@
                 $elem = $pattern,
                 n = 0;
 
-            while ( $elem.length && n < count_visible ) {
+            while ( $elem.length && n < ( count_visible || 1 ) ) {
                 var elem_height = $elem.outerHeight();
 
                 maxHeight += elem_height;

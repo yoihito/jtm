@@ -2,7 +2,12 @@
   .info-publisher
     .descr-info-publisher
       .l-descr-info-publisher
-        = image_tag @publisher.avatar.url(:medium), {class: "img-info-publisher"}
+        .avatar-info-user
+          = image_tag @publisher.avatar.url(:medium), {class: "img-info-publisher"}
+          - if @publisher.owners.exists? current_user
+            a.upd-avatar-info-user.js-choose-img data-target=".js-publisher-avatar" href="" Update profile picture
+            input.js-publisher-avatar type="file" hidden="true" name="avatar" data-pid=@publisher.id
+        / = image_tag @publisher.avatar.url(:medium), {class: "img-info-publisher"}
       .r-descr-info-publisher
         .title-info-publisher = @publisher.title
         p = @publisher.description

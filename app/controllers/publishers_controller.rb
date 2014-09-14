@@ -1,5 +1,5 @@
 class PublishersController < ApplicationController
-  before_action :set_publisher, only: [:edit, :update, :destroy, :like, :dislike]
+  before_action :set_publisher, only: [:edit, :update, :destroy, :like, :dislike, :change_avatar]
   after_action :verify_authorized, except: [:index, :show]
 
   # GET /publishers

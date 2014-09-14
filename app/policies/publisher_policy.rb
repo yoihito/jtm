@@ -16,5 +16,9 @@ class PublisherPolicy < ApplicationPolicy
 		@scope.owners.exists?(@user)
 	end
 
+  def change_avatar?
+    update?
+  end
+
 
 end

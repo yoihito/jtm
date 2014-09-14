@@ -8,6 +8,7 @@
 
         publisher_like: '/publishers/:id/likes',
         publisher_dislike: ['/publishers/:id/likes', 'delete'],
+        publisher_avatar: ['/publishers/:id/update/avatar', 'put'],
 
         user_avatar: ['/users/:id/update/avatar', 'put'],
 

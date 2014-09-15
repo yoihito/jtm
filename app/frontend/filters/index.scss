@@ -1,7 +1,7 @@
 @import '_merge';
 
 .filter {
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 
     font-weight: bold;
     font-size: 14px;
@@ -19,6 +19,17 @@
     ._active a:hover {
         background-image: linear-gradient(top, rgba(#ccc, .2), rgba(#ccc, .05));
         }
+
+    @media screen and (max-width: $width-step) {
+        a {
+            border: 0;
+            background-image: none;
+            background-color: #f3f3f3;
+            }
+        a:hover {
+            background: #ebe9e9;
+            }
+        }
     }
 
     .filter_purple {
@@ -29,18 +40,18 @@
 
     .tab-filter {
         margin-right: -1px;
+        margin-bottom: 10px;
         display: inline-block;
 
         border: 1px solid #ddd;
         overflow: hidden;
 
-        $radius: 10px;
-        &:first-child {
-            // border-radius: $radius 0 0 $radius;
+        vertical-align: top;
 
-            a {border: 0;}
-            }
-        &:last-child {
-            // border-radius: 0 $radius $radius 0;
+        @media screen and (max-width: $width-step) {
+            margin-bottom: 1px;
+            display: block;
+
+            border: 0;
             }
         }

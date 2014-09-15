@@ -3,7 +3,7 @@
 .header
   = render "filter", position: "l"
 
-  - if user_signed_in?
+  - if user_signed_in? and !@publishers.empty?
     = link_to "+ Create new public page", new_publisher_path, {class: "btn_purple-header createPublicLink-publishers _fl_l"}
 
 = render "list", list: @publishers

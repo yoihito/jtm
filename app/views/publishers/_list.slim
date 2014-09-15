@@ -1,3 +1,4 @@
 .publishers
-  - list.each do |publisher|
-    = render "publishers/item", item: publisher
+  - unless list.empty?
+    - list.each do |publisher|
+      = render "publishers/item", item: publisher

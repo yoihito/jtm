@@ -20,7 +20,7 @@
                 delta_width = -50;
                 delta_height = 60;
                 maxWidth = Math.min( list_width, item_width * $items.length ) + delta_width,
-                maxHeight = 100;
+                maxHeight = 150;
 
             var
                 height = 0,

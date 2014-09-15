@@ -10,7 +10,7 @@ class CommentsController < ApplicationController
 		authorize @comment
 		respond_to do |f|
 			if @comment.save
-				f.html { render 'index', layout: nil }
+				f.html { render 'test_passing/_comments_item', layout: nil, locals: {item: @comment} }
 			else
 				f.html { render nothing: true, status: 404, :content_type => 'text/html'}
 			end

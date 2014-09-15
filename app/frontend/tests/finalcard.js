@@ -3,14 +3,12 @@
     var app = window.app;
 
     var
-        action_submitComment = function( $target, testid, comment ) {
+        action_submitComment = function( testid, comment, callback ) {
             app.utils.ajax( 'test_comments_new', { id: testid }, {
                 data: {
                     comment: comment
                 },
-                success: function( data ) {
-                    $target.append( data )
-                }
+                success: callback
             });
         };
 
@@ -22,11 +20,15 @@
                 var
                     $form = $( this ),
                     $target = $( this.getAttribute( 'data-target' ) ),
+                    $textarea = $form.find( 'textarea' ),
                     comment = {
-                        content: $form.find( 'textarea' ).val()
+                        content: $textarea.val()
                     };
 
-                action_submitComment( $target, this.getAttribute( 'data-tid' ), comment );
+                action_submitComment( this.getAttribute( 'data-tid' ), comment, function( data ) {
+                    $target.append( data );
+                    $textarea.val( '' ).trigger( 'autosize.resize' );
+                });
             });
     });
 

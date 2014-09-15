@@ -46,8 +46,6 @@
                 n++;
             }
 
-            console.log( height );
-
             height = Math.max.apply( null, height );
             height += delta_height;
 

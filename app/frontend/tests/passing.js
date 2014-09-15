@@ -27,7 +27,7 @@
             };
 
         $( document )
-            .on( 'tap', '.js-testgo-answ', function( e ) {
+            .on( 'tap.test_answer', '.js-testgo-answ', function( e ) {
                 e.preventDefault();
 
                 var
@@ -42,6 +42,7 @@
                     if ( $item.next().size() ) {
                         $item.removeClass( '_active' ).next().addClass( '_active' );
                     } else {
+                        $( document ).off( '.test_answer' );
                         savePassing( $list );
                     }
                 }

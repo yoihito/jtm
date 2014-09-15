@@ -1,0 +1,29 @@
+doctype html
+html.t_html lang="en"
+  head
+    meta charset="utf-8"
+    meta name="description" content=""
+
+    meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimal-ui"
+    link href="/favicon.ico" rel="icon" type="image/x-icon"
+
+    link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css"
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+
+    = csrf_meta_tags
+
+  body.t_body.test_full
+    .wrapper
+      section.content._no_margin
+        = yield
+      a.stop-item-testgo href="/tests" &laquo; All tests
+
+    - if Rails.env.production?
+      = render "layouts/shared/counter"
+
+    /= render "tests/modal", show: true
+
+    javascript:
+      window.app.test_store = [];
+      window.app.test_passing = true;

@@ -371,6 +371,17 @@
                 }
             }
 
+.tests-shadow {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: fixed;
+
+    background-color: #fff;
+    z-index: 20000;
+    }
+
 .testgo-circle {
     width: 20px;
     height: 20px;
@@ -438,6 +449,10 @@
         // transition-delay: .1s;
         overflow: hidden;
         }
+
+    &._clear {
+        background-color: transparent;
+        }
     }
 
     .content-testgo {
@@ -455,7 +470,11 @@
             min-width: 260px;
             margin: auto;
             position: relative;
-            z-index: 2;
+            z-index: 50000;
+            }
+
+        .test_full .list-testgo {
+            margin-top: -10px;
             }
 
         .item-testgo {
@@ -493,6 +512,10 @@
                 @media screen and (max-width: $width-small) {
                     padding: 0;
                     margin: 90px 10px 20px;
+                    }
+
+                .test_full & {
+                    margin-top: 0;
                     }
                 }
 

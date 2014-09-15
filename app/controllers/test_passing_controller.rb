@@ -10,7 +10,7 @@ class TestPassingController < ApplicationController
       if request.xhr?
         format.html { render layout: nil }
       else
-        format.html { render 'get' }
+        format.html { render 'get', layout: 'test' }
       end
   	end
 

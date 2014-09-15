@@ -20,7 +20,7 @@
       a.title_big href="/tests?q%5Bs%5D=passed_tests+desc" Passed tests
     - else
       .title_big <b class="js-user-count_passedtests">0</b> last passed tests
-    .list-cont-user
+    .list-cont-user data-target-count=".js-user-count_passedtests"
       .full-list-cont-user
         - @profile_tests.reverse.each do |test|
           = render "tests/item", item: test

@@ -148,15 +148,36 @@ $user-img-width: 200px;
             .img-item-publishers {
                 margin: 0;
                 float: left;
+
+                @media screen and (max-width: $width-small) {
+                    float: none;
+                    margin-bottom: 20px;
+                    }
                 }
             .title-item-publishers,
             .descr-item-publishers {
                 margin-left: 190px;
+
+                @media screen and (max-width: $width-small) {
+                    margin-left: 0;
+                    }
+                }
+
+            @media screen and (max-width: $width-small) {
+                height: auto !important;
                 }
             }
 
             .full-list-cont-user {
                 width: 10000px;
+
+                @media screen and (max-width: $width-small) {
+                    width: auto !important;
+
+                    .test {
+                        margin-bottom: 50px;
+                        }
+                    }
                 }
 
             .link-list-cont-user {

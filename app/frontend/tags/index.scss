@@ -151,7 +151,7 @@
     }
 
 .content {
-    min-width: $width-item + 50;
+    min-width: $width-item + 40;
     padding: 30px 50px;
     margin-left: $width-menu;
 
@@ -163,6 +163,6 @@
 
     @media screen and (max-width: $width-small) {
         margin-left: 0;
-        padding: (15px + $width-menu) 25px 15px;
+        padding: (15px + $width-menu) 20px 15px;
         }
     }

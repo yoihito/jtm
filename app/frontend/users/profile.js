@@ -20,14 +20,14 @@
                 delta_width = -50;
                 delta_height = 60;
                 maxWidth = Math.min( list_width, item_width * $items.length ) + delta_width,
-                maxHeight = 150;
+                maxHeight = 145;
 
             var
                 height = [],
                 $elem = $pattern,
                 n = 0;
 
-            while ( $elem.length && n <= count_visible ) {
+            while ( $elem.length && n <= count_visible -1 ) {
                 var elem_height = $elem.outerHeight();
 
                 height.push( elem_height );
@@ -40,13 +40,13 @@
             n = 0;
 
             while ( $elem.length && n < 3 ) {
-                var elem_height = $elem.outerHeight();
-
-                maxHeight += elem_height;
+                maxHeight += $elem.outerHeight();
 
                 $elem = $elem.next();
                 n++;
             }
+
+            console.log( height );
 
             height = Math.max.apply( null, height );
             height += delta_height;

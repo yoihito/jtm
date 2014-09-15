@@ -2,6 +2,16 @@
 
     var app = window.app;
 
+    var functions = app.fns = {};
+
+    functions.textarea = function() {
+        $( '.textarea_autosize' ).autosize();
+    };
+
+    functions.reinit = function() {
+        functions.textarea();
+    };
+
     $(function() {
 
         $( document )
@@ -17,6 +27,8 @@
         $( '.js-trigger-showpassword' ).each(function() {
             $( this.getAttribute( 'data-target' ) ).prop( 'type', this.checked ? 'text' : 'password' );
         });
+
+        functions.reinit();
 
     });
 

@@ -10,10 +10,20 @@
                 app.utils.ajax( 'test_save', { id: $list.attr( 'data-testid' ) }, {
                     data: { slides: app.test_store },
                     success: function() {
-                        $list.trigger( 'savedPassing' );
+                        loadFinalCard( $list );
                     }
                 });
 
+            },
+            loadFinalCard = function( $list ) {
+                var $content = $list.parent();
+
+                app.utils.ajax( 'test_result', { id: $list.attr( 'data-testid' ) }, {
+                    success: function( data ) {
+                        $content.html( data );
+                        app.fns.reinit();
+                    }
+                });
             };
 
         $( document )

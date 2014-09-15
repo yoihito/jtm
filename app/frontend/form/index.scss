@@ -1,17 +1,20 @@
 @import '_merge';
 
-.form {
-    max-width: 500px;
-    color: $color-midnightblue;
-
-    input,
-    button,
-    textarea {
+    .input-form {
         @include resetInput;
 
         font-size: 20px;
         font-family: $font-main;
         color: $color-midnightblue;
+        }
+
+.form {
+    max-width: 500px;
+    color: $color-midnightblue;
+
+    input,
+    textarea {
+        @extend .input-form;
         }
 
     input[type="text"],
@@ -29,9 +32,25 @@
             }
         }
 
+    textarea {
+        width: 100%;
+        height: 150px;
+        padding: 20px;
+
+        resize: vertical;
+        }
+
     button {
+        @extend .btn-form;
+        }
+    }
+
+    .btn-form {
+        @extend .input-form;
+
         width: 100%;
         padding: 20px;
+        display: inline-block;
 
         background-color: $color-belizehole;
         box-shadow: inset 0 -5px 0 rgba(#000, .25);
@@ -44,15 +63,6 @@
             background-color: $color-peterriver;
             }
         }
-
-    textarea {
-        width: 100%;
-        height: 150px;
-        padding: 20px;
-
-        resize: vertical;
-        }
-    }
 
     .checkbox_input-form {
         cursor: pointer;

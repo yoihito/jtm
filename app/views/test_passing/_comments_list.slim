@@ -1,0 +1,16 @@
+.comments-finalcard
+  .title-comments-finalcard Comments:
+  .list-comments-finalcard
+    - list.each do |comment|
+      = render "comments_item", item: comment
+
+  = form_for [@test, Comment.new], html: {class: "form-comments-finalcard comment-finalcard js-finalcard-comments", "data-tid" => @test.id, "data-target" => ".list-comments-finalcard"} do |f|
+    a.author-comment-finalcard href=user_path(current_user)
+      = image_tag current_user.avatar.url(:medium)
+      .name-author-comment-finalcard = current_user.name
+
+    .content-comment-finalcard
+      label
+        = f.text_area :content, placeholder: "Enter your comment", class: "textarea_autosize"
+      / = f.text_field :content, class: "js-finalcard-content"
+      button.btn-form Add comment

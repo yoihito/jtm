@@ -1,4 +1,4 @@
-class CommentPolice < ApplicationPolicy
+class CommentPolicy < ApplicationPolicy
 
 	def create?
 		@user

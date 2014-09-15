@@ -1,0 +1,9 @@
+- comment = item
+- author = comment.author
+.comment-finalcard
+  a.author-comment-finalcard href=user_path(author)
+    = image_tag author.avatar.url(:medium)
+    .name-author-comment-finalcard = author.name
+
+  / .content-comment-finalcard Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ullam, esse est tempora possimus quasi asperiores accusantium quia corporis laboriosam totam, minus. Sapiente nostrum quas vel illum, harum, quisquam eveniet.
+  .content-comment-finalcard = comment.content

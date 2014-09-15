@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 	before_action :set_context
 	before_action :set_comment, only: [:update, :destroy]
 	after_action :verify_authorized
-	
+
 	def create
 		@comment = Comment.new(comment_params)
 		@comment.entity = @context
@@ -10,12 +10,10 @@ class CommentsController < ApplicationController
 		authorize @comment
 		respond_to do |f|
 			if @comment.save
-				f.html { redirect_to :back, notice: 'Comment was successfully published!'}
+				f.html { render 'test_passing/_comments_item', layout: nil, locals: {item: @comment} }
 			else
-				f.html { redirect_to :back }
+				f.html { render nothing: true, status: 404, :content_type => 'text/html'}
 			end
-
-
 		end
 	end
 
@@ -30,7 +28,7 @@ class CommentsController < ApplicationController
 	end
 
 private
-	
+
 	def set_comment
 		@comment = Comment.find(params[:id])
 	end
@@ -42,7 +40,7 @@ private
 
 	def set_context
 		if params[:test_id]
-			@context = Test.find(params[:test_id])
+			@context = Test.includes(comments: [:user]).find(params[:test_id])
 		end
 	end
 

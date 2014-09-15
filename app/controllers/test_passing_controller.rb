@@ -1,14 +1,14 @@
 class TestPassingController < ApplicationController
 	def get
 		@test = Test.find(params[:id])
-    	@slides = @test.slides.includes(:translations)#,comments:[:author])
-    	@slides.each_with_index do |s|
-    		s.init_comment_form
-    	end
+  	@slides = @test.slides.includes(:translations)#,comments:[:author])
+  	@slides.each_with_index do |s|
+  		s.init_comment_form
+  	end
 
-  	  	respond_to do |format|
-    	  format.html { render action: 'get', layout: nil }
-    	end
+	  respond_to do |format|
+  	  format.html { render layout: nil }
+  	end
 
 	end
 
@@ -24,8 +24,15 @@ class TestPassingController < ApplicationController
 	end
 
 	def result
-      @test = Test.find(params[:id])
-
+    @test = Test.includes(comments:[:author]).find(params[:id])
+    @answers = @test.user_answers
+    respond_to do |format|
+      if request.xhr?
+        format.html { render layout: nil }
+      else
+        format.html { render 'result' }
+      end
+    end
 	end
 
 private

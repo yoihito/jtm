@@ -23,14 +23,14 @@
                 maxHeight = 150;
 
             var
-                height = 0,
+                height = [],
                 $elem = $pattern,
                 n = 0;
 
             while ( $elem.length && n <= count_visible ) {
                 var elem_height = $elem.outerHeight();
 
-                height = elem_height;
+                height.push( elem_height );
 
                 $elem = $elem.next();
                 n++;
@@ -48,6 +48,7 @@
                 n++;
             }
 
+            height = Math.max.apply( null, height );
             height += delta_height;
 
             $list.css( { maxWidth: maxWidth, maxHeight: maxHeight, height: height } )

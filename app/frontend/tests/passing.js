@@ -30,6 +30,8 @@
             .on( 'tap.test_answer', '.js-testgo-answ', function( e ) {
                 e.preventDefault();
 
+                $( window ).scrollTop( 0 );
+
                 var
                     $this = $( this ),
                     answ = $this.attr( 'rel' ),

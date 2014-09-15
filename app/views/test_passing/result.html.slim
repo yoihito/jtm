@@ -1,68 +1,64 @@
 .finalcard
-  .chart-finalcard
-    canvas id='ResultChart' width='640px' height='640px'
+  .title-item-testgo = @test.title
 
-  .comments-finalcard
-    .comments-list-finalcard
-      - @test.comments.each do |x|
-        .comment-finalcard
-          = x.content
+  .cont-finalcard
+    .chart-finalcard
+      canvas id="ResultChart"
 
-    = form_for [@test,Comment.new] do |f|
-      = f.text_field :content, class: 'js-finalcard-content'
-      button class='js-finalcard-submit-comment' data-testid=@test.id
-        = 'Create'
+    = render "comments_list", list: @test.comments
 
-javascript:
-  (function( window, $ ) {
-    var slidesCount = #{@test.slides.size};
-    var answers = #{ @answers.map{|ans| ans.answers}.to_json   };
-    var rate = [_.range(0,slidesCount,0),_.range(0,slidesCount,0),_.range(0,slidesCount,0)];
-    console.log(rate);
+  javascript:
+    (function( window, $ ) {
+      var slidesCount = #{@test.slides.size};
+      var answers = #{ @answers.map{|ans| ans.answers}.to_json   };
+      var rate = [_.range(0,slidesCount,0),_.range(0,slidesCount,0),_.range(0,slidesCount,0)];
+      //console.log(rate);
 
-    answers.forEach(function(ans) {
-      ans.forEach(function(value,ind){
-        rate[value][ind]++;
-        console.log(value+' '+ind);
-      })
-    });
-    console.log(rate);
-    var data = {};
-    data.labels = _.range(0, slidesCount, 1);
-    data.datasets = [
-        {
-            label: "Number of no answers",
-            fillColor: "rgba(255, 163, 172, 0.2)",
-            strokeColor: "rgba(255, 163, 172, 1)",
-            pointColor: "rgba(255, 163, 172, 1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rate[0]
-        },
-        {
-            label: "Number of yes answers",
-            fillColor: "rgba(163, 172, 255, 0.2)",
-            strokeColor: "rgba(163, 172, 255, 1)",
-            pointColor: "rgba(163, 172, 255, 1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rate[1]
-        },
-        {
-            label: "Number of maybe answers",
-            fillColor: "rgba(172,255,163,0.2)",
-            strokeColor: "rgba(172,255,163,1)",
-            pointColor: "rgba(172,255,163,1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rate[2]
-        }
-    ];
+      answers.forEach(function(ans) {
+        ans.forEach(function(value,ind){
+          rate[value][ind]++;
+          //console.log(value+' '+ind);
+        })
+      });
+      //console.log(rate);
+      var data = {};
+      data.labels = _.range(0, slidesCount, 1);
+      data.datasets = [
+          {
+              label: "Number of no answers",
+              fillColor: "rgba(255, 163, 172, 0.2)",
+              strokeColor: "rgba(255, 163, 172, 1)",
+              pointColor: "rgba(255, 163, 172, 1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: rate[0]
+          },
+          {
+              label: "Number of yes answers",
+              fillColor: "rgba(163, 172, 255, 0.2)",
+              strokeColor: "rgba(163, 172, 255, 1)",
+              pointColor: "rgba(163, 172, 255, 1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: rate[1]
+          },
+          {
+              label: "Number of maybe answers",
+              fillColor: "rgba(172,255,163,0.2)",
+              strokeColor: "rgba(172,255,163,1)",
+              pointColor: "rgba(172,255,163,1)",
+              pointStrokeColor: "#fff",
+              pointHighlightFill: "#fff",
+              pointHighlightStroke: "rgba(220,220,220,1)",
+              data: rate[2]
+          }
+      ];
 
-    var ctx = document.getElementById("ResultChart").getContext("2d");
-    var myNewChart = new Chart(ctx).Line(data);
+      var ctx = document.getElementById("ResultChart").getContext("2d");
+      var myNewChart = new Chart(ctx).Line(data, {
+        responsive: true
+      });
 
-  })( window, jQuery );
+    })( window, jQuery );

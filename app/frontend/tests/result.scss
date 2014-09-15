@@ -3,24 +3,95 @@
 .finalcard {
     position: relative;
     z-index: 2;
-}
+    }
 
-.chart-finalcard {
-    width: 100%;
-    max-width: 640px;
-    margin: auto;
-}
+    .cont-finalcard {
+        max-width: 640px;
+        padding: 0 25px;
+        margin: 0 auto;
 
-.comments-finalcard {
-    width: 100%;
-    max-width: 640px;
-    margin: auto;
-}
+        box-sizing: border-box;
+        }
 
-.comment-finalcard {
-    width: 100%;
-}
+    .chart-finalcard {}
 
-.js-finalcard-submit-comment {
+    .comments-finalcard {
+        margin-top: 30px;
 
-}
+        color: $color-midnightblue;
+        }
+
+        .title-comments-finalcard {
+            margin-bottom: 20px;
+
+            font-weight: bold;
+            font-size: 20px;
+            }
+
+        .comment-finalcard {
+            @include clearfix;
+
+            margin-bottom: 20px;
+
+            line-height: 24px;
+            }
+
+        .author-comment-finalcard {
+
+            img,
+            .name-author-comment-finalcard {
+                display: inline-block;
+
+                vertical-align: top;
+                }
+
+            img {
+                width: 50px;
+                margin-right: 20px;
+                float: left;
+                }
+            }
+
+        .name-author-comment-finalcard {
+            text-decoration: underline;
+            color: $color-midnightblue;
+            font-weight: bold;
+            }
+
+        .content-comment-finalcard {
+            margin-left: 70px;
+            position: relative;
+            }
+
+        .form-comments-finalcard {
+
+            label {
+                margin: 5px -20px 15px 0;
+                left: -10px;
+                position: relative;
+                display: block;
+                }
+
+            textarea {
+                @include resetInput;
+
+                width: 100%;
+                height: 24px;
+                padding: 10px;
+
+                background-color: #f3f3f3;
+                box-sizing: border-box;
+                resize: vertical;
+
+                font-family: inherit;
+                font-size: 16px;
+                color: inherit;
+                line-height: 24px;
+
+                &:focus {
+                    outline-style: none;
+                    }
+                }
+            }
+
+    #ResultChart {}

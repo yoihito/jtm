@@ -11,23 +11,19 @@
                     data: { slides: app.test_store },
                     success: function() {
                         loadFinalCard( $list );
-                        // $list.parent().html('Hello world')
-                       // $list.trigger( 'savedPassing' );
                     }
                 });
 
             },
             loadFinalCard = function( $list ) {
                 var $content = $list.parent();
-                app.utils.ajax( 'test_result', { id: $list.attr( 'data-testid' ) }, {
-                    success: function(data) {
-                        $content.html(data);
 
+                app.utils.ajax( 'test_result', { id: $list.attr( 'data-testid' ) }, {
+                    success: function( data ) {
+                        $content.html( data );
+                        app.fns.reinit();
                     }
                 });
-
-                // Load final card
-
             };
 
         $( document )

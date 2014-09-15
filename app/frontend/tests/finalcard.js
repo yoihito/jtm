@@ -2,27 +2,31 @@
 
     var app = window.app;
 
-    $(function(){
-        var
-            submitComment = function( $comment_list, testid, comment ) {
-                app.utils.ajax( 'submit_comment', { id: testid }, {
-                    data: { comment : comment },
-                    success: function( data ) {
-                        $comment_list.html( data )
-                    }
-                });
-            };
+    var
+        action_submitComment = function( $target, testid, comment ) {
+            app.utils.ajax( 'test_comments_new', { id: testid }, {
+                data: {
+                    comment: comment
+                },
+                success: function( data ) {
+                    $target.append( data )
+                }
+            });
+        };
 
+    $(function(){
         $( document )
-            .on( 'tap', '.js-finalcard-submit-comment', function( e ) {
+            .on( 'submit', '.js-finalcard-comments', function( e ) {
                 e.preventDefault();
 
                 var
-                    $this = $(this),
-                    $parent = $this.parent(),
-                    comment = { 'content' : $parent.find( '.js-finalcard-content' ).val() };
+                    $form = $( this ),
+                    $target = $( this.getAttribute( 'data-target' ) ),
+                    comment = {
+                        content: $form.find( 'textarea' ).val()
+                    };
 
-                submitComment( $parent.parent().find( '.comments-list-finalcard' ), $this.attr( 'data-testid' ), comment );
+                action_submitComment( $target, this.getAttribute( 'data-tid' ), comment );
             });
     });
 

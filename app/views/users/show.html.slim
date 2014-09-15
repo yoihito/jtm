@@ -6,6 +6,8 @@
           = image_tag @user.avatar.url(:medium), {class: "img-info-user"}
           a.upd-avatar-info-user.js-choose-img data-target=".js-user-avatar" href="" Update profile picture
           input.js-user-avatar type="file" hidden="true" name="avatar" data-uid=@user.id
+          .loader-avatar
+            b style="width: 0%"
       .r-descr-info-user
         .title-info-user = @user.name
         / p You passed <strong>#{@user.user_answers.size}</strong> tests

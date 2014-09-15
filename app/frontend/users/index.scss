@@ -36,6 +36,7 @@ $user-img-width: 200px;
             }
 
             .upd-avatar-info-user {
+                width: $user-img-width - 20px * 2;
                 padding: 10px 20px;
                 right: 0;
                 bottom: 0;
@@ -55,6 +56,30 @@ $user-img-width: 200px;
 
                 &:hover {
                     background-color: rgba(#000, .8);
+                    }
+                }
+
+            .loader-avatar {
+                width: $user-img-width;
+                height: 10px;
+                bottom: -10px;
+                left: 0;
+                position: absolute;
+
+                background-color: $color-turquoise;
+                opacity: 0;
+
+                @include transit(3);
+
+                b {
+                    height: 10px;
+                    top: 0;
+                    left: 0;
+                    position: absolute;
+
+                    background-color: $color-greensea;
+
+                    @include transit(2);
                     }
                 }
 

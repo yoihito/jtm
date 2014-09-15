@@ -1,14 +1,13 @@
 class ApplicationPolicy
   attr_reader :user, :record
 
-  def self.permit(*methods) 
+  def self.permit(*methods)
     methods.each do |method|
       define_method("#{method}?") { true }
     end
   end
 
   def initialize(user, scope)
-    Rails.logger.debug "#{user.inspect}"
     @user = user
     @scope = scope
   end

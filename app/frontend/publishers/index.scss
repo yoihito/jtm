@@ -298,14 +298,21 @@ $publisher-img-width: 200px;
         .link_blue-follow-publisher {
             @extend .link-follow-publisher;
 
-            border: 1px solid #bbcfe1;
-            border-color: #bbcfe1 #a7bed3 #92adc5;
-            background-color: lighten(#f5f8fa, 5%);
-            background-image: linear-gradient(bottom, #9fbcd5, #bbcee1);
+            $lighten: 3%;
+
+            border: 1px solid transparent;
+            // border-color: #bbcfe1 #a7bed3 #92adc5;
+            background-color: #428bca;
+            background-image: linear-gradient(bottom, #428bca, lighten(#428bca, 10%));
 
             color: #fff;
             text-shadow: 0 1px 1px rgba(0,0,0,0.3);
             font-weight: bold;
+
+            &:hover {
+                background-color: lighten(#428bca, $lighten);
+                background-image: linear-gradient(bottom, lighten(#428bca, $lighten), lighten(#428bca, 10% + $lighten));
+                }
             }
 
         .link_red-follow-publisher {

@@ -22,7 +22,7 @@ class TestsController < ApplicationController
             .order(@order)
       end
 		else
-			@tests = @q.result.order(@order)
+      @tests = @q.result.order(@order) unless @order == 'passed_tests desc'
 		end
 
 	end

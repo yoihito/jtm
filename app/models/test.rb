@@ -12,9 +12,9 @@ class Test < ActiveRecord::Base
 	has_many :users, through: :user_answers
 	has_many :ratings, dependent: :delete_all
 	has_many :voters, through: :ratings, source: :user, class_name: "User"
-	has_many :comments, as: :entity, dependent: :delete_all
+	has_many :comments, -> { order('created_at DESC') }, as: :entity, dependent: :delete_all
 
-	
+
 
 	def slides_count_limit
 		if slides.size>10
@@ -27,7 +27,7 @@ class Test < ActiveRecord::Base
 
 	  	id = self.user_answers.index{ |x| x.user_id == user.id}
 	  	id != nil
-   	  else 
+   	  else
    	  	false
    	  end
 	end
@@ -68,7 +68,7 @@ private
 	  rating = Rating.where(test_id: self.id, user_id: user.id).take
 	  if rating.nil?
 	  	self.ratings<<Rating.new(test_id: self.id, user_id: user.id, value: value)
-	  else 
+	  else
 	  	rating.value=value
 	  	rating.save
 	  end

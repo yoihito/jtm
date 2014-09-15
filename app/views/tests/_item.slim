@@ -38,3 +38,8 @@
       .comment-test
         = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-comment-test"}
         p = item.description
+
+    - item.comments.first(3).each do |comment|
+      .comment-test
+        = link_to image_tag(comment.author.avatar.url(:thumb)), comment.author, {class: "author-comment-test"}
+        p = comment.content

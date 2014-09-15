@@ -11,6 +11,8 @@
             stopPassing = function() {
                 app.test_passing = false;
 
+                History.back();
+
                 $shadow.addClass( '_hid' );
                 $( '.testgo-circle, .testgo-circle_full' ).removeClass( '_animated' ).addClass( '_hid' );
                 $( '.testgo' )
@@ -18,21 +20,8 @@
                     .find( '.body-content-testgo' ).html( '' );
                 $( '.t_html' ).removeClass( '_overhide' );
                 $( document ).off( '.testgo' );
-            };
-
-        $( document )
-            .on( 'tap', '.tests-shadow, .js-test-stop', function( e ) {
-                e.preventDefault();
-
-                stopPassing();
-            })
-            .on( 'tap', '.js-test-start', function( e ) {
-                e.preventDefault();
-
-                var
-                    $this = $( this ),
-                    testId = $this.attr( 'rel' );
-
+            },
+            startPassing = function($this, testId, e) {
                 app.test_passing = true;
                 app.test_store = [];
 
@@ -125,7 +114,24 @@
                         stopPassing();
                     }
                 });
+            };
 
+        $( document )
+            .on( 'tap', '.tests-shadow, .js-test-stop', function( e ) {
+                e.preventDefault();
+
+                stopPassing();
+            })
+            .on( 'tap', '.js-test-start', function( e ) {
+                e.preventDefault();
+
+                var
+                    $this = $( this ),
+                    testId = $this.attr( 'rel' );
+
+                History.pushState({type: 'open'}, 'tests', '/tests/' + testId + '/pass');
+
+                startPassing( $this, testId, e );
             })
 
     });

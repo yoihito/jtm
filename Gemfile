@@ -22,7 +22,7 @@ gem 'autoprefixer-rails'
 group :development do
   gem 'spring'
   gem 'spring-commands-rspec'
-  gem 'thin'
+  #gem 'thin'
   gem 'guard-livereload'
   gem 'quiet_assets'
   gem 'capistrano'

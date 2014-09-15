@@ -12,5 +12,7 @@ module App
         g.helper = false
         g.test_framework :rspec
     end
+    config.middleware.use Rack::ContentLength
+
   end
 end

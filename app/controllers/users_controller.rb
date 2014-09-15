@@ -7,7 +7,7 @@ class UsersController < ApplicationController
     #includes(passed_tests:[:user_answers,:translations,:voters, :author]).
     @answers = UserAnswer.includes(test:[:translations,:author, :user_answers]).where(user: @user).order('created_at desc').limit(6)
     @profile_tests = @answers.map{|x|x.test}#Test.where('id in (?)',@answers.map{|x|x.test_id}).
-    @publishers = @user.publishers.limit(4)
+    @publishers = @user.publishers
 
   end
 

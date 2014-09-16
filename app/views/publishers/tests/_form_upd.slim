@@ -1,0 +1,23 @@
+= form_for [@publisher, @publishers_test], html: {class: ""} do |f|
+  - if @publishers_test.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@publishers_test.errors.count, "error")} prohibited this publishers_test from being saved:"
+      ul
+        - @publishers_test.errors.full_messages.each do |message|
+          li = message
+
+  .line-edittest.line_cover-edittest
+    = f.label :title, "Cover", class: "label-edittest"
+    .content-edittest
+      = clear_form f, "text_field", :title
+      = f.text_field :title, placeholder: "Add name of new test"
+      = f.file_field :picture
+      = f.text_area :description, placeholder: "Enter description"
+
+  /= f.fields_for :slides do |s|
+    .line-edittest.line_slide-edittest
+      label.label-edittest for="slide_#{s.index + 1}" Slide <i>#{s.index + 1}</i>
+      .content-edittest
+        = s.text_field :question, placeholder: "Enter question"
+        = s.file_field :picture
+        = s.text_area :description, placeholder: "Enter description"

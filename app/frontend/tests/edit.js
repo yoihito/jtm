@@ -69,6 +69,18 @@
                 }
             })
 
+            .on( 'tap', '.js-test-delete', function( e ) {
+                e.preventDefault();
+
+                var that = this;
+
+                app.utils.ajax( 'test_destroy', { id: parseInt( that.getAttribute( 'data-tid' ) ) }, {
+                    success: function() {
+                        window.location.href = app.utils.route_url( 'publisher', { id: parseInt( that.getAttribute( 'data-pid' ) ) } );
+                    }
+                });
+            })
+
         app.utils.file.connectTrigger( '.js-edittest-choose', '.js-edittest-choose_img' );
 
     });

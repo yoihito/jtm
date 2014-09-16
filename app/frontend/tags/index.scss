@@ -141,6 +141,16 @@
             }
         }
 
+    .btn_red-header {
+        @extend .btn-header;
+
+        background-color: $color-pomegranate;
+
+        &:hover {
+            background-color: $color-alizarin;
+            }
+        }
+
     .btn_userSignin {
         @media screen and (max-width: $width-step) {
             display: none;

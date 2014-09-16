@@ -40,7 +40,9 @@ class Publishers::TestsController < ApplicationController
     authorize @publishers_test
     respond_to do |format|
       if @publishers_test.save
-        format.html { redirect_to publisher_tests_path(publisher_id: @publisher.id), notice: 'Test was successfully created.' }
+        # @TODO: Changed url to redirecting
+          # format.html { redirect_to publisher_tests_path(publisher_id: @publisher.id), notice: 'Test was successfully created.' }
+          format.html { redirect_to @publisher, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @publishers_test }
       else
         format.html { render :new }
@@ -55,7 +57,9 @@ class Publishers::TestsController < ApplicationController
     authorize @publishers_test
     respond_to do |format|
       if @publishers_test.update(publishers_test_params)
-        format.html { redirect_to @publishers_test, notice: 'Test was successfully updated.' }
+        # @TODO: Changed url to redirecting
+          # format.html { redirect_to @publishers_test, notice: 'Test was successfully updated.' }
+          format.html { redirect_to @publisher, notice: 'Test was successfully updated.' }
         format.json { render :show, status: :ok, location: @publishers_test }
       else
         format.html { render :edit }
@@ -70,7 +74,8 @@ class Publishers::TestsController < ApplicationController
     authorize @publishers_test
     @publishers_test.destroy
     respond_to do |format|
-      format.html { redirect_to publishers_tests_url, notice: 'Test was successfully destroyed.' }
+      # @TODO: Commented next line
+      # format.html { redirect_to publishers_tests_url, notice: 'Test was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

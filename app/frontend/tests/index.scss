@@ -221,6 +221,192 @@
 //     background-color: rgba(0,0,0,.85);
 //     }
 
+$edittest-l: 30px;
+$edittest-r: 500px;
+$edittest-height: 50px;
+$edittest-padding: 15px;
+
+.edittest {
+    color: $color-midnightblue;
+
+    form {}
+
+    input[type='text'],
+    textarea {
+        @include resetInput;
+
+        width: 100%;
+        padding: 0 $edittest-padding;
+        margin: 0;
+        display: block;
+
+        background-color: #f3f3f3;
+        box-sizing: border-box;
+
+        font-size: 16px;
+        font-family: $font-main;
+        line-height: 20px;
+        color: $color-midnightblue;
+
+        @include placeholder {
+            color: #8c8c8b;
+            }
+        }
+
+    input[type='text'] {
+        height: $edittest-height;
+        margin-bottom: 10px;
+        }
+
+    textarea {
+        height: $edittest-padding * 2 + 20;
+        padding: $edittest-padding;
+
+        resize: vertical;
+
+        &._hid {
+            display: none;
+            }
+        }
+    }
+
+    .title-edittest {
+        margin: 0 0 10px ($edittest-padding + $edittest-l);
+
+        font-weight: bold;
+        font-size: 20px;
+        }
+
+    .line-edittest {
+        @include clearfix;
+
+        max-width: $edittest-l + $edittest-r;
+        margin-bottom: 40px;
+        position: relative;
+        }
+
+        .line_cover-edittest {
+            input[type='text'] {
+                background-color: $color-greensea;
+
+                color: #fff;
+
+                @include placeholder {
+                    color: rgba(#fff, .8);
+                    }
+                }
+            }
+
+        .line_slide-edittest {}
+
+        .pic-line-edittest {
+            width: $edittest-height + 10;
+            height: $edittest-height + 10;
+            top: -5px;
+            right: -$edittest-height - 20;
+            position: absolute;
+
+            background: asset-url('icon/_picture.svg') no-repeat 50%;
+            background-size: $edittest-height - 20;
+            cursor: pointer;
+            line-height: $edittest-height + 10;
+            text-align: center;
+
+            &:hover b {
+                opacity: 1;
+                // background-color: $color-greensea;
+                }
+
+            b {
+                // width: $edittest-height + 10;
+                height: $edittest-height + 10;
+                top: 0;
+                right: -240px;
+                left: 0;
+                position: absolute;
+                opacity: 0;
+
+                // background-color: black;
+                background: rgba(#fff, .6) asset-url('icon/_picture.svg') no-repeat ($edittest-height - 20)/2;
+                }
+            }
+
+        .preview-line-edittest {
+            max-height: $edittest-height + 10;
+            }
+
+        .addDescr-line-edittest {
+            padding: 15px $edittest-padding;
+            display: inline-block;
+
+            text-decoration: none;
+            color: #8c8c8b;
+            font-size: 16px;
+
+            &._hid {
+                display: none;
+                }
+
+            &:hover {
+                background-color: #f3f3f3;
+                }
+            }
+
+    .label-edittest {
+        width: $edittest-l;
+        float: left;
+
+        line-height: $edittest-height;
+        font-weight: bold;
+
+        i {
+            font-style: normal;
+            }
+        }
+
+    .content-edittest {
+        max-width: $edittest-r;
+        margin-left: $edittest-l;
+        }
+
+    .addNewSlide-edittest {
+        max-width: $edittest-r;
+        padding: 20px;
+        margin-left: $edittest-l;
+        margin-bottom: 20px;
+        display: block;
+
+        background-color: $color-nephritis;
+        box-sizing: border-box;
+        cursor: pointer;
+
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $color-emerald;
+            }
+
+        &._hid {
+            display: none;
+            }
+        }
+
+    .action-edittest {
+        max-width: $edittest-r;
+        margin-left: $edittest-l;
+
+        .btn {
+            width: 100%;
+
+            border: none;
+            border-radius: 0;
+            -webkit-appearance: none;
+            }
+        }
+
 .newtest {
     color: $color-midnightblue;
     }

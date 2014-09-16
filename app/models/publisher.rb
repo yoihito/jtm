@@ -14,4 +14,8 @@ class Publisher < ActiveRecord::Base
 		not self.likes.where(author: user).empty?
 	end
 
+  def is_owner?(user)
+    self.owners.include?(user)
+  end
+
 end

@@ -17,11 +17,11 @@
 
     - if item.description == '' or item.description.nil?
       / Test AUTHOR
-      = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-test"}
+      = link_to image_tag(item.publisher.avatar.url(:thumb)), item.publisher, {class: "author-test"}
 
-    - if item.author.owners.exists? current_user
+    - if item.publisher.is_owner? current_user
       / Editing
-      = link_to (render "../assets/images/icon/edit.svg"), edit_publisher_test_path(item.author.id, item), {class: "edit-test"}
+      = link_to (render "../assets/images/icon/edit.svg"), edit_publisher_test_path(item.publisher.id, item), {class: "edit-test"}
       div.shadow-edit-test
 
   .meta-test
@@ -41,7 +41,7 @@
     / Comment
     - if item.description != '' and !item.description.nil?
       .comment-test
-        = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-comment-test"}
+        = link_to image_tag(item.publisher.avatar.url(:thumb)), item.publisher, {class: "author-comment-test"}
         p = item.description
 
     - item.comments.first(3).each do |comment|

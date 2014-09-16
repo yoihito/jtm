@@ -8,6 +8,7 @@ class Test < ActiveRecord::Base
 	has_and_belongs_to_many :slides
 	accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank?}
 	belongs_to :author, polymorphic: true
+  belongs_to :publisher, class_name: 'Publisher', foreign_key: :author_id
 	has_many :user_answers, dependent: :delete_all, inverse_of: :test
 	has_many :users, through: :user_answers
 	has_many :ratings, dependent: :delete_all

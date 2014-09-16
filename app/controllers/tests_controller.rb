@@ -5,7 +5,7 @@ class TestsController < ApplicationController
 	end
 
 	def index
-		@q = Test.includes([:user_answers, :translations, :author, comments: [:author]]).search
+		@q = Test.includes([:user_answers, :translations, publisher: [:owners], comments: [:author]]).search
     @order = 'created_at desc'
 		if params[:q] && params[:q][:s]
 				@order = params[:q][:s]

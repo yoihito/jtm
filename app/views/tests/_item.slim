@@ -15,10 +15,12 @@
     / Background image
     = image_tag item.picture.url(:medium)
 
-    - if !item.description
+    - if item.description == '' or item.description.nil?
       / Test AUTHOR
       = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-test"}
+
     - if item.author.owners.exists? current_user
+      / Editing
       = link_to (render "../assets/images/icon/edit.svg"), edit_publisher_test_path(item.author.id, item), {class: "edit-test"}
       div.shadow-edit-test
 
@@ -37,7 +39,7 @@
   / List of comments
   .comments-test
     / Comment
-    - if item.description
+    - if item.description != '' and !item.description.nil?
       .comment-test
         = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-comment-test"}
         p = item.description

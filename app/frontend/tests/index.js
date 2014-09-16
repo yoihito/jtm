@@ -7,11 +7,12 @@
         app.utils.masonry( '.tests', '.test', '.bg-test > img' );
 
         var
-            $shadow = $( '.tests-shadow' ),
-            stopPassing = function() {
-                app.test_passing = false;
+            posY, posX, ifSupportPos,
 
-                History.back();
+            $shadow = $( '.tests-shadow' ),
+
+            closePassing = function( scrolltop ) {
+                app.test_passing = false;
 
                 $shadow.addClass( '_hid' );
                 $( '.testgo-circle, .testgo-circle_full' ).removeClass( '_animated' ).addClass( '_hid' );
@@ -20,8 +21,16 @@
                     .find( '.body-content-testgo' ).html( '' );
                 $( '.t_html' ).removeClass( '_overhide' );
                 $( document ).off( '.testgo' );
+
+                if ( scrolltop ) {
+                    $( window ).scrollTop( scrolltop + 5 );
+                }
             },
-            startPassing = function($this, testId, e) {
+            openPassing = function( tid, e ) {
+                var
+                    $test = $( '#test_' + tid ),
+                    $btn = $test.find( '.go-test' );
+
                 app.test_passing = true;
                 app.test_store = [];
 
@@ -31,7 +40,7 @@
                     }
                 });
 
-                app.utils.ajax( 'test_start', { id: testId }, {
+                app.utils.ajax( 'test_start', { id: tid }, {
                     success: function( data ) {
                         $( '.t_html' ).addClass( '_overhide' );
                         var $circle = $( '.testgo-circle, .testgo-circle_full' );
@@ -43,18 +52,17 @@
                         var $windowWidth = $window.width();
                         var $windowHeight = $window.height();
 
-                        var ptop = $this.offset().top - $window.scrollTop();
-                        var pleft = $this.offset().left;
-                        var pright = $windowWidth - pleft - $this.outerWidth();
-                        var pbottom = $windowHeight - ptop - $this.outerHeight();
+                        var ptop = $btn.offset().top - $window.scrollTop();
+                        var pleft = $btn.offset().left;
+                        var pright = $windowWidth - pleft - $btn.outerWidth();
+                        var pbottom = $windowHeight - ptop - $btn.outerHeight();
 
                         // alert( $windowWidth );
 
                         // alert( e.originalEvent.parentEvent.pageY )
 
-                        var ifSupportPos = !!e.originalEvent.parentEvent.pageY;
-                        var t = (e.originalEvent.parentEvent.pageY || $this.offset().top) - $window.scrollTop();
-                        var l = (e.originalEvent.parentEvent.pageX || $this.offset().left);
+                        var t = (posY || $btn.offset().top) - $window.scrollTop();
+                        var l = (posX || $btn.offset().left);
                         var r = $windowWidth - l;
                         var b = $windowHeight - t;
                         var R = Math.max( Math.sqrt(t*t + l*l), Math.sqrt(t*t + r*r), Math.sqrt(r*r + b*b), Math.sqrt(l*l + b*b) ) + 100;
@@ -74,8 +82,8 @@
                             height: ifSupportPos ? 20 : 100,
                             marginTop: 0,
                             marginLeft: 0,
-                            top: ifSupportPos ? t - 10 : t - 50 + $this.outerHeight()/2,
-                            left: ifSupportPos ? l - 10 : l - 50 + $this.outerWidth()/2
+                            top: ifSupportPos ? t - 10 : t - 50 + $btn.outerHeight()/2,
+                            left: ifSupportPos ? l - 10 : l - 50 + $btn.outerWidth()/2
                         });
 
                         setTimeout(function() {
@@ -100,9 +108,9 @@
 
                                 e.preventDefault();
 
-                                if ( $this.hasClass( '_free' ) ) {
-                                    $this.addClass( '_hid' ).next().removeClass( '_hid' );
-                                    $b = $this.parent().find( 'b' );
+                                if ( $btn.hasClass( '_free' ) ) {
+                                    $btn.addClass( '_hid' ).next().removeClass( '_hid' );
+                                    $b = $btn.parent().find( 'b' );
 
                                     $b.text( parseInt( $b.text() ) + 1 );
                                 }
@@ -114,7 +122,28 @@
                         stopPassing();
                     }
                 });
+            },
+
+            stopPassing = function() {
+                History.back();
+            },
+            startPassing = function( tid ) {
+                History.pushState({type: 'stop', test: {id: tid}, scrolltop: $( window ).scrollTop()}, 'tests', '/' );
+                History.pushState({type: 'open', test: {id: tid}}, 'tests', app.utils.route_url( 'test_start', { id: tid } ) );
             };
+
+        History.Adapter.bind( window, 'statechange', function() {
+            var state = History.getState();
+
+            if ( state.title === 'tests' ) {
+                if ( state.data.type === 'stop' ) {
+                    closePassing( state.data.scrolltop );
+                }
+                if ( state.data.type === 'open' ) {
+                    openPassing( state.data.test.id );
+                }
+            }
+        });
 
         $( document )
             .on( 'tap', '.tests-shadow, .js-test-stop', function( e ) {
@@ -126,12 +155,14 @@
                 e.preventDefault();
 
                 var
-                    $this = $( this ),
-                    testId = $this.attr( 'rel' );
+                    $btn = $( this ),
+                    tid = $btn.attr( 'rel' );
 
-                History.pushState({type: 'open'}, 'tests', '/tests/' + testId + '/pass');
+                ifSupportPos = !!e.originalEvent.parentEvent.pageY;
+                posY = e.originalEvent.parentEvent.pageY;
+                posX = e.originalEvent.parentEvent.pageX;
 
-                startPassing( $this, testId, e );
+                startPassing( tid );
             })
 
     });

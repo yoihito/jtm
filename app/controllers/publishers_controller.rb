@@ -111,10 +111,10 @@ class PublishersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def publisher_params
-      params.require(:publisher).permit(:title, :description,:avatar)
+      params.require(:publisher).permit(:title, :description, :avatar)
     end
 
-  def publisher_avatar_params
-    params.require(:publisher).permit(:avatar)
-  end
+    def publisher_avatar_params
+      params.require(:publisher).permit(:avatar)
+    end
 end

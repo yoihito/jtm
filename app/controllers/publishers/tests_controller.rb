@@ -45,6 +45,7 @@ class Publishers::TestsController < ApplicationController
           format.html { redirect_to @publisher, notice: 'Test was successfully created.' }
         format.json { render :show, status: :created, location: @publishers_test }
       else
+        @publishers_test.slides.build
         format.html { render :new }
         format.json { render json: @publishers_test.errors, status: :unprocessable_entity }
       end

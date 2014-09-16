@@ -4,9 +4,13 @@ class Test < ActiveRecord::Base
 	validates_attachment_file_name :picture, :matches => [/png\Z/, /jpe?g\Z/, /gif\Z/]
 	validates_attachment :picture, size: { in: 0..1500.kilobytes}
 	validate :slides_count_limit
-	translates :title,:description
+	validates :title, :picture, presence: true
+
+
+  translates :title,:description
+
 	has_and_belongs_to_many :slides
-	accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank?}
+  accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank? && attribute['picture'].blank? }
 	belongs_to :author, polymorphic: true
   belongs_to :publisher, class_name: 'Publisher', foreign_key: :author_id
 	has_many :user_answers, dependent: :delete_all, inverse_of: :test

@@ -1,36 +1,15 @@
 <?xml version="1.0" ?>
 <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'>
-<svg viewBox="0 0 70 70" width="70px" height="70px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white">
-  <!-- <rect id="logo-bg" x="0" y="0" width="70" height="70" fill="#a0c2ce"/> -->
+<svg viewBox="0 0 70 70" width="70px" height="70px" xmlns="http://www.w3.org/2000/svg">
   <rect id="logo-bg" x="0" y="0" width="70" height="70" fill="#16a085"/>
 
+  <!-- Shadow -->
   <g id="logo-shadow" fill-opacity=".12" fill="black">
     <path d="M 10 45 L 10 35 L 15 35 L 25 45 L 25 30 L 45 30 L 50 35 L 55 30 L 55 25 L 60 25 L 105 70 L 35 70" />
   </g>
 
-  <!-- J -->
-  <g id="logo-j">
-    <path d="M 10 35 L 10 45 L 25 45 L 25 25 L 20 25 L 20 40 L 15 40 L 15 35" />
+  <!-- JTM -->
+  <g id="logo-jtm" fill="white">
+    <path d="M 10 35 l 0 10 l 15 0 l 0 -15 l 5 0 l 0 15 l 5 0 l 0 -15 l 5 0 l 0 15 l 5 0 l 0 -13 l 5 5 l 5 -5 l 0 13 l 5 0 l 0 -20 -5 0 -5 5 l -5 -5 l -25 0 l 0 15 l -5 0 l 0 -5" />
   </g>
-
-  <!-- T -->
-  <g id="logo-t">
-    <path d="M 25 25 L 25 30 L 30 30 L 30 45 L 35 45 L 35 30 L 40 30 L 40 25" />
-  </g>
-
-  <!-- M -->
-  <g id="logo-m">
-    <path d="M 40 25 L 40 45 L 45 45 L 45 25 M 55 25 L 55 45 L 60 45 L 60 25" />
-    <path d="M 45 25 L 45 32 L 50 37 L 55 32 L 55 25 L 50 30 L 45 25" />
-  </g>
-
-  <!-- J shadow -->
-  <!-- <g id="logo-j-shadow">
-    <path d="M 0 350 L 0 250 L 50 250 L 150 350 L 150 150 L 500 500 L 150 500" fill="black" fill-opacity=".5" />
-  </g> -->
-
-  <!-- T shadow -->
-  <!-- <g id="logo-t-shadow">
-    <path d="M 200 350 L 200 250 L 150 200 L 300 200 L 600 500 L 350 500" fill="black" fill-opacity=".5" />
-  </g> -->
 </svg>

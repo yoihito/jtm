@@ -136,11 +136,14 @@
             var state = History.getState();
 
             if ( state.title === 'tests' ) {
-                if ( state.data.type === 'stop' ) {
-                    closePassing( state.data.scrolltop );
-                }
-                if ( state.data.type === 'open' ) {
-                    openPassing( state.data.test.id );
+                if ( $( '.tests' ).size() ) {
+                    if ( state.data.type === 'stop' ) {
+                        closePassing( state.data.scrolltop );
+                    } else if ( state.data.type === 'open' ) {
+                        openPassing( state.data.test.id );
+                    }
+                } else {
+                    window.location.href = '/';
                 }
             }
         });

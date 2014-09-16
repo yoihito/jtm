@@ -72,9 +72,12 @@
             .on( 'tap', '.js-test-delete', function( e ) {
                 e.preventDefault();
 
-                var that = this;
+                var
+                    that = this,
+                    tid = parseInt( that.getAttribute( 'data-tid' ) ),
+                    pid = parseInt( that.getAttribute( 'data-pid' ) );
 
-                app.utils.ajax( 'test_destroy', { id: parseInt( that.getAttribute( 'data-tid' ) ) }, {
+                app.utils.ajax( 'test_destroy', { tid: tid, pid: pid }, {
                     success: function() {
                         window.location.href = app.utils.route_url( 'publisher', { id: parseInt( that.getAttribute( 'data-pid' ) ) } );
                     }

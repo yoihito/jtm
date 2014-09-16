@@ -5,7 +5,7 @@
     app.routes = {
         test_start: ['/tests/:id/pass', 'get'],
         test_save: '/tests/:id/save',
-        test_destroy: ['/publishers/tests/:id', 'delete'],
+        test_destroy: ['/publishers/:pid/tests/:tid', 'delete'],
         test_result: ['/tests/:id/result', 'get' ],
         test_comments_new: '/tests/:id/comments',
 

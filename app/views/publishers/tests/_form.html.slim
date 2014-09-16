@@ -40,4 +40,7 @@
 
     .addSlide-form-test.js-edittest-addAnotherSlide data-count="2" + Add another slide
 
-  = f.submit "Create", class: "btn_create-form-test"
+  - if local_assigns[:isEdit]
+    = f.submit "Save changes", class: "btn_create-form-test"
+  - else
+    = f.submit "Create", class: "btn_create-form-test"

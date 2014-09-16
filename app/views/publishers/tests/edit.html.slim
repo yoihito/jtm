@@ -3,7 +3,7 @@
     = link_to 'Publisher', publisher_path(@publisher), {class: 'link_back'}
     span Edit test "#{@publishers_test.title}"
 
-  = render "form"
+  = render "form", isEdit: true
 
   /= link_to "Delete", @publishers_test, data: {:confirm => 'Are you sure?'}, :method => :delete
   = link_to "Delete", @publishers_test, {class: "btn_red-header js-test-delete", "data-tid" => @publishers_test.id, "data-pid" => @publishers_test.author.id}

@@ -15,9 +15,12 @@
     / Background image
     = image_tag item.picture.url(:medium)
 
-    - unless item.description or local_assigns[:hideAuthor]
+    - if !item.description
       / Test AUTHOR
       = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-test"}
+    - if item.author.owners.exists? current_user
+      = link_to (render "../assets/images/icon/edit.svg"), edit_publisher_test_path(item.author.id, item), {class: "edit-test"}
+      div.shadow-edit-test
 
   .meta-test
     / Followers count
@@ -34,7 +37,7 @@
   / List of comments
   .comments-test
     / Comment
-    - if item.description and !local_assigns[:hideAuthor]
+    - if item.description
       .comment-test
         = link_to image_tag(item.author.avatar.url(:thumb)), item.author, {class: "author-comment-test"}
         p = item.description

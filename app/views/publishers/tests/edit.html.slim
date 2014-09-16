@@ -1,8 +1,5 @@
-h1 Editing publishers_test
-
-== render 'form'
-
-= link_to 'Show', @publishers_test
-'|
-= link_to 'Back', publisher_tests_path
-
+.newtest
+  .title-newtest
+    = link_to 'Publisher', publisher_path(@publisher), {class: 'link_back'}
+    span Edit test "#{@publishers_test.title}"
+  = render "form"

@@ -32,7 +32,8 @@ class TestPassingController < ApplicationController
 
 	def result
     @test = Test.includes(comments:[:author]).find(params[:id])
-    @answers = @test.user_answers
+    @all_answers = @test.user_answers
+    @user_answers = UserAnswer.test_by_user(@test.id,current_user.id).take
     respond_to do |format|
       if request.xhr?
         format.html { render layout: nil }

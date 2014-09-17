@@ -10,19 +10,35 @@
 javascript:
   (function( window, $ ) {
     var slidesCount = #{@test.slides.size};
-    var answers = #{ @answers.map{|ans| ans.answers}.to_json   };
+    var answers = #{ @all_answers.map{|ans| ans.answers}.to_json   };
+    var user_answer = #{ @user_answers.answers.to_json }
     var rate = [_.range(0,slidesCount,0),_.range(0,slidesCount,0),_.range(0,slidesCount,0)];
     //console.log(rate);
+
+    var user_answer_labels = _.range(0,slidesCount,1);
+    user_answer.forEach(function(val,ind) {
+      if (val==0)
+        user_answer_labels[ind]='No'
+      else if (val==1)
+        user_answer_labels[ind]='Yes'
+      else if (val==2)
+        user_answer_labels[ind]='Maybe'
+    });
+
 
     answers.forEach(function(ans) {
       ans.forEach(function(value,ind){
         rate[value][ind]++;
+
         //console.log(value+' '+ind);
       })
     });
-    //console.log(rate);
+    user_answer.forEach(function(val,ind) {
+      user_answer[ind] = rate[user_answer[ind]][ind]/(rate[0][ind]+rate[1][ind]+rate[2][ind])*100
+    });
+
     var data = {};
-    data.labels = _.range(0, slidesCount, 1);
+    data.labels = user_answer_labels;
     data.datasets = [
         {
             label: "Number of no answers",
@@ -32,7 +48,7 @@ javascript:
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rate[0]
+         //   data: rate[0]
         },
         {
             label: "Number of yes answers",
@@ -42,7 +58,7 @@ javascript:
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rate[1]
+        //    data: rate[1]
         },
         {
             label: "Number of maybe answers",
@@ -52,12 +68,17 @@ javascript:
             pointStrokeColor: "#fff",
             pointHighlightFill: "#fff",
             pointHighlightStroke: "rgba(220,220,220,1)",
-            data: rate[2]
+            data: user_answer
         }
     ];
 
     var ctx = document.getElementById("ResultChart").getContext("2d");
+    var steps = 10, max = 100;
     var myNewChart = new Chart(ctx).Line(data, {
+      scaleOverride: true,
+      scaleSteps: steps,
+      scaleStepWidth: Math.ceil(max / steps),
+      scaleStartValue: 0,
       responsive: true
     });
   })( window, jQuery );

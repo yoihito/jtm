@@ -6,4 +6,4 @@
   = render "form", isEdit: true
 
   /= link_to "Delete", @publishers_test, data: {:confirm => 'Are you sure?'}, :method => :delete
-  = link_to "Delete", @publishers_test, {class: "btn btn_red delete-edittest js-test-delete", "data-tid" => @publishers_test.id, "data-pid" => @publishers_test.author.id}
+  = link_to "Delete", @publishers_test, {class: "btn btn_red delete-edittest js-edittest-delete", "data-tid" => @publishers_test.id, "data-pid" => @publishers_test.author.id}

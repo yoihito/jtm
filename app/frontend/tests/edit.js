@@ -64,6 +64,20 @@
                     $( '.js-edittest-newSlide' ).addClass( '_hid' );
                 }
             })
+            .on( 'tap', '.js-edittest-delete', function( e ) {
+                e.preventDefault();
+
+                var
+                    that = this,
+                    tid = parseInt( that.getAttribute( 'data-tid' ) ),
+                    pid = parseInt( that.getAttribute( 'data-pid' ) );
+
+                app.utils.ajax( 'test_destroy', { tid: tid, pid: pid }, {
+                    success: function() {
+                        window.location.href = app.utils.route_url( 'publisher', { id: parseInt( that.getAttribute( 'data-pid' ) ) } );
+                    }
+                });
+            })
 
     });
 

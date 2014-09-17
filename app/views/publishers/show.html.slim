@@ -5,7 +5,7 @@
       .l-descr-info-publisher
         .avatar-info-user
           = image_tag @publisher.avatar.url(:medium), {class: "img-info-publisher"}
-          - if @publisher.owners.exists? current_user
+          - if @publisher.is_owned? current_user
             a.upd-avatar-info-user.js-choose-img data-target=".js-publisher-avatar" href="" Update profile picture
             input.js-publisher-avatar type="file" hidden="true" name="avatar" data-pid=@publisher.id
             .loader-avatar
@@ -16,11 +16,11 @@
         p = @publisher.description
         = render "follow", publisher: @publisher
 
-    - if @publisher.owners.exists? current_user
+    - if @publisher.is_owned? current_user
       .filter.settings-info-publisher
         .tab-filter = link_to "Settings", edit_publisher_path
 
-  - if @publisher.owners.exists? current_user
+  - if @publisher.is_owned? current_user
     = link_to "+ Create new test", new_publisher_test_path(@publisher.id), {class: "createTest-publisher"}
 
   .meta-publisher

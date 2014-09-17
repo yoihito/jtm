@@ -19,7 +19,7 @@
       / Test AUTHOR
       = link_to image_tag(item.publisher.avatar.url(:thumb)), item.publisher, {class: "author-test"}
 
-    - if item.publisher.is_owner? current_user
+    - if item.publisher.is_owned? current_user
       / Editing
       = link_to (render "../assets/images/icon/edit.svg"), edit_publisher_test_path(item.publisher.id, item), {class: "edit-test"}
       div.shadow-edit-test

@@ -16,7 +16,7 @@ class PublishersController < ApplicationController
     if params[:q] && params[:q][:s]
         @order = params[:q][:s]
     end
-    @q = Test.where(author: @publisher).includes(:translations,:user_answers).search
+    @q = Test.where(author: @publisher).includes(:comments,:translations,:user_answers, publisher:[:owners]).search
     if !current_user.nil? && current_user.user_answers.count>0
       if @order == 'passed_tests desc'
         @tests = @q.result

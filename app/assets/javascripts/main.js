@@ -24,6 +24,12 @@
                 $( this.getAttribute( 'data-target' ) ).trigger( 'click' );
             })
 
+            .on( 'tap', '.js-toggle', function( e ) {
+                e.preventDefault();
+
+                $( this.getAttribute( 'data-target' ) ).toggleClass( '_hid' );
+            })
+
         $( '.js-trigger-showpassword' ).each(function() {
             $( this.getAttribute( 'data-target' ) ).prop( 'type', this.checked ? 'text' : 'password' );
         });

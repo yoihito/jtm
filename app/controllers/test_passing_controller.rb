@@ -1,4 +1,7 @@
 class TestPassingController < ApplicationController
+  before_action :set_test, except: [:result, :save]
+
+
 	def get
 		@test = Test.find(params[:id])
   	@slides = @test.slides.includes(:translations)#,comments:[:author])
@@ -44,6 +47,10 @@ private
 	def answers_params
 		params.require(:slides)
 	end
+
+  def set_test
+    @test = Test.find(params[:id])
+  end
 
 
 end

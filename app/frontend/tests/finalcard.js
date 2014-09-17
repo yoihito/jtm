@@ -13,6 +13,10 @@
         };
 
     $(function(){
+        // app.utils.masonry( '.tests-finalcard', '.test', '.bg-test > img', {
+        //     isFitWidth: true
+        // });
+
         $( document )
             .on( 'submit', '.js-finalcard-comments', function( e ) {
                 e.preventDefault();
@@ -29,7 +33,14 @@
                     $target.append( data );
                     $textarea.val( '' ).trigger( 'autosize.resize' );
                 });
-            });
+            })
+            .on( 'tap', '.likes-finalcard a', function( e ) {
+                e.preventDefault();
+
+                var $that = $( this );
+
+                $( this ).removeClass( '_unact' ).siblings( 'a' ).addClass( '_unact' );
+            })
     });
 
 })( window, jQuery );

@@ -2,7 +2,7 @@
 
     var app = window.app;
 
-    app.utils.masonry = function( selector_list, selector_item, selector_img ) {
+    app.utils.masonry = function( selector_list, selector_item, selector_img, opts ) {
 
         var
             $list = $( selector_list ),
@@ -23,10 +23,10 @@
                 imgcount++;
 
                 if (imgcount == imgcount_max) {
-                    $list.masonry({
+                    $list.masonry($.extend({
                         itemSelector: selector_item,
                         transitionDuration: '.1s'
-                    });
+                    }, opts));
                 }
             });
     };

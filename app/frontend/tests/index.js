@@ -126,31 +126,50 @@
             },
 
             getFinalCard = function( tid ) {
-                app.utils.ajax( 'test_result', {id: tid}, {
-                    success: function( data ) {
-                        $( '.t_html' ).addClass( '_overhide' );
-                        var $circle = $( '.testgo-circle, .testgo-circle_full' );
-                        var $testgo = $( '.testgo' );
-                        $circle.removeClass( '_hid' );
-                        $testgo.removeClass( '_hid' );
+                $( '.t_html' ).addClass( '_overhide' );
+                var $circle = $( '.testgo-circle, .testgo-circle_full' );
+                var $testgo = $( '.testgo' );
+                $circle.removeClass( '_hid' );
+                $testgo.removeClass( '_hid' );
 
-                        $testgo
-                            .find( '.body-content-testgo' ).html( data )
-                            .find( '.list-testgo' ).on( 'savedPassing', function( e ) {
-                                var $b;
-
-                                e.preventDefault();
-
-                                if ( $btn.hasClass( '_free' ) ) {
-                                    $btn.addClass( '_hid' ).next().removeClass( '_hid' );
-                                    $b = $btn.parent().find( 'b' );
-
-                                    $b.text( parseInt( $b.text() ) + 1 );
-                                }
-                                // stopPassing();
-                            });
+                $( document ).on( 'keydown.testgo', function( e ) {
+                    if ( e.keyCode === app.utils.keyCode.esc ) {
+                        stopPassing();
                     }
                 });
+
+                app.utils.ajax( 'test_result', {id: tid}, {
+                    success: function( data ) {
+                        $testgo
+                            .find( '.body-content-testgo' ).html( data )
+                            .find( '.textarea_autosize' ).autosize()
+                    }
+                });
+                // app.utils.ajax( 'test_result', {id: tid}, {
+                //     success: function( data ) {
+                //         $( '.t_html' ).addClass( '_overhide' );
+                //         var $circle = $( '.testgo-circle, .testgo-circle_full' );
+                //         var $testgo = $( '.testgo' );
+                //         $circle.removeClass( '_hid' );
+                //         $testgo.removeClass( '_hid' );
+
+                //         $testgo
+                //             .find( '.body-content-testgo' ).html( data )
+                //             .find( '.list-testgo' ).on( 'savedPassing', function( e ) {
+                //                 var $b;
+
+                //                 e.preventDefault();
+
+                //                 if ( $btn.hasClass( '_free' ) ) {
+                //                     $btn.addClass( '_hid' ).next().removeClass( '_hid' );
+                //                     $b = $btn.parent().find( 'b' );
+
+                //                     $b.text( parseInt( $b.text() ) + 1 );
+                //                 }
+                //                 // stopPassing();
+                //             });
+                //     }
+                // });
             },
 
             stopPassing = function() {
@@ -161,9 +180,9 @@
                 History.pushState({type: 'open', test: {id: tid}}, 'tests', app.utils.route_url( 'test_start', { id: tid } ) );
             },
             openResult = function( tid ) {
-                // History.pushState({type: 'stop', test: {id: tid}, scrolltop: $( window ).scrollTop()}, 'tests', document.URL );
-                // History.pushState({type: 'open', test: {id: tid}}, 'tests', app.utils.route_url( 'test_start', { id: tid } ) );
-                getFinalCard( tid );
+                History.pushState({type: 'stop', test: {id: tid}, scrolltop: $( window ).scrollTop()}, 'tests', document.URL );
+                History.pushState({type: 'results', test: {id: tid}}, 'tests', app.utils.route_url( 'test_result', { id: tid } ) );
+                // getFinalCard( tid );
             };
 
         History.Adapter.bind( window, 'statechange', function() {
@@ -175,6 +194,8 @@
                         closePassing( state.data.scrolltop );
                     } else if ( state.data.type === 'open' ) {
                         openPassing( state.data.test.id );
+                    } else if ( state.data.type === 'results' ) {
+                        getFinalCard( state.data.test.id );
                     }
                 } else {
                     window.location.href = '/';

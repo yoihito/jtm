@@ -5,6 +5,24 @@
     .chart-finalcard
       canvas id="ResultChart"
 
+    .likes-finalcard
+      .title-comments-finalcard Like this test?
+      a href="#like" Like
+      a href="#dislike" Dislike
+
+    .tests-finalcard.user
+      .list-cont-user data-target-count=".js-user-count_passedtests"
+        .full-list-cont-user
+          - @tests.each do |test|
+            = render "tests/item", item: test
+          = render "tests/modal"
+
+      / = render "tests/list", list: @tests
+      /- @tests.each do |test|
+        = render "tests/item", item: test
+        / .test-finalcard
+        /   = image_tag test.picture.url(:medium), class: "img-test-finalcard"
+
     = render "comments_list", list: @test.comments
 
 javascript:

@@ -8,8 +8,8 @@
     .likes-finalcard
       .title-comments-finalcard Like this test?
 
-      a rel=@test.id href="#like" Like
-      a rel=@test.id href="#dislike" Dislike
+      a rel=@test.id href="#like" class="#{'_unact' if @test.downvoted?(current_user)}" Like
+      a rel=@test.id href="#dislike" class="#{'_unact' if @test.upvoted?(current_user)}" Dislike
 
     .tests-finalcard.user
       .list-cont-user data-target-count=".js-user-count_passedtests"

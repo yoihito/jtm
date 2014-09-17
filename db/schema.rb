@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20140917154638) do
     t.integer  "author_id"
     t.string   "author_type"
     t.boolean  "has_background"
+    t.integer  "rating",               default: 0
     t.integer  "answers_count",        default: 0
     t.boolean  "published",            default: false
     t.datetime "created_at"
@@ -133,7 +134,6 @@ ActiveRecord::Schema.define(version: 20140917154638) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
-    t.integer  "rating",               default: 0
     t.integer  "comments_count"
   end
 

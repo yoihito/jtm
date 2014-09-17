@@ -45,9 +45,7 @@
                 $that.removeClass( '_unact' ).siblings( 'a' ).addClass( '_unact' );
 
                 app.utils.ajax( route, {id: tid}, {
-                    success: function() {
-                        alert( 'asd' )
-                    }
+                    success: function() {}
                 });
             })
     });

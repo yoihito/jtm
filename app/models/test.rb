@@ -1,3 +1,4 @@
+require 'statistics2'
 class Test < ActiveRecord::Base
 	has_attached_file :picture, styles: { retina_medium: "560x3200>", medium: "280x3200>"}, default_url: ':style/missing.png'
 	validates_attachment_content_type :picture, :content_type => /\Aimage\/.*\Z/
@@ -63,8 +64,17 @@ class Test < ActiveRecord::Base
 	end
 private
 
+  def ci_lower_bound(pos, n, confidence)
+    if n == 0
+        return 0
+    end
+    z = Statistics2.pnormaldist(1-(1-confidence)/2)
+    phat = 1.0*pos/n
+    (phat + z*z/(2*n) - z * Math.sqrt((phat*(1-phat)+z*z/(4*n))/n))/(1+z*z/n)
+  end
+
 	def refresh_rating
-	  self.rating=self.ratings.average(:value)*5
+	  self.rating=ci_lower_bound(self.ratings.sum(:value),self.ratings.size,0.95);
 	  self.save
 	end
 

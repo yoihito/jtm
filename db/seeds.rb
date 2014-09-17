@@ -14,8 +14,9 @@ end
 unless Test.any?
 	10.times {
 		publisher = Publisher.order("RANDOM()").take
-		test = Test.create(title: Faker::Lorem.sentence, author: publisher)
+		test = Test.new(title: Faker::Lorem.sentence, author: publisher)
 		test.slides << Slide.order("RANDOM()").limit(3)
+    test.save
 	}
 end
 

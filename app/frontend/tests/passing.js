@@ -44,7 +44,7 @@
                     if ( $item.next().size() ) {
                         $item.removeClass( '_active' ).next().addClass( '_active' );
                     } else {
-                        $( document ).off( '.test_answer' );
+                        app.test_passing = false;
                         savePassing( $list );
                     }
                 }

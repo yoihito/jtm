@@ -128,7 +128,7 @@
                 History.back();
             },
             startPassing = function( tid ) {
-                History.pushState({type: 'stop', test: {id: tid}, scrolltop: $( window ).scrollTop()}, 'tests', '/' );
+                History.pushState({type: 'stop', test: {id: tid}, scrolltop: $( window ).scrollTop()}, 'tests', document.URL );
                 History.pushState({type: 'open', test: {id: tid}}, 'tests', app.utils.route_url( 'test_start', { id: tid } ) );
             };
 
@@ -136,7 +136,7 @@
             var state = History.getState();
 
             if ( state.title === 'tests' ) {
-                if ( $( '.tests' ).size() ) {
+                if ( $( '.test' ).size() ) {
                     if ( state.data.type === 'stop' ) {
                         closePassing( state.data.scrolltop );
                     } else if ( state.data.type === 'open' ) {

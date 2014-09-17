@@ -13,6 +13,7 @@
 
             closePassing = function( scrolltop ) {
                 app.test_passing = false;
+                app.test_store = [];
 
                 $shadow.addClass( '_hid' );
                 $( '.testgo-circle, .testgo-circle_full' ).removeClass( '_animated' ).addClass( '_hid' );

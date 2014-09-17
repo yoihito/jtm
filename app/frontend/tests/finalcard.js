@@ -37,9 +37,18 @@
             .on( 'tap', '.likes-finalcard a', function( e ) {
                 e.preventDefault();
 
-                var $that = $( this );
+                var
+                    $that = $( this ),
+                    route = $that.attr( 'href' ) == '#like' ? 'test_like' : 'test_dislike',
+                    tid = parseInt( $that.attr( 'rel' ) );
 
-                $( this ).removeClass( '_unact' ).siblings( 'a' ).addClass( '_unact' );
+                $that.removeClass( '_unact' ).siblings( 'a' ).addClass( '_unact' );
+
+                app.utils.ajax( route, {id: tid}, {
+                    success: function() {
+                        alert( 'asd' )
+                    }
+                });
             })
     });
 

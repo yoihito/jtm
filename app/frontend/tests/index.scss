@@ -300,14 +300,17 @@ $edittest-padding: 15px;
         .line_slide-edittest {}
 
         .pic-line-edittest {
-            width: $edittest-height + 10;
+            min-width: $edittest-height + 10;
             height: $edittest-height + 10;
+            margin-left: 10px;
             top: -5px;
-            right: -$edittest-height - 20;
+            left: 100%;
             position: absolute;
 
             background: asset-url('icon/_picture.svg') no-repeat 50%;
             background-size: $edittest-height - 20;
+            overflow: hidden;
+
             cursor: pointer;
             line-height: $edittest-height + 10;
             text-align: center;
@@ -333,6 +336,7 @@ $edittest-padding: 15px;
 
         .preview-line-edittest {
             max-height: $edittest-height + 10;
+            float: left;
             }
 
         .addDescr-line-edittest {
@@ -392,6 +396,18 @@ $edittest-padding: 15px;
         &._hid {
             display: none;
             }
+        }
+
+    .delete-edittest {
+        max-width: $edittest-r;
+        padding: 20px;
+        margin-top: 20px;
+        margin-left: $edittest-l;
+        margin-bottom: 20px;
+        display: block;
+
+        text-decoration: none;
+        text-align: center;
         }
 
     .action-edittest {

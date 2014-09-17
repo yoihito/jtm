@@ -1,0 +1,49 @@
+= form_for [@publisher, @publishers_test], html: {class: ""} do |f|
+  - if @publishers_test.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@publishers_test.errors.count, "error")} prohibited this publishers_test from being saved:"
+      ul
+        - @publishers_test.errors.full_messages.each do |message|
+          li = message
+
+  .title-edittest Add cover
+
+  .line-edittest.line_cover-edittest
+    .content-edittest
+      = f.text_field :title, id: "", placeholder: "Name of new test"
+
+      a.pic-line-edittest.js-edittest-choose href=""
+        = image_tag "#{@publishers_test.picture.url(:medium) if @publishers_test.picture.exists?}", class: "preview-line-edittest js-edittest-picture-preview"
+        b
+      = f.file_field :picture, id: "", hidden: true, class: "js-edittest-picture"
+
+      - hasDescr = (!@publishers_test.description.nil? and @publishers_test.description != '')
+      a.addDescr-line-edittest class="#{'_hid' if hasDescr}" href="" + Add description
+      = f.text_area :description, id: "", placeholder: "Enter description", class: "textarea_autosize #{'_hid' if !hasDescr}"
+
+  .title-edittest Add slides (maximum 10)
+
+  .slides-edittest
+    = f.fields_for :slides do |s|
+      .line-edittest.line_slide-edittest
+        .label-edittest = s.index + 1
+        .content-edittest
+          = s.text_field :question, id: "", placeholder: "Enter question"
+
+          a.pic-line-edittest.js-edittest-choose href=""
+            = image_tag "#{s.object.picture.url(:medium) if s.object.picture.exists?}", class: "preview-line-edittest js-edittest-picture-preview"
+            b
+          = s.file_field :picture, id: "", hidden: true, class: "js-edittest-picture"
+
+          - hasDescr = (!s.object.description.nil? and s.object.description != '')
+          a.addDescr-line-edittest class="#{'_hid' if hasDescr}" href="" + Add description
+          = s.text_area :description, id: "", placeholder: "Enter description", class: "textarea_autosize #{'_hid' if !hasDescr}"
+
+  - if @publishers_test.slides.size < 10
+    a.addNewSlide-edittest.js-edittest-newSlide href="" + Add new slide
+
+  .action-edittest
+    - if local_assigns[:isEdit]
+      = f.submit "Save changes", class: "btn btn_blue"
+    - else
+      = f.submit "Create", class: "btn btn_blue"

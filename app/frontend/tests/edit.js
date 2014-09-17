@@ -43,12 +43,14 @@
                     };
 
                 var $tpl_descr = $tpl.find( 'textarea' );
-                var $tpl_input = $tpl.find( 'input' );
+                var $tpl_text = $tpl.find( 'input[type=text]' );
+                var $tpl_file = $tpl.find( 'input[type=file]' );
 
                 fixName( $tpl_descr );
-                fixName( $tpl_input );
+                fixName( $tpl_text );
+                fixName( $tpl_file );
 
-                $tpl_input.val( '' );
+                $tpl_text.val( '' );
                 $tpl_descr.removeAttr( 'style' ).addClass( '_hid' );
                 $tpl.find( '.label-edittest' ).text( index + 1 );
                 $tpl.find( '.addDescr-line-edittest' ).removeClass( '_hid' );
@@ -56,9 +58,9 @@
 
                 $tpl.insertAfter( $last );
 
-                $tpl_input.first().focus();
+                $tpl_text.focus();
 
-                if ( index === 5 ) {
+                if ( index + 1 === 10 ) {
                     $( '.js-edittest-newSlide' ).addClass( '_hid' );
                 }
             })

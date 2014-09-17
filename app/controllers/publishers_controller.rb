@@ -17,15 +17,8 @@ class PublishersController < ApplicationController
         @order = params[:q][:s]
     end
     @q = Test.where(author: @publisher).includes(:comments,:translations,:user_answers, publisher:[:owners]).search
-    if !current_user.nil? && current_user.user_answers.count>0
-      if @order == 'passed_tests desc'
-        @tests = @q.result
-            .where('id in (?)', current_user.user_answers.map{|x| x.test_id})
-      else
-        @tests = @q.result
-            .where('id not in (?)', current_user.user_answers.map{|x| x.test_id})
-            .order(@order)
-      end
+    if !current_user.nil? && current_user.user_answers.count>0 &&  @order == 'passed_tests desc'
+      @tests = @q.result.where('id in (?)', current_user.user_answers.map{|x| x.test_id})
     else
       @tests = @q.result.order(@order)
     end

@@ -53,7 +53,7 @@ javascript:
       })
     });
     user_answer.forEach(function(val,ind) {
-      user_answer[ind] = rate[user_answer[ind]][ind]/(rate[0][ind]+rate[1][ind]+rate[2][ind])*100
+      user_answer[ind] = Math.ceil(rate[user_answer[ind]][ind]/(rate[0][ind]+rate[1][ind]+rate[2][ind])*100)
     });
 
     var data = {};

@@ -152,7 +152,8 @@
             },
 
             stopPassing = function() {
-                History.back();
+                closePassing();
+                // History.back();
             },
             startPassing = function( tid ) {
                 History.pushState({type: 'stop', test: {id: tid}, scrolltop: $( window ).scrollTop()}, 'tests', document.URL );

@@ -50,23 +50,27 @@ class Test < ActiveRecord::Base
 	end
 
 	def upvote(user)
-	  update_rating(user,1)
-	  refresh_rating
+    Test.transaction do
+	    update_rating(user,1)
+	    refresh_rating
+    end
 	end
 
 	def downvote(user)
-    update_rating(user,0)
-	  refresh_rating
+    Test.transaction do
+      update_rating(user,0)
+	    refresh_rating
+    end
 	end
 
   def upvoted?(user)
     rate = Rating.where(entity: self, user_id: user.id).take
-    rate.nil? && rate.value==1
+    !rate.nil? && rate.value==1
   end
 
   def downvoted?(user)
     rate = Rating.where(entity: self, user_id: user.id).take
-    rate.nil? && rate.value==0
+    !rate.nil? && rate.value==0
   end
 
 	def comments_count

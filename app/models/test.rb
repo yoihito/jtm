@@ -22,9 +22,8 @@ class Test < ActiveRecord::Base
 
 
 	def slides_count_limit
-		if slides.size>10
-			errors.add(:too_much,'Too much slides. Max count is 10');
-		end
+		errors.add(:too_much,'Too much slides. Max count is 10') if slides.size>10
+    errors.add(:too_low,'Too low slides. Min count is 1') if slides.size<1
 	end
 
 	def is_passed?(user)

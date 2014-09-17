@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   scope module: 'publishers' do
     resources :publishers, only: [] do
-      resources :tests, only: [:index, :create, :destroy, :edit, :new, :update]
+      resources :tests, only: [:create, :destroy, :edit, :new, :update]
     end
   end
 

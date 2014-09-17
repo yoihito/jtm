@@ -2,6 +2,8 @@
 
     var app = window.app;
 
+    app.blocks = {};
+
     var functions = app.fns = {};
 
     functions.textarea = function() {

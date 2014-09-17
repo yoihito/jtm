@@ -12,11 +12,10 @@
       a rel=@test.id href="#dislike" class="#{'_unact' if @test.upvoted?(current_user)}" Dislike
 
     .tests-finalcard.user
-      .list-cont-user data-target-count=".js-user-count_passedtests"
+      .list-cont-user
         .full-list-cont-user
           - @tests.each do |test|
-            = render "tests/item", item: test
-          = render "tests/modal"
+            = render "tests/item", item: test, wo_js: true
 
       / = render "tests/list", list: @tests
       /- @tests.each do |test|

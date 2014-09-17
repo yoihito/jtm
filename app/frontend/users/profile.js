@@ -3,12 +3,14 @@
     var app = window.app;
 
     var $parent, $lists,
-        reuse = function() {
-            $lists.each(function( n, item ) {
-                list( $( item ) );
+        reuse = function( $new_parent, $new_list ) {
+            ($new_list || $lists).each(function( n, item ) {
+                list( ($new_parent || $parent), $( item ) );
             });
         },
-        list = function( $list ) {
+        list = function( $parent, $list ) {
+            console.log( $list );
+
             var
                 $items = $list.find( '.full-list-cont-user > div' ),
                 $pattern = $items.eq( 0 ),
@@ -86,6 +88,10 @@
                 reuse();
             }, 100);
         });
+
+        app.blocks.users = {
+            reuse: reuse
+        };
 
     });
 

@@ -143,33 +143,12 @@
                         $testgo
                             .find( '.body-content-testgo' ).html( data )
                             .find( '.textarea_autosize' ).autosize()
+
+                        if ( app.blocks && app.blocks.users && app.blocks.users.reuse ) {
+                            app.blocks.users.reuse( $( '.user' ), $( '.list-cont-user' ) );
+                        }
                     }
                 });
-                // app.utils.ajax( 'test_result', {id: tid}, {
-                //     success: function( data ) {
-                //         $( '.t_html' ).addClass( '_overhide' );
-                //         var $circle = $( '.testgo-circle, .testgo-circle_full' );
-                //         var $testgo = $( '.testgo' );
-                //         $circle.removeClass( '_hid' );
-                //         $testgo.removeClass( '_hid' );
-
-                //         $testgo
-                //             .find( '.body-content-testgo' ).html( data )
-                //             .find( '.list-testgo' ).on( 'savedPassing', function( e ) {
-                //                 var $b;
-
-                //                 e.preventDefault();
-
-                //                 if ( $btn.hasClass( '_free' ) ) {
-                //                     $btn.addClass( '_hid' ).next().removeClass( '_hid' );
-                //                     $b = $btn.parent().find( 'b' );
-
-                //                     $b.text( parseInt( $b.text() ) + 1 );
-                //                 }
-                //                 // stopPassing();
-                //             });
-                //     }
-                // });
             },
 
             stopPassing = function() {

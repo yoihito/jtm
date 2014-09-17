@@ -31,4 +31,4 @@
     /   .filter._fl_l
     /     .tab-filter = link_to "Settings", edit_publisher_path
 
-  = render "tests/list", {list: @tests, publisher: true}
+  = render "tests/list", {list: @tests, publisher: true, owner: @publisher.is_owned?(current_user)}

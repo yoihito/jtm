@@ -70,13 +70,8 @@
             z-index: 20;
 
             border-radius: 32px;
-            background-color: $color-greensea;
-
-            svg {
-                width: 28px;
-                height: 28px;
-                margin: (50px - 28)/2;
-                }
+            background: $color-greensea asset-url('icon/_edit.svg') no-repeat 50%;
+            background-size: 28px;
 
             &:hover {
                 + .shadow-edit-test {

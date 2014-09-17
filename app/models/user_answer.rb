@@ -5,7 +5,8 @@ class UserAnswer < ActiveRecord::Base
 
   def answers_count
     answers = self.answers
-    unless answers.size == self.test.size
+    #Rails.logger.debug "#{answers.inspect}"
+    unless answers.size == self.test.slides.size
       errors.add(:too_much,'Too much answers')
     end
 

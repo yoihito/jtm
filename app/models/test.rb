@@ -20,6 +20,9 @@ class Test < ActiveRecord::Base
 	has_many :voters, through: :ratings, source: :user, class_name: "User"
 	has_many :comments, -> { order('created_at DESC') }, as: :entity, dependent: :delete_all
 
+  scope :popular, -> { order('rating desc') }
+  scope :not_passed, -> (user){ where('id not in (?)', user.user_answers.map{|x| x.test_id}) }
+
 
 
 	def slides_count_limit

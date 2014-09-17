@@ -92,6 +92,8 @@ javascript:
 
     var ctx = document.getElementById("ResultChart").getContext("2d");
     var steps = 10, max = 100;
+    //ctx.canvas.height=100;
+
     var myNewChart = new Chart(ctx).Line(data, {
       scaleLabel: "<%=value%>%",
       scaleOverride: true,

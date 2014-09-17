@@ -20,6 +20,7 @@
         }
 
     .chart-finalcard {
+
         @extend .inner-finalcard;
         }
 
@@ -162,4 +163,5 @@
             }
         }
 
-    #ResultChart {}
+    #ResultChart {
+    }

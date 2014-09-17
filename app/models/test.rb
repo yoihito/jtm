@@ -16,7 +16,7 @@ class Test < ActiveRecord::Base
   belongs_to :publisher, class_name: 'Publisher', foreign_key: :author_id
 	has_many :user_answers, dependent: :delete_all, inverse_of: :test
 	has_many :users, through: :user_answers
-	has_many :ratings, dependent: :delete_all
+	has_many :ratings, as: :entity
 	has_many :voters, through: :ratings, source: :user, class_name: "User"
 	has_many :comments, -> { order('created_at DESC') }, as: :entity, dependent: :delete_all
 
@@ -55,13 +55,24 @@ class Test < ActiveRecord::Base
 	end
 
 	def downvote(user)
-	  update_rating(user,0)
+    update_rating(user,0)
 	  refresh_rating
 	end
+
+  def upvoted?(user)
+    rate = Rating.where(entity: self, user_id: user.id).take
+    rate.nil? && rate.value==1
+  end
+
+  def downvoted?(user)
+    rate = Rating.where(entity: self, user_id: user.id).take
+    rate.nil? && rate.value==0
+  end
 
 	def comments_count
 		self.comments.count
 	end
+
 private
 
   def ci_lower_bound(pos, n, confidence)
@@ -74,17 +85,21 @@ private
   end
 
 	def refresh_rating
-	  self.rating=ci_lower_bound(self.ratings.sum(:value),self.ratings.size,0.95);
-	  self.save
+	  new_rating_val = ci_lower_bound(self.ratings.sum(:value),self.ratings.size,0.95)*5
+    Rails.logger.debug "#{new_rating_val.inspect}"
+    self.update_attribute(:rating, new_rating_val)
+    Rails.logger.debug "#{self.inspect}"
 	end
 
 	def update_rating(user,value)
-	  rating = Rating.where(test_id: self.id, user_id: user.id).take
+	  rating = Rating.where(entity: self, user_id: user.id).take
 	  if rating.nil?
-	  	self.ratings<<Rating.new(test_id: self.id, user_id: user.id, value: value)
+	  	rating = Rating.new(user_id: user.id, value: value)
+      rating.entity = self
+      rating.save
+      self.ratings<<rating
 	  else
-	  	rating.value=value
-	  	rating.save
+	  	rating.update(value: value)
 	  end
 	end
 

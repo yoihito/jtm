@@ -1,6 +1,6 @@
 class UserAnswer < ActiveRecord::Base
 	belongs_to :user, class_name: "User"
-	belongs_to :test, class_name: "Test", inverse_of: :user_answers
+	belongs_to :test, class_name: "Test", inverse_of: :user_answers, counter_cache: true
   scope :test_by_user, ->(test_id, user_id) { where("test_id = ? and user_id = ?",test_id,user_id) }
   validate :answers_count
 

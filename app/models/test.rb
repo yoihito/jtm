@@ -92,10 +92,9 @@ private
   end
 
 	def refresh_rating
-	  new_rating_val = ci_lower_bound(self.ratings.sum(:value),self.ratings.size,0.95)*5
-    Rails.logger.debug "#{new_rating_val.inspect}"
+	  new_rating_val = self.ratings.average(:value)*5 #ci_lower_bound(self.ratings.sum(:value),self.ratings.size,0.95)*5
+
     self.update_attribute(:rating, new_rating_val)
-    Rails.logger.debug "#{self.inspect}"
 	end
 
 	def update_rating(user,value)

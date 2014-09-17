@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140917154638) do
+ActiveRecord::Schema.define(version: 20140917184027) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -124,7 +124,6 @@ ActiveRecord::Schema.define(version: 20140917154638) do
     t.integer  "author_id"
     t.string   "author_type"
     t.boolean  "has_background"
-    t.integer  "rating",               default: 0
     t.integer  "answers_count",        default: 0
     t.boolean  "published",            default: false
     t.datetime "created_at"
@@ -134,7 +133,9 @@ ActiveRecord::Schema.define(version: 20140917154638) do
     t.string   "picture_content_type"
     t.integer  "picture_file_size"
     t.datetime "picture_updated_at"
+    t.integer  "rating",               default: 0
     t.integer  "comments_count"
+    t.integer  "user_answers_count",   default: 0,     null: false
   end
 
   create_table "tests_users", id: false, force: true do |t|

@@ -1,3 +1,5 @@
+- content_for :title, "Settings | #{@publisher.title}"
+
 .publisher
   .title_big
     = link_to "Go back", publisher_path(@publisher), {class: "link_back _yellow"}

@@ -32,14 +32,14 @@
       / Link to test me
       - if local_assigns[:wo_js]
         = link_to "Test me", try_test_path(item), {class: "go-test _free ", rel: item.id}
-        = link_to "Results", try_test_path(item), {class: "go-test _passed _hid", rel: item.id}
+        = link_to "Results", result_test_path(item), {class: "go-test _passed _hid", rel: item.id}
       - else
         = link_to "Test me", "#test_#{item.id}", {class: "go-test _free js-test-start", rel: item.id}
         = link_to "Results", "#test_#{item.id}", {class: "go-test _passed _hid js-test-result", rel: item.id}
     - else
       / Link to results
       - if local_assigns[:wo_js]
-        = link_to "Results", try_test_path(item), {class: "go-test _passed", rel: item.id}
+        = link_to "Results", result_test_path(item), {class: "go-test _passed", rel: item.id}
       - else
         = link_to "Results", "#test_#{item.id}", {class: "go-test _passed js-test-result", rel: item.id}
 

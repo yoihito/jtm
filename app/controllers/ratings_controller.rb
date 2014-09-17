@@ -5,16 +5,18 @@ class RatingsController < ApplicationController
 	def create
 		authorize :rating, :create?
 		@context.upvote current_user
+    render nothing: true, status: 200
 	end
 
 	def destroy
 		authorize :rating, :destroy?
 		@context.downvote current_user
+    render nothing: true, status: 200
 	end
 
-private 
+private
 
-	def set_context 
+	def set_context
 		if params[:test_id]
 			@context = Test.find(params[:test_id])
 		end

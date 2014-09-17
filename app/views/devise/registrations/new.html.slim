@@ -21,7 +21,7 @@
   .signin
     .title_big
       - if controller_name != "sessions"
-        = link_to "Login", new_session_path(resource_name), {class: "link_back _yellow"}
+        = link_to "Sign in", new_session_path(resource_name), {class: "link_back _yellow"}
       span Sign up
 
     .warning-form = devise_error_messages!

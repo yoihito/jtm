@@ -13,7 +13,7 @@
   .line-form = f.text_field :title, placeholder: "Enter title of new public page"
   .line-form = f.text_area :description, placeholder: "Enter description"
   .line-form
-    a.choose-form.js-choose-img data-target=".js-publisher-new-avatar" href="" Choose publics page avatar
+    a.choose-form.js-choose-img data-target=".js-publisher-new-avatar" href="" Choose public page avatar
     = f.file_field :avatar, hidden: true, class: 'js-publisher-new-avatar'
 
     img.avatar-form-publisher.js-publisher-form-avatar src=@publisher.avatar.url(:medium) alt=""

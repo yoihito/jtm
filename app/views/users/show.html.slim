@@ -22,12 +22,12 @@
         .title_big You haven't passed tests
         .links-form = link_to "See popular tests", "/tests?q%5Bs%5D=rating+desc"
       - else
-        .title_big User have not passed tests
+        .title_big User hasn't passed tests yet
     - else
       - if it_me? @user
         a.title_big href="/tests?q%5Bs%5D=passed_tests+desc" Passed tests
       - else
-        .title_big <b class="js-user-count_passedtests">0</b> last passed tests
+        .title_big <b class="js-user-count_passedtests">0</b> last tests
       .list-cont-user data-target-count=".js-user-count_passedtests"
         .full-list-cont-user
           - @profile_tests.each do |test|
@@ -46,7 +46,7 @@
         .title_big You have not publishers
         .links-form = link_to "Create new", new_publisher_path
       - else
-        .title_big User have not publishers
+        .title_big User has not publishers
     - else
       .title_big #{if it_me?(@user) then "My" else "User's"} publishers
       .list-cont-user

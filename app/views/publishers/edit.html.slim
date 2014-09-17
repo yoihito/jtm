@@ -1,6 +1,6 @@
 .publisher
   .title_big
     = link_to "Go back", publisher_path(@publisher), {class: "link_back _yellow"}
-    span Change information of public: #{@publisher.title}
+    span Change publisher information: #{@publisher.title}
 
   = render "form", isEdit: true

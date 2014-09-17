@@ -3,6 +3,6 @@
     - list.each do |test|
       = render "tests/item", item: test, publisher: local_assigns[:publisher], owner: local_assigns[:owner]
   - else
-    .title_big Bad request! Try <a href="/tests?q%5Bs%5D=rating+desc">popular tests</a>.
+    .title_big Try <a href="/tests?q%5Bs%5D=rating+desc">popular tests</a>.
 
 = render "tests/modal"

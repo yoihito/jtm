@@ -246,6 +246,7 @@ GEM
       colorize
       net-scp (>= 1.1.2)
       net-ssh (>= 2.8.0)
+    statistics2 (0.54)
     temple (0.6.8)
     thin (1.6.2)
       daemons (>= 1.0.9)
@@ -303,6 +304,7 @@ DEPENDENCIES
   slim-rails (~> 2.1.5)
   spring
   spring-commands-rspec
+  statistics2
   thin
   uglifier
   unicorn

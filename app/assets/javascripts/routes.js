@@ -6,8 +6,12 @@
         test_start: ['/tests/:id/pass', 'get'],
         test_save: '/tests/:id/save',
         test_destroy: ['/publishers/:pid/tests/:tid', 'delete'],
+
         test_result: ['/tests/:id/result', 'get' ],
         test_comments_new: '/tests/:id/comments',
+
+        test_like: '/tests/:id/ratings',
+        test_dislike: ['/tests/:id/ratings', 'delete'],
 
         publisher: '/publishers/:id',
         publisher_like: '/publishers/:id/likes',

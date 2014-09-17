@@ -32,13 +32,14 @@ class TestPassingController < ApplicationController
 
 	def result
     @test = Test.includes(comments:[:author]).find(params[:id])
+    @tests = Test.last(8)
     @all_answers = @test.user_answers
     @user_answers = UserAnswer.test_by_user(@test.id,current_user.id).take
     respond_to do |format|
       if request.xhr?
         format.html { render layout: nil }
       else
-        format.html { render 'result' }
+        format.html { render 'result', layout: 'test' }
       end
     end
 	end

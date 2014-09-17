@@ -9,17 +9,23 @@
     margin-top: -10px;
     }
 
-    .cont-finalcard {
+    .inner-finalcard {
         max-width: 640px;
         padding: 0 25px;
         margin: 0 auto;
+        }
 
+    .cont-finalcard {
         box-sizing: border-box;
         }
 
-    .chart-finalcard {}
+    .chart-finalcard {
+        @extend .inner-finalcard;
+        }
 
     .comments-finalcard {
+        @extend .inner-finalcard;
+
         margin-top: 30px;
 
         color: $color-midnightblue;
@@ -97,5 +103,63 @@
                     }
                 }
             }
+
+    .likes-finalcard {
+        @extend .inner-finalcard;
+
+        margin-top: 50px;
+
+        text-align: center;
+        color: $color-midnightblue;
+
+        a {
+            width: 120px;
+            padding: 20px;
+            margin: 0 10px;
+            display: inline-block;
+
+            font-size: 30px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+
+            @include transit;
+
+            &._unact {
+                transform: scale(.7);
+                opacity: 0.5;
+                }
+
+            &[href^='#like'] {
+                background-color: $color-nephritis;
+                &:hover {background-color: $color-emerald;opacity: 1;}
+                &._unact {
+                    margin-left: -170px;
+                    }
+                }
+            &[href^='#dislike'] {
+                background-color: $color-pomegranate;
+                &:hover {background-color: $color-alizarin;opacity: 1;}
+                &._unact {
+                    margin-right: -170px;
+                    }
+                }
+            }
+        }
+
+    .tests-finalcard {
+        margin: 75px 0 -50px;
+
+        .list-cont-user {
+            margin: auto;
+            }
+
+        .test {
+            // display: inline-block;
+            // margin: 0 25px 50px;
+            // transform: scale(.5);
+            }
+        }
 
     #ResultChart {}

@@ -18,6 +18,7 @@ gem 'ransack'
 gem 'uglifier'
 gem 'execjs'
 gem 'autoprefixer-rails'
+gem 'statistics2'
 
 group :development do
   gem 'spring'

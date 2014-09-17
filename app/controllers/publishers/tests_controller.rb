@@ -29,8 +29,9 @@ class Publishers::TestsController < ApplicationController
   # GET /publishers/tests/1/edit
   def edit
     authorize @publishers_test
-    if (@publishers_test.slides<10)
+    if (@publishers_test.slides.size<10)
       1.times { @publishers_test.slides.build }
+    end
   end
 
   # POST /publishers/tests

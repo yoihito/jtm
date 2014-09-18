@@ -56,7 +56,7 @@
                         $item.removeClass( '_active' ).next().addClass( '_active' );
                     } else {
                         app.test_passing = false;
-                        // savePassing( $list );
+                        savePassing( $list );
                     }
                 }
 

@@ -48,6 +48,15 @@
                     success: function() {}
                 });
             })
+            .on( 'tap', '.showDescr-item-testgo', function( e ) {
+                e.preventDefault();
+
+                var
+                    $that = $( this ),
+                    $parent = $that.parent();
+
+                $parent.toggleClass( '_opened' );
+            })
     });
 
 })( window, jQuery );

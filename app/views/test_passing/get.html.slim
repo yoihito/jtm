@@ -17,6 +17,22 @@
         .answer-item-testgo.js-testgo-answ rel="1" Yes
         .answer-item-testgo.js-testgo-answ rel="2" Maybe
 
-      = image_tag slide.picture.url(:medium), {class: "img-item-testgo"}
+      .bottom-item-testgo
+        .meta-item-testgo
+          = image_tag slide.picture.url(:medium), {class: "img-item-testgo"}
+          - if !slide.description.nil? and slide.description != ''
+            p.descr-item-testgo = slide.description
+            .showDescr-item-testgo
+        .height-bottom-item-testgo
+          .height_full-bottom-item-testgo
+            = image_tag slide.picture.url(:medium)
+            - if !slide.description.nil? and slide.description != ''
+              p = slide.description
 
-.way-testgo: b.js-testgo-way style="width: 0%"
+      /.pic-item-testgo
+        = image_tag slide.picture.url(:medium), {class: "img-item-testgo"}
+
+        .descr-item-testgo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque amet modi voluptatum unde, blanditiis explicabo labore adipisci beatae harum, voluptate saepe recusandae odio possimus tempora repellendus doloribus dolores voluptatem reprehenderit!
+        .showDescr-item-testgo
+
+.way-testgo: b.js-testgo-way style="width: 0%;"

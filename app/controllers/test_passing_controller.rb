@@ -25,17 +25,24 @@ class TestPassingController < ApplicationController
 			@answers.answers = answers_params
 			@answers.save
 		else
-
+      session[:test_pass] = {test_id: params[:id], answers: answers_params}
 		end
 		render :nothing => true, :status => 200, :content_type => 'text/html'
 	end
 
 	def result
     unless current_user.nil?
+
+      @user_answers = UserAnswer.test_by_user(params[:id],current_user.id).take
+      if @user_answers.nil?
+        redirect_to try_test_path(params[:id])
+        return
+      end
+
       @test = Test.includes(comments:[:author]).find(params[:id])
       @tests = Test.popular.not_passed(current_user).includes(:translations,:publisher,:comments).first(8)
       @all_answers = @test.user_answers
-      @user_answers = UserAnswer.test_by_user(@test.id,current_user.id).take
+
       respond_to do |format|
         if request.xhr?
           format.html { render layout: nil }
@@ -46,9 +53,9 @@ class TestPassingController < ApplicationController
     else
       respond_to do |format|
         if request.xhr?
-          format.html { render 'devise/registrations/new', layout: nil}
+          format.html { render 'sign_up', layout: nil}
         else
-          format.html { render 'devise/registrations/new'}
+          format.html { render 'sign_up', layout: 'test'}
         end
       end
     end

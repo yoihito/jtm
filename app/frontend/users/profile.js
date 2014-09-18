@@ -9,8 +9,6 @@
             });
         },
         list = function( $parent, $list ) {
-            console.log( $list );
-
             var
                 $items = $list.find( '.full-list-cont-user > div' ),
                 $pattern = $items.eq( 0 ),

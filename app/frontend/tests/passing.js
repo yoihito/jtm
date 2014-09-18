@@ -13,7 +13,8 @@
                         loadFinalCard( $list );
                     },
                     error: function() {
-                        alert('asd')
+                        localStorage.setItem( 'notice', 'Sign up to view the results.' );
+                        app.utils.redirect( 'user_signup' );
                     }
                 });
 

@@ -26,6 +26,10 @@
 
         canvas {
             margin-left: -100px;
+
+            @media screen and (max-width: $width) {
+                margin-left: 0;
+                }
             }
         }
 
@@ -115,17 +119,29 @@
 
         width: 160px;
         margin-top: 50px;
+        margin-left: 300px;
         top: 0;
-        right: 140px;
+        left: 50%;
         position: absolute;
 
         text-align: center;
         color: $color-midnightblue;
 
+        @media screen and (max-width: $width) and (min-width: $width-step) {
+            width: 400px;
+            margin: 50px auto 0;
+            position: static;
+            }
+
+        @media screen and (max-width: $width-step) {
+            margin-left: auto;
+            position: static;
+            }
+
         a {
             width: 120px;
             padding: 20px;
-            margin: 10px 0;
+            margin: 10px;
             display: block;
 
             font-size: 30px;
@@ -136,6 +152,10 @@
 
             @include transit;
 
+            @media screen and (max-width: $width) and (min-width: $width-step) {
+                display: inline-block;
+                }
+
             &._unact {
                 transform: scale(.7);
                 opacity: 0.5;
@@ -145,14 +165,20 @@
                 background-color: $color-nephritis;
                 &:hover {background-color: $color-emerald;opacity: 1;}
                 &._unact {
-                    // margin-left: -170px;
+
+                    @media screen and (max-width: $width) and (min-width: $width-step) {
+                        margin-left: -170px;
+                        }
                     }
                 }
             &[href^='#dislike'] {
                 background-color: $color-pomegranate;
                 &:hover {background-color: $color-alizarin;opacity: 1;}
                 &._unact {
-                    // margin-right: -170px;
+
+                    @media screen and (max-width: $width) and (min-width: $width-step) {
+                        margin-right: -170px;
+                        }
                     }
                 }
             }

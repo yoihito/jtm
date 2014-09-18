@@ -11,6 +11,9 @@
                     data: { slides: app.test_store },
                     success: function() {
                         loadFinalCard( $list );
+                    },
+                    error: function() {
+                        alert('asd')
                     }
                 });
 
@@ -30,6 +33,10 @@
                         }
 
                         History.pushState({type: 'results', test: {id: tid}}, 'Result', app.utils.route_url( 'test_result', { id: tid } ) );
+                    },
+                    error: function() {
+                        localStorage.setItem( 'notice', 'Sign up to view the results.' );
+                        app.utils.redirect( 'user_signup' );
                     }
                 });
             };

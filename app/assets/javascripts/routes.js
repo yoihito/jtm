@@ -19,6 +19,7 @@
         publisher_avatar: ['/publishers/:id/update/avatar', 'put'],
 
         user_avatar: ['/users/:id/update/avatar', 'put'],
+        user_signup: ['/users/sign_up', 'get'],
 
         method: 'post'
     };

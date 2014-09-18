@@ -28,6 +28,13 @@
 
     .warning-form = devise_error_messages!
 
+    javascript:
+      var notice = localStorage.getItem( 'notice' );
+      if ( notice ) {
+        document.write( '<div class="warning-form">' + notice + '</div>' );
+        localStorage.removeItem( 'notice' );
+      }
+
     = form_for resource, as: resource_name, url: registration_path(resource_name), html: {class: "form"} do |f|
       .line-form = f.text_field :name, autofocus: true, placeholder: "Your Name"
       .line-form = f.email_field :email, placeholder: "Your Email"

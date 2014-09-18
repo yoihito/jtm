@@ -19,11 +19,12 @@
 
 / <%= render "devise/shared/links" %>
 
-.auth
+.auth.auth_inside
   .signin.signin_inside
     .title_big
       = link_to "Log in", new_session_path(resource_name), {class: "link_back _yellow"}
       span Sign up
+    .warning-form In order to see the test results, please sign up
     .warning-form = devise_error_messages!
 
     = form_for resource, as: resource_name, url: registration_path(resource_name), html: {class: "form"} do |f|

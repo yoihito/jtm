@@ -49,6 +49,10 @@
                 if ( app.test_passing ) {
                     app.test_store.push( answ );
 
+                    var prct = (($item.index()+1)/($item.siblings().length+1))*100;
+                    console.log( prct );
+                    $( '.js-testgo-way' ).css({ width: prct+'%' })
+
                     if ( $item.next().size() ) {
                         $item.removeClass( '_active' ).next().addClass( '_active' );
                     } else {

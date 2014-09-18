@@ -923,6 +923,45 @@ $edittest-padding: 15px;
                         }
                     }
 
+    .way-testgo {
+        $h: 10px;
+        $col: rgba(#f3f3f3, .5);
+        $col-line: rgba($color-belizehole, 1);
+
+        width: 100%;
+        height: $h;
+        bottom: 0;
+        left: 0;
+        position: fixed;
+        z-index: 50000;
+
+        background-color: $col;
+
+        b {
+            height: $h;
+            display: block;
+            position: relative;
+
+            background-color: $col-line;
+
+            @include transit(4) {
+                transition-property: width;
+                }
+
+            &:after {
+                @include pseudo;
+
+                top: 0;
+                left: 100%;
+                position: absolute;
+
+                border-color: transparent transparent $col-line $col-line;
+                border-style: solid;
+                border-width: $h/2;
+                }
+            }
+        }
+
     .bg-testgo {
         top: -3000px;
         right: -3000px;

@@ -132,6 +132,60 @@
                 $circle.removeClass( '_hid' );
                 $testgo.removeClass( '_hid' );
 
+                var $test = $( '#test_' + tid ),
+                    $btn = $test.find( '.go-test' );
+
+                var $window = $( window );
+                        var $windowWidth = $window.width();
+                        var $windowHeight = $window.height();
+
+                        var ptop = $btn.offset().top - $window.scrollTop();
+                        var pleft = $btn.offset().left;
+                        var pright = $windowWidth - pleft - $btn.outerWidth();
+                        var pbottom = $windowHeight - ptop - $btn.outerHeight();
+
+                        // alert( $windowWidth );
+
+                        // alert( e.originalEvent.parentEvent.pageY )
+
+                        var t = (posY || $btn.offset().top) - $window.scrollTop();
+                        var l = (posX || $btn.offset().left);
+                        var r = $windowWidth - l;
+                        var b = $windowHeight - t;
+                        var R = Math.max( Math.sqrt(t*t + l*l), Math.sqrt(t*t + r*r), Math.sqrt(r*r + b*b), Math.sqrt(l*l + b*b) ) + 100;
+
+                        // alert(t);
+                        // alert(l);
+                        // alert(R);
+
+                        // $testgo.css( {
+                        //     top: ptop,
+                        //     right: pright,
+                        //     bottom: pbottom,
+                        //     left: pleft
+                        // });
+                        $circle.css({
+                            width: ifSupportPos ? 20 : 100,
+                            height: ifSupportPos ? 20 : 100,
+                            marginTop: 0,
+                            marginLeft: 0,
+                            top: ifSupportPos ? t - 10 : t - 50 + $btn.outerHeight()/2,
+                            left: ifSupportPos ? l - 10 : l - 50 + $btn.outerWidth()/2
+                        });
+
+                        setTimeout(function() {
+                            // $testgo.addClass( '_animated' );
+                            $circle.addClass( '_animated' );
+
+                            setTimeout(function() {
+                                // $testgo.css({ top: 0, right: 0, bottom: 0, left: 0 });
+                                $circle.css({ width: 2*R, marginLeft: -R, marginTop: -R, height: 2*R });
+                            }, 0);
+
+                        }, 0);
+
+                            $testgo.addClass( '_showed' );
+
                 $( document ).on( 'keydown.testgo', function( e ) {
                     if ( e.keyCode === app.utils.keyCode.esc ) {
                         stopPassing();
@@ -140,6 +194,7 @@
 
                 app.utils.ajax( 'test_result', {id: tid}, {
                     success: function( data ) {
+                        // $testgo.addClass( '_showed' );
                         $testgo
                             .find( '.body-content-testgo' ).html( data )
                             .find( '.textarea_autosize' ).autosize()

@@ -24,6 +24,7 @@
 
             var
                 height = [],
+                width = [],
                 $elem = $pattern,
                 n = 0;
 
@@ -31,6 +32,7 @@
                 var elem_height = $elem.outerHeight();
 
                 height.push( elem_height );
+                width.push( $elem.outerWidth() );
 
                 $elem = $elem.next();
                 n++;
@@ -48,6 +50,12 @@
 
             height = Math.max.apply( null, height );
             height += delta_height;
+            width = Math.max.apply( null, width );
+            width += delta_width;
+
+            console.log( height );
+            console.log( maxHeight );
+            console.log( maxWidth );
 
             $list.css( { maxWidth: maxWidth, maxHeight: maxHeight, height: height } )
 

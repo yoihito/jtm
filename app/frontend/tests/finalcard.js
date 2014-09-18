@@ -57,6 +57,11 @@
 
                 $parent.toggleClass( '_opened' );
             })
+            // .on( 'focus', '.share-finalcard', function( e ) {
+            //     e.preventDefault();
+
+            //     $(this).select();
+            // })
     });
 
 })( window, jQuery );

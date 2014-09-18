@@ -19,11 +19,7 @@
           - @tests.each do |test|
             = render "tests/item", item: test, wo_js: true
 
-      / = render "tests/list", list: @tests
-      /- @tests.each do |test|
-        = render "tests/item", item: test
-        / .test-finalcard
-        /   = image_tag test.picture.url(:medium), class: "img-test-finalcard"
+    = render "share"
 
     = render "comments_list", list: @test.comments
 

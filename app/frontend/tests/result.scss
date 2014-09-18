@@ -33,6 +33,35 @@
             }
         }
 
+    .share-finalcard {
+        width: 100%;
+        max-width: 640px;
+        // padding: 20px;
+        margin: 50px auto 0;
+
+        // background-color: rgba($color-sunflower, .5);
+
+        input {
+            @include resetInput;
+
+            width: 100%;
+            padding: 20px;
+
+            background-color: $color-sunflower;
+            box-sizing: border-box;
+
+            font-family: $font-main;
+            font-size: 16px;
+            color: #000;
+            }
+        }
+
+        .title-share-finalcard {
+            margin-bottom: 5px;
+
+            font-weight: bold;
+            }
+
     .comments-finalcard {
         @extend .inner-finalcard;
 

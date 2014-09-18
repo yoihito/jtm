@@ -32,7 +32,7 @@ class TestPassingController < ApplicationController
 
 	def result
     @test = Test.includes(comments:[:author]).find(params[:id])
-    @tests = Test.popular.not_passed(current_user).first(8)
+    @tests = Test.popular.not_passed(current_user).includes(:translations,:publisher,:comments).first(8)
     @all_answers = @test.user_answers
     @user_answers = UserAnswer.test_by_user(@test.id,current_user.id).take
     respond_to do |format|

@@ -30,6 +30,7 @@
               p = slide.description
 
       /.pic-item-testgo
+      - if slide.picture.exists?
         = image_tag slide.picture.url(:medium), {class: "img-item-testgo"}
 
         .descr-item-testgo Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque amet modi voluptatum unde, blanditiis explicabo labore adipisci beatae harum, voluptate saepe recusandae odio possimus tempora repellendus doloribus dolores voluptatem reprehenderit!

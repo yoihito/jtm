@@ -16,10 +16,21 @@ class TestPolicy < ApplicationPolicy
 		own_publisher?
 	end
 
+  def save?
+
+  end
+
+  def get?
+    true
+  end
+
+  def result?
+  end
+
 private
-	
+
 	def own_publisher?
-		@scope.author.owners.exists?(@user) 
+		@scope.author.owners.exists?(@user)
 	end
 
 end

@@ -31,15 +31,25 @@ class TestPassingController < ApplicationController
 	end
 
 	def result
-    @test = Test.includes(comments:[:author]).find(params[:id])
-    @tests = Test.popular.not_passed(current_user).includes(:translations,:publisher,:comments).first(8)
-    @all_answers = @test.user_answers
-    @user_answers = UserAnswer.test_by_user(@test.id,current_user.id).take
-    respond_to do |format|
-      if request.xhr?
-        format.html { render layout: nil }
-      else
-        format.html { render 'result', layout: 'test' }
+    unless current_user.nil?
+      @test = Test.includes(comments:[:author]).find(params[:id])
+      @tests = Test.popular.not_passed(current_user).includes(:translations,:publisher,:comments).first(8)
+      @all_answers = @test.user_answers
+      @user_answers = UserAnswer.test_by_user(@test.id,current_user.id).take
+      respond_to do |format|
+        if request.xhr?
+          format.html { render layout: nil }
+        else
+          format.html { render 'result', layout: 'test' }
+        end
+      end
+    else
+      respond_to do |format|
+        if request.xhr?
+          format.html { render 'devise/registrations/new', layout: nil}
+        else
+          format.html { render 'devise/registrations/new'}
+        end
       end
     end
 	end

@@ -18,7 +18,6 @@ class TestsController < ApplicationController
             .where('id in (?)', current_user.user_answers.map{|x| x.test_id})
       else
         @tests = @q.result
-            .where('id not in (?)', current_user.user_answers.map{|x| x.test_id})
             .order(@order)
       end
 		else

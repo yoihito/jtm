@@ -1,4 +1,4 @@
 - @context.comments.each do |x|
   .comment-finalcard
-    = x.content
+    = simple_format(x.content)
     = x.author.name

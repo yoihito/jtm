@@ -40,7 +40,7 @@ private
 
 	def set_context
 		if params[:test_id]
-			@context = Test.includes(comments: [:user]).find(params[:test_id])
+			@context = Test.includes(comments: [:author]).find(params[:test_id])
 		end
 	end
 

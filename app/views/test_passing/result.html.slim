@@ -56,26 +56,26 @@ javascript:
     var data = {};
     data.labels = user_answer_labels;
     data.datasets = [
-        {
-            label: "Number of no answers",
-            fillColor: "rgba(255, 163, 172, 0.2)",
-            strokeColor: "rgba(255, 163, 172, 1)",
-            pointColor: "rgba(255, 163, 172, 1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
-         //   data: rate[0]
-        },
-        {
-            label: "Number of yes answers",
-            fillColor: "rgba(163, 172, 255, 0.2)",
-            strokeColor: "rgba(163, 172, 255, 1)",
-            pointColor: "rgba(163, 172, 255, 1)",
-            pointStrokeColor: "#fff",
-            pointHighlightFill: "#fff",
-            pointHighlightStroke: "rgba(220,220,220,1)",
+        //{
+        //    label: "Number of no answers",
+        //    fillColor: "rgba(255, 163, 172, 0.2)",
+        //    strokeColor: "rgba(255, 163, 172, 1)",
+        //    pointColor: "rgba(255, 163, 172, 1)",
+        //    pointStrokeColor: "#fff",
+        //    pointHighlightFill: "#fff",
+        //    pointHighlightStroke: "rgba(220,220,220,1)",
+        //   data: rate[0]
+        //},
+        //{
+        //    label: "Number of yes answers",
+        //    fillColor: "rgba(163, 172, 255, 0.2)",
+        //    strokeColor: "rgba(163, 172, 255, 1)",
+        //    pointColor: "rgba(163, 172, 255, 1)",
+        //    pointStrokeColor: "#fff",
+        //    pointHighlightFill: "#fff",
+        //    pointHighlightStroke: "rgba(220,220,220,1)",
         //    data: rate[1]
-        },
+        //},
         {
             label: "Number of maybe answers",
             fillColor: "rgba(172,255,163,0.2)",
@@ -92,7 +92,7 @@ javascript:
     var steps = 10, max = 100;
     //ctx.canvas.height=100;
 
-    var myNewChart = new Chart(ctx).Line(data, {
+    var myNewChart = new Chart(ctx).Bar(data, {
       scaleLabel: "<%=value%>%",
       scaleOverride: true,
       scaleSteps: steps,

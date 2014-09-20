@@ -10,6 +10,8 @@ class Slide < ActiveRecord::Base
 	belongs_to :author, polymorphic: true
 	has_many :comments, as: :entity
 
+  scope :order_by_id, -> { order('id asc') }
+
 	def init_comment_form
 		@comment = Comment.new(entity: self)
 	end

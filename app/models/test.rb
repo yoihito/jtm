@@ -10,7 +10,7 @@ class Test < ActiveRecord::Base
 
   translates :title,:description
 
-	has_and_belongs_to_many :slides
+	has_and_belongs_to_many :slides, -> { order('id asc') }
   accepts_nested_attributes_for :slides, reject_if: proc { |attribute| attribute['question'].blank? && attribute['picture'].blank? }
 	belongs_to :author, polymorphic: true
   belongs_to :publisher, class_name: 'Publisher', foreign_key: :author_id

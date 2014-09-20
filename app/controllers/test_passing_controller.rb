@@ -4,7 +4,7 @@ class TestPassingController < ApplicationController
 
 	def get
 		@test = Test.find(params[:id])
-  	@slides = @test.slides.includes(:translations)#,comments:[:author])
+  	@slides = @test.slides.includes(:translations).order_by_id#,comments:[:author])
   	@slides.each_with_index do |s|
   		s.init_comment_form
   	end

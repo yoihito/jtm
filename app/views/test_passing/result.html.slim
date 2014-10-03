@@ -7,6 +7,13 @@
     .chart-finalcard
       canvas id="ResultChart"
 
+    .afterChart-finalcard
+      .list-afterChart-finalcard
+        - @test.slides.each do |slide|
+          .item-afterChart-finalcard
+            .imgWrap-item-afterChart-finalcard
+              = image_tag slide.picture
+
     .likes-finalcard
       .title-comments-finalcard Like this test?
 
@@ -40,7 +47,6 @@ javascript:
       else if (val==2)
         user_answer_labels[ind]='Maybe'
     });
-
 
     answers.forEach(function(ans) {
       ans.forEach(function(value,ind){
@@ -99,5 +105,20 @@ javascript:
       scaleStepWidth: Math.ceil(max / steps),
       scaleStartValue: 0,
       responsive: true
+
+      //barValueSpacing: 0,
+      //legendTemplate: "<ul class=\"<%=name.toLowerCase()%>-legend\"><% for (var i=0; i<datasets.length; i++){%><li><span style=\"background-color:<%=datasets[i].lineColor%>\"></span><%if(datasets[i].label){%><%=datasets[i].label%><%}%></li><%}%></ul>"
     });
+
+    //
+    $(function() {
+      var width = $('#ResultChart').width() - 42 - 10;
+      var width_item = width / user_answer.length;
+      console.log('!!!');
+      console.log(width);
+
+      $('.list-afterChart-finalcard').width(width);
+      $('.item-afterChart-finalcard').width(width_item);
+    });
+    //
   })( window, jQuery );

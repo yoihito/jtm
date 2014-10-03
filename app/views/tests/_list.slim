@@ -1,7 +1,7 @@
 .tests
   - if local_assigns[:list] and defined?(list)
     - list.each do |test|
-      = render "tests/item", item: test, publisher: local_assigns[:publisher], owner: local_assigns[:owner]
+      = render "tests/item", item: test
   - else
     .title_big Try <a href="/tests?q%5Bs%5D=rating+desc">popular tests</a>.
 

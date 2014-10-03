@@ -33,6 +33,34 @@
             }
         }
 
+    .afterChart-finalcard {
+        @extend .inner-finalcard;
+
+        img {
+            width: 100%;
+            max-width: 150px;
+            display: inline-block;
+            }
+        }
+
+        .list-afterChart-finalcard {
+            margin-left: 42px - 100px;
+
+            @media screen and (max-width: $width) {
+                margin-left: 42px;
+                }
+            }
+
+        .item-afterChart-finalcard {
+            display: inline-block;
+            vertical-align: top;
+            }
+
+            .imgWrap-item-afterChart-finalcard {
+                margin: 0 10px;
+                text-align: center;
+                }
+
     .share-finalcard {
         width: 100%;
         max-width: 640px;
